@@ -15,7 +15,7 @@ column name       | data type | details
 id                | integer   | not null, primary key
 name              | string    | not null
 address           | string    | not null
-city_name         | string    | not null
+city              | string    | not null
 state             | string    | not null
 zip_code          | string    | not null
 website_url       | string    | not null
