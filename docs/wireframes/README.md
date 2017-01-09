@@ -10,7 +10,7 @@
 ![Log In Page](./Log In Page.png)
 
 ## Sign Up Page
-![Sign Up Page](./Sign_Up Page.png)
+![Sign Up Page](./Sign Up Page.png)
 
 ## Search Detail Page
 ![Search Detail Page](./Search Detail Page.png)
