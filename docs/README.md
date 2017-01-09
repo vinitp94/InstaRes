@@ -4,7 +4,7 @@
 
 [Live Site][live]
 
-[Trello][https://trello.com/]
+[Trello](https://trello.com/)
 
 ## Minimum Viable Product
 
