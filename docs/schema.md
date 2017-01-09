@@ -41,3 +41,10 @@ rating          | integer   | not null
 body            | string    | not null
 user_id         | integer   | not null, foreign key (references users), indexed
 restaurant_id   | integer   | not null, foreign key (references restaurants), indexed
+
+## favorites
+column name     | data type | details
+----------------|-----------|-----------------------
+id              | integer   | not null, primary key
+user_id         | integer   | not null, foreign key (references users), indexed
+restaurant_id   | integer   | not null, foreign key (references restaurants), indexed
