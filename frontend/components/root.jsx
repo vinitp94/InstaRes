@@ -3,6 +3,9 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 
+import SessionModalContainer from './session_modals/session_modal_container';
+
+
 const Root = ({store}) => {
 
   // const _redirectIfLoggedIn = (nextState, replace) => {
@@ -18,6 +21,8 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={App}>
+          <Route path='/login' component={SessionModalContainer} />
+          <Route path='/signup' component={SessionModalContainer} />
         </Route>
       </Router>
     </Provider>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+// import SessionModalContainer from '../session_modals/session_modal_contailer';
 
 class NavBar extends React.Component {
 
@@ -9,6 +10,7 @@ class NavBar extends React.Component {
         <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
         <Link className='authlink' to={ `/login` }>Log In</Link>
         <Link className='authLink' to={ `/signup` }>Sign Up</Link>
+
       </div>
     );
   }
