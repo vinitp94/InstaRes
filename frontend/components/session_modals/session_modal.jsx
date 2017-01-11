@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
+import { sessionModalStyle } from './session_modal_styles';
 
 class SessionModal extends React.Component {
   constructor(props) {
@@ -136,7 +137,8 @@ class SessionModal extends React.Component {
 
         <Modal
           isOpen={this.state.modalOpen}
-          onRequestClose={this.closeModal}>
+          onRequestClose={this.closeModal}
+          style={sessionModalStyle}>
 
           <div className='session-error'>
             {this.renderErrors()}

@@ -7,12 +7,18 @@ class NavBar extends React.Component {
   loggedOutNav() {
     return (
       <div className='navbar'>
-        <Link to={`/`}>
-          <img src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png'></img>
-        </Link>
+        <div className='left-half'>
+          <Link to={`/`}>
+            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png' ></img>
+          </Link>
+        </div>
 
-        <SessionModalContainer formType='Log In' buttonLabel='Log In' />
-        <SessionModalContainer formType='Sign Up' buttonLabel='Sign Up' />
+        <div className='right-half'>
+          <ul>
+            <li><SessionModalContainer formType='Log In' buttonLabel='Log In' /></li>
+            <li><SessionModalContainer formType='Sign Up' buttonLabel='Sign Up' /></li>
+          </ul>
+        </div>
       </div>
     );
   }
@@ -23,12 +29,19 @@ class NavBar extends React.Component {
   loggedInNav() {
     return (
       <div className='navbar'>
-        <Link to={`/`}>
-          <img src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png'></img>
-        </Link>
-        <Link to={`/`}>Add Restaurant (Broken)</Link>
-        <Link to={`/`}>Profile (Broken)</Link>
-        <Link to={`/`} onClick={ this.props.logout }>Log Out</Link>
+        <div className='left-half'>
+          <Link to={`/`}>
+            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png'></img>
+          </Link>
+        </div>
+
+        <div className='right-half'>
+          <ul>
+            <li><Link to={`/`}>Add Restaurant (Broken)</Link></li>
+            <li><Link to={`/`}>Profile (Broken)</Link></li>
+            <li><Link to={`/`} onClick={ this.props.logout }>Log Out</Link></li>
+          </ul>
+        </div>
       </div>
     );
   }
