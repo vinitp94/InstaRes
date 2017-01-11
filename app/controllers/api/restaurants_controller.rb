@@ -1,14 +1,15 @@
 class Api::RestaurantsController < ApplicationController
   def index
+    @restaurants = Restaurant.all
   end
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
-      render :show
+      render 'api/restaurants/show'
     else
-      render json: @review.errors.full_messages, status: 422
+      render json: @restaurant.errors.full_messages, status: 422
     end
   end
 
@@ -16,20 +17,24 @@ class Api::RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.update(restaurant_params)
-      render :show
+      render 'api/restaurants/show'
     else
       render json: @restaurant.errors.full_messages, status: 422
     end
   end
 
   def show
+    @restaurant = Restaurant.find(params[:id])
+    render 'api/restaurants/show'
   end
 
   def destroy
     @restaurant = Restaurant.find(params[:id])
 
     if @restaurant.destroy
+      render 'api/restaurants/show'
     else
+      render json: @restaurant.errors.full_messages, status: 422
     end
   end
 
