@@ -2,20 +2,22 @@ import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
 
-const defaultState = {
-  username: "",
-  password: "",
-  modalOpen: false
-};
-
 class SessionModal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = defaultState;
+
+    this.state = {
+      username: "",
+      password: "",
+      email: "",
+      modalOpen: false,
+      formType: this.props.formType
+    };
 
     this._handleClick = this._handleClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleGuest = this.handleGuest.bind(this);
   }
 
   _handleClick() {
@@ -26,35 +28,66 @@ class SessionModal extends React.Component {
     this.setState({
       username: "",
       password: "",
-      modalOpen: false
+      email: "",
+      modalOpen: false,
+      formType: this.props.formType
+    });
+  }
+
+  handleGuest(e) {
+    e.preventDefault();
+
+    this.props.login({
+      username: 'Guest',
+      password: 'Password'
     });
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm({
-      username: this.state.username,
-      password: this.state.password
-    });
+
+    if (this.state.formType === 'Log In') {
+      this.props.login({
+        username: this.state.username,
+        password: this.state.password
+      });
+    } else {
+      this.props.signup({
+        username: this.state.username,
+        password: this.state.password,
+        email: this.state.email
+      });
+    }
   }
 
   update(property) {
     return e => this.setState({ [property]: e.currentTarget.value });
   }
 
+  handleAltClick(newformType) {
+    return e => {
+      this.setState({
+        username: "",
+        email: "",
+        password: "",
+        formType: newformType});
+      this.props.emptyErrors();
+    };
+  }
+
   renderAlternative() {
-    if (this.props.formType === 'login') {
+    if (this.state.formType === 'Log In') {
       return (
         <div>
           <p>Don't have an account{'?'}</p>
-          <Link to={`/signup`}>Sign Up</Link>;
+          <Link onClick={this.handleAltClick('Sign Up')}>Sign Up</Link>
         </div>
       );
     } else {
       return (
         <div>
           <p>Already have an account{'?'}</p>
-          <Link to={`/login`}>Log In</Link>;
+          <Link onClick={this.handleAltClick('Log In')}>Log In</Link>
         </div>
       );
     }
@@ -72,22 +105,40 @@ class SessionModal extends React.Component {
     );
   }
 
-  renderButton() {
-    if (this.props.formType === 'login') {
-      return <button>Login</button>;
-    } else {
-      return <button>Signup</button>;
+  renderEmail() {
+    if (this.state.formType === 'Sign Up') {
+      return (
+        <label>Email:
+          <input type='text'
+            value={this.state.email}
+            onChange={this.update('email')}/>
+        </label>
+      );
     }
+    return;
+  }
+
+  renderGuest() {
+    if (this.state.formType === 'Log In') {
+      return <button onClick={this.handleGuest}>Guest Login</button>;
+    }
+    return;
   }
 
   render() {
     return (
-      <div className='session_modal'>
-        <button onClick={this._handleClick}>Click Me</button>
+      <div className='session-modal'>
+        <Link onClick={this._handleClick}>
+          {this.props.buttonLabel}
+        </Link>
 
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}>
+
+          <div className='session-error'>
+            {this.renderErrors()}
+          </div>
 
           <form onSubmit={this.handleSubmit}>
             <label>Username:
@@ -96,14 +147,19 @@ class SessionModal extends React.Component {
                 onChange={this.update('username')}/>
             </label>
 
+            <div>
+              {this.renderEmail()}
+            </div>
+
             <label>Password:
               <input type='password'
                 value={this.state.password}
                 onChange={this.update('password')}/>
             </label>
 
-            <div className='session-form-button'>
-              {this.renderButton()}
+            <div className='auth-submit-buttons'>
+              <button>{this.state.formType}</button>
+              {this.renderGuest()}
             </div>
 
             <div>

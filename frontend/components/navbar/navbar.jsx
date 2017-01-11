@@ -1,16 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
-// import SessionModalContainer from '../session_modals/session_modal_contailer';
+import SessionModalContainer from '../session_modals/session_modal_container';
 
 class NavBar extends React.Component {
 
   loggedOutNav() {
     return (
       <div className='navbar'>
-        <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
-        <Link className='authlink' to={ `/login` }>Log In</Link>
-        <Link className='authLink' to={ `/signup` }>Sign Up</Link>
+        <Link to={`/`}>
+          <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
+        </Link>
 
+        <SessionModalContainer formType={'Log In'} buttonLabel={'Log In'} />
+        <SessionModalContainer formType={'Sign Up'} buttonLabel={'Sign Up'} />
       </div>
     );
   }
@@ -18,9 +20,12 @@ class NavBar extends React.Component {
   loggedInNav() {
     return (
       <div className='navbar'>
-        <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
-        <p>Hello { this.props.currentUser.username }</p>
-        <Link to={ `/` } onClick={ this.props.logout }>Log Out</Link>
+        <Link to={`/`}>
+          <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
+        </Link>
+
+        <p>Hello {this.props.currentUser.username}</p>
+        <Link to={`/`} onClick={ this.props.logout }>Log Out</Link>
       </div>
     );
   }
