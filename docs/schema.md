@@ -17,7 +17,7 @@ name              | string    | not null
 address           | string    | not null
 city              | string    | not null
 state             | string    | not null
-zip_code          | string    | not null
+zip_code          | integer   | not null
 website_url       | string    | not null
 category          | string    | not null
 description       | string    | not null
