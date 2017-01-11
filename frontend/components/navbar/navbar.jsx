@@ -8,23 +8,26 @@ class NavBar extends React.Component {
     return (
       <div className='navbar'>
         <Link to={`/`}>
-          <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
+          <img src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png'></img>
         </Link>
 
-        <SessionModalContainer formType={'Log In'} buttonLabel={'Log In'} />
-        <SessionModalContainer formType={'Sign Up'} buttonLabel={'Sign Up'} />
+        <SessionModalContainer formType='Log In' buttonLabel='Log In' />
+        <SessionModalContainer formType='Sign Up' buttonLabel='Sign Up' />
       </div>
     );
   }
+
+  // TODO: If on home page, no search container
+  // If on another page, location search container should be within nav bar
 
   loggedInNav() {
     return (
       <div className='navbar'>
         <Link to={`/`}>
-          <img src='http://brand.opentable.com/wp-content/uploads/2015/03/OTLogo_fullhor_r1a-01.png'></img>
+          <img src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png'></img>
         </Link>
-
-        <p>Hello {this.props.currentUser.username}</p>
+        <Link to={`/`}>Add Restaurant (Broken)</Link>
+        <Link to={`/`}>Profile (Broken)</Link>
         <Link to={`/`} onClick={ this.props.logout }>Log Out</Link>
       </div>
     );

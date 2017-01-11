@@ -109,7 +109,9 @@ class SessionModal extends React.Component {
     if (this.state.formType === 'Sign Up') {
       return (
         <label>Email:
-          <input type='text'
+          <input
+            type='text'
+            placeholder='Enter email...'
             value={this.state.email}
             onChange={this.update('email')}/>
         </label>
@@ -142,7 +144,9 @@ class SessionModal extends React.Component {
 
           <form onSubmit={this.handleSubmit}>
             <label>Username:
-              <input type='text'
+              <input
+                type='text'
+                placeholder='Enter username...'
                 value={this.state.username}
                 onChange={this.update('username')}/>
             </label>
@@ -152,7 +156,9 @@ class SessionModal extends React.Component {
             </div>
 
             <label>Password:
-              <input type='password'
+              <input
+                type='password'
+                placeholder='Enter password...'
                 value={this.state.password}
                 onChange={this.update('password')}/>
             </label>

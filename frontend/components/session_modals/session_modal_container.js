@@ -3,7 +3,6 @@ import SessionModal from './session_modal';
 import { login, signup, receiveErrors } from '../../actions/session_actions';
 
 const mapStateToProps = ({ session }) => ({
-  loggedIn: Boolean(session.currentUser),
   errors: session.errors
 });
 
