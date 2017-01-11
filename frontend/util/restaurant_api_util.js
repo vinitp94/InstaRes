@@ -28,9 +28,9 @@ export const updateRestaurant = (rest) => (
   })
 );
 
-export const deleteRestaurant = (rest) => (
+export const deleteRestaurant = (id) => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/restaurants/${rest.id}`
+    url: `/api/restaurants/${id}`
   })
 );
