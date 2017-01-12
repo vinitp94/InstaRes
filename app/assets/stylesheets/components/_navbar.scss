@@ -2,15 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(#9994FF, white);
+  background: linear-gradient(blue, white);
   color: black;
   opacity: 100%;
   min-height: 75px;
 }
 
 .navbar .logo {
-  max-width: 100px;
-  max-height: 50px;
+  width: 100px;
+  height: 50px;
   padding-left: 20px;
 }
 
