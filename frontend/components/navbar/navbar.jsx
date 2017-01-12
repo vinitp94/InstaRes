@@ -8,7 +8,7 @@ class NavBar extends React.Component {
       <div className='navbar'>
         <div className='left-half'>
           <Link to={`/`}>
-            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png' ></img>
+            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png' />
           </Link>
         </div>
 
@@ -30,7 +30,7 @@ class NavBar extends React.Component {
       <div className='navbar'>
         <div className='left-half'>
           <Link to={`/`}>
-            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png'></img>
+            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png' />
           </Link>
         </div>
 

@@ -14,19 +14,19 @@ Restaurant.create(name: 'My First Joint', address: '10571 San Leandro Ave',
   city: 'Cupertino', state: 'CA', zip_code: 95014, category: 'Thai',
   description: 'Im doing this to test my app', price: 4, phone_num: '(408) 838 7249',
   website_url: 'www.google.com', owner_id: 1, image_urls:
-  ['https://unsplash.com/search/food?photo=Pt_YmiYm7a4',
-    'https://unsplash.com/search/food?photo=Dq5g1u1eg1Q'])
+  ['http://lorempixel.com/output/city-q-c-300-200-3.jpg',
+    'http://lorempixel.com/output/city-q-c-300-200-10.jpg'])
 
 Restaurant.create(name: 'My 2nd Joint', address: 'Random addy',
   city: 'Sactown', state: 'CA', zip_code: 84853, category: 'American',
   description: 'I hate seeding', price: 2, phone_num: '(408) 777 8293',
   website_url: 'www.yahoo.com', owner_id: 2, image_urls:
-  ['https://unsplash.com/search/food?photo=TTrJMhrkoeY',
-    'https://unsplash.com/search/food?photo=Py0QLFEAagY'])
+  ['http://lorempixel.com/output/city-q-c-300-200-9.jpg',
+    'http://lorempixel.com/output/city-q-c-300-200-8.jpg'])
 
 Restaurant.create(name: 'FOOD Joint', address: 'another address',
   city: 'compton', state: 'NY', zip_code: 90024, category: 'Indian',
   description: 'Its over', price: 5, phone_num: '(408) 123 4567',
   website_url: 'www.yelp.com', owner_id: 2, image_urls:
-  ['https://unsplash.com/search/food?photo=ztgcyQILXsM',
-    'https://unsplash.com/search/food?photo=zdunBSAi3P0'])
+  ['http://lorempixel.com/output/city-q-c-300-200-2.jpg',
+    'http://lorempixel.com/output/city-q-c-300-200-5.jpg'])
