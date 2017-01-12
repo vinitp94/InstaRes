@@ -11,7 +11,7 @@ const RestaurantIndexReducer = (state = _defaultState, action) => {
 
   switch(action.type) {
     case RECEIVE_ALL_RESTAURANTS:
-      return merge({}, { restaurants: action.restaurants });
+      return merge({}, state, { restaurants: action.restaurants });
     case REMOVE_RESTAURANT:
       let newState = merge({}, state);
       delete newState.restaurants[action.restaurant.id];

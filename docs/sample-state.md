@@ -10,21 +10,24 @@
     createReview: { errors: [] },
     createRestaurant: { errors: [] }
   }
-  restaurants: {
-    1: {
-      id: 1
-      name: 'Osha Thai'
-      image_urls: [http://image1.jpg],
-      category: 'Thai'
-      price: 4
-    },
-    3: {
-      id: 3
-      name: 'AsiaSF'
-      image_urls: [],
-      category: Asian
-      price: 3
+  restaurantsIndex: {
+    restaurants: {  
+      1: {
+        id: 1
+        name: 'Osha Thai'
+        image_urls: [http://image1.jpg],
+        category: 'Thai'
+        price: 4
+      },
+      3: {
+        id: 3
+        name: 'AsiaSF'
+        image_urls: [],
+        category: Asian
+        price: 3
+      }
     }
+    errors: ['error1']
   }
   restaurantDetail: {
     id: 1

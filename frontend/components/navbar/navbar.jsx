@@ -3,7 +3,6 @@ import { Link } from 'react-router';
 import SessionModalContainer from '../session_modals/session_modal_container';
 
 class NavBar extends React.Component {
-
   loggedOutNav() {
     return (
       <div className='navbar'>

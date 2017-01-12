@@ -8,6 +8,7 @@ import configureStore from './store/store';
 
 //Testing TODO: remove
 import { login } from './actions/session_actions';
+import { fetchRestaurants } from './actions/restaurant_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   window.store = store;
   window.login = login;
+  window.fetchRestaurants = fetchRestaurants;
 
   const root = document.getElementById('root');
   Modal.setAppElement(document.body);

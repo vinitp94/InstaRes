@@ -11,7 +11,7 @@ const RestaurantDetailReducer = (state = _defaultState, action) => {
 
   switch(action.type) {
     case RECEIVE_RESTAURANT:
-      return merge({}, { restaurant: action.restaurant });
+      return merge({}, state, { restaurant: action.restaurant });
     case REMOVE_RESTAURANT:
       return {};
     case RECEIVE_RESTAURANT_ERRORS:
