@@ -5,11 +5,6 @@
   min-width: 300px;
 }
 
-.carousel-image-container {
-  // padding: 0px 50px 0px 50px;
-  background-color: black;
-}
-
 .restaurant-index-caption {
   display: flex;
   justify-content: space-around;
@@ -17,13 +12,24 @@
 }
 
 .slick-arrow.slick-prev {
+  // display: none !important;
   left: 10px;
   z-index: 10;
 }
 
 .slick-arrow.slick-next {
+  display: none !important;
   right: 20px;
   z-index: 10;
+}
+
+.carousel-container:hover .slick-arrow.slick-prev {
+  // display: block !important;
+
+}
+
+.carousel-container:hover .slick-arrow.slick-next {
+  display: block !important;
 }
 
 .slick-arrow.slick-prev:before {

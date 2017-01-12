@@ -11,14 +11,14 @@ class RestaurantIndexCarousel extends React.Component {
       fade: true,
       slidesToShow: 1,
       slidesToScroll: 1,
-      draggable: false 
+      draggable: false
     };
 
     return (
       <Slider {...settings}>
         {
           this.props.images.map(img => (
-            <div className='carousel-image-container'>
+            <div>
               <Link to={`/`}>
                 <img src={img} />
               </Link>
