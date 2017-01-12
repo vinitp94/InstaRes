@@ -6,7 +6,7 @@ const _defaultState = {
   errors: []
 };
 
-const RestaurantReducer = (state = _defaultState, action) => {
+const RestaurantIndexReducer = (state = _defaultState, action) => {
   Object.freeze(state);
 
   switch(action.type) {
@@ -23,4 +23,4 @@ const RestaurantReducer = (state = _defaultState, action) => {
   }
 };
 
-export default RestaurantReducer;
+export default RestaurantIndexReducer;
