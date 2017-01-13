@@ -7,4 +7,10 @@
 .images-detail {
   display: flex;
   align-items: center;
+  background: linear-gradient(rgba(46,47,48,0.75), white);
+  padding: 0px 20px;
+}
+
+.images-detail > img {
+  padding: 0px 40px;
 }

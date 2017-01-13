@@ -40,7 +40,7 @@ class RestaurantDetail extends React.Component {
           <div id='other-details'>
             <a>{this.props.restaurant.category}</a>
             <a>{this.props.restaurant.price}</a>
-            <a>Eventuall need to add AVERAGE reviews</a>
+            <a>Eventually need to add AVERAGE reviews</a>
           </div>
 
           <div id='contact-info'>
