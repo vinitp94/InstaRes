@@ -136,7 +136,8 @@ class SessionModal extends React.Component {
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
-          style={sessionModalStyle}>
+          style={sessionModalStyle}
+          contentLabel='Auth Modal'>
 
           <form className='session-form' onSubmit={this.handleSubmit}>
             <span className='error'>

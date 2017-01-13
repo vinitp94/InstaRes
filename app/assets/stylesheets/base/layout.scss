@@ -48,6 +48,8 @@ input {
 	margin: 7px 0;
 	border: 1px solid $dark-fill;
 	border-radius: 3px;
+	-webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
 	box-sizing: border-box;
 	-webkit-transition: all 0.30s ease-in-out;
   -moz-transition: all 0.30s ease-in-out;
