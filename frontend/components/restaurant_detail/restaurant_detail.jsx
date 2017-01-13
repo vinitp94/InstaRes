@@ -3,22 +3,26 @@ import React from 'react';
 class RestaurantDetail extends React.Component {
   constructor(props) {
     super(props);
-    this.restaurant = this.props.restaurant;
   }
 
   componentDidMount() {
     this.props.fetchRestaurant(this.props.params.restaurantId);
   }
 
+  renderImages() {
+    if (this.props.restaurant.image_urls) {
+      return this.props.restaurant.image_urls.slice(0, 3).map((img, idx) => (
+        <img key={idx} src={img}/>
+      ));
+    }
+    return;
+  }
+
   render() {
     return (
-      <div>
+      <div className='restaurant-detail'>
         <div className='images-detail'>
-          {
-            this.restaurant.image_urls.map((img, idx) => (
-              <img key={idx} src={img}/>
-            ))
-          }
+          {this.renderImages()}
         </div>
 
         <div className='booking-form-detail'>
@@ -27,15 +31,25 @@ class RestaurantDetail extends React.Component {
 
         <div className='about-details'>
           <div id='address'>
-            <a>{this.restaurant.address}</a>
-            <a>{this.restaurant.city}</a>
-            <a>{this.restaurant.state}</a>
-            <a>{this.restaurant.zip_code}</a>
+            <a>{this.props.restaurant.address}</a>
+            <a>{this.props.restaurant.city}</a>
+            <a>{this.props.restaurant.state}</a>
+            <a>{this.props.restaurant.zip_code}</a>
+          </div>
+
+          <div id='other-details'>
+            <a>{this.props.restaurant.category}</a>
+            <a>{this.props.restaurant.price}</a>
+            <a>Eventuall need to add AVERAGE reviews</a>
           </div>
 
           <div id='contact-info'>
-            <a>{this.restaurant.website_url}</a>
-            <a>{this.restaurant.phone_num}</a>
+            <a>{this.props.restaurant.website_url}</a>
+            <a>{this.props.restaurant.phone_num}</a>
+          </div>
+
+          <div id='description'>
+            <a>{this.props.restaurant.description}</a>
           </div>
         </div>
 
