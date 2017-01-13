@@ -1,0 +1,41 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  padding: 150px 0px 120px 0px;
+  background: radial-gradient($accent, $main);
+}
+
+.left-home {
+  display: flex;
+  align-items: baseline;
+  padding-right: 50px;
+  padding-left: 30px;
+}
+
+#title-left {
+  font-size: 50px;
+  text-decoration: overline;
+  color: $light-main;
+  text-decoration-color: $dark-main;
+}
+
+#title-right {
+  font-size: 72px;
+  text-shadow: 8px 0px 15px black;
+  color: $light-fill;
+}
+
+#home-caption {
+  font-size: 32px;
+  margin: 0;
+  font-weight: 900;
+  color: $light-fill;
+}

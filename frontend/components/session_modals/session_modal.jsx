@@ -144,7 +144,7 @@ class SessionModal extends React.Component {
             {this.renderErrors()}
           </div>
 
-          <form onSubmit={this.handleSubmit}>
+          <form className='session-form' onSubmit={this.handleSubmit}>
             <label>Username:
               <input
                 type='text'

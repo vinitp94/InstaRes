@@ -1,6 +1,8 @@
+// TODO: fade in arrows on hover AND change arrow font....
+
 .restaurant-index {
   width: 50%;
-  height: auto;
+  // height: auto;
   margin: 30px;
   min-width: 300px;
 }
@@ -12,7 +14,7 @@
 }
 
 .slick-arrow.slick-prev {
-  // display: none !important;
+  display: none !important;
   left: 10px;
   z-index: 10;
 }
@@ -24,8 +26,7 @@
 }
 
 .carousel-container:hover .slick-arrow.slick-prev {
-  // display: block !important;
-
+  display: block !important;
 }
 
 .carousel-container:hover .slick-arrow.slick-next {

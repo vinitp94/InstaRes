@@ -8,14 +8,14 @@ class NavBar extends React.Component {
       <div className='navbar'>
         <div className='left-half'>
           <Link to={`/`}>
-            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png' />
+            <img className='logo' src='http://placehold.it/100x50' />
           </Link>
         </div>
 
         <div className='right-half'>
           <ul>
-            <li><SessionModalContainer formType='Log In' buttonLabel='Log In' /></li>
-            <li><SessionModalContainer formType='Sign Up' buttonLabel='Sign Up' /></li>
+            <li><div className='nav-link'><SessionModalContainer formType='Log In' buttonLabel='Log In' /></div></li>
+            <li><div className='nav-link'><SessionModalContainer formType='Sign Up' buttonLabel='Sign Up' /></div></li>
           </ul>
         </div>
       </div>
@@ -30,15 +30,16 @@ class NavBar extends React.Component {
       <div className='navbar'>
         <div className='left-half'>
           <Link to={`/`}>
-            <img className='logo' src='http://allvectorlogo.com/wp-content/uploads/2016/03/opentable-logo-200x116.png' />
+            <img className='logo' src='http://placehold.it/100x50' />
           </Link>
         </div>
 
         <div className='right-half'>
           <ul>
-            <li><Link to={`/`}>Add Restaurant (Broken)</Link></li>
-            <li><Link to={`/`}>Profile (Broken)</Link></li>
-            <li><Link to={`/`} onClick={ this.props.logout }>Log Out</Link></li>
+            <li><div className='nav-link'><Link to={`/`}>Add Restaurant (Broken)</Link></div></li>
+            <li>|</li>
+            <li><div className='nav-link'><Link to={`/`}>Profile (Broken)</Link></div></li>
+            <li><div className='nav-link'><Link to={`/`} onClick={ this.props.logout }>Log Out</Link></div></li>
           </ul>
         </div>
       </div>

@@ -1,8 +1,6 @@
 import React from 'react';
 import RestaurantIndexCarousel from './restaurant_index_carousel';
 
-// TODO: Add 'add review' and 'book table' buttons
-
 const RestaurantIndexItem = ({ restaurant }) => (
   <li className='restaurant-index-item'>
     <div className='carousel-container' to={`/restaurants`}>
