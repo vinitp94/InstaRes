@@ -7,10 +7,25 @@
 .images-detail {
   display: flex;
   align-items: center;
-  background: linear-gradient(rgba(46,47,48,0.75), white);
-  padding: 0px 20px;
+  border-top: 2px solid $accent;
+  border-bottom: 1px solid $accent;
 }
 
-.images-detail > img {
-  padding: 0px 40px;
+.images-detail > img:not(:last-child) {
+  border-right: 5px solid black;
+}
+
+.restaurant-detail > div:not(.images-detail) {
+  padding: 20px 80px;
+  border-bottom: 1px solid $hover-main;
+}
+
+.booking-buttons {
+  display: flex;
+}
+
+.booking-buttons button {
+  padding: 9px 0px;
+  font-size: 14px;
+  margin: 20px;
 }

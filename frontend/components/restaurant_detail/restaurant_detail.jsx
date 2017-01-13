@@ -18,6 +18,21 @@ class RestaurantDetail extends React.Component {
     return;
   }
 
+  renderButtons() {
+    if (this.props.currentUser) {
+      return (
+        <div className='right-title-detail'>
+          <button>Add to Favorites</button>
+          <button>Add a Review</button>
+        </div>
+      );
+    } else {
+      return (
+        <div className='right-title-detail'></div>
+      );
+    }
+  }
+
   render() {
     return (
       <div className='restaurant-detail'>
@@ -25,11 +40,27 @@ class RestaurantDetail extends React.Component {
           {this.renderImages()}
         </div>
 
+        <div className='title-detail'>
+          <div className='left-title-detail'>
+            <h1>{this.props.restaurant.name}</h1>
+          </div>
+
+          {this.renderButtons()}
+        </div>
+
         <div className='booking-form-detail'>
           Reservation form will go here!
         </div>
 
-        <div className='about-details'>
+        <div className='booking-buttons'>
+          <button>Button</button>
+          <button>Button</button>
+          <button>Button</button>
+          <button>Button</button>
+          <button>Button</button>
+        </div>
+
+        <div className='about-detail'>
           <div id='address'>
             <a>{this.props.restaurant.address}</a>
             <a>{this.props.restaurant.city}</a>
@@ -37,7 +68,7 @@ class RestaurantDetail extends React.Component {
             <a>{this.props.restaurant.zip_code}</a>
           </div>
 
-          <div id='other-details'>
+          <div id='other-detail'>
             <a>{this.props.restaurant.category}</a>
             <a>{this.props.restaurant.price}</a>
             <a>Eventually need to add AVERAGE reviews</a>

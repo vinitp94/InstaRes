@@ -2,7 +2,8 @@ import { connect } from 'react-redux';
 import RestaurantDetail from './restaurant_detail';
 import { fetchRestaurant } from '../../actions/restaurant_actions';
 
-const mapStateToProps = ({ restaurantDetail }) => ({
+const mapStateToProps = ({ session, restaurantDetail }) => ({
+  currentUser: session.currentUser,
   restaurant: restaurantDetail.restaurant,
   errors: restaurantDetail.errors
 });
