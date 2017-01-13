@@ -65,3 +65,13 @@ input:focus {
 	box-shadow: 0 0 10px $accent;
 	border: 1px solid $main;
 }
+
+.link {
+  text-decoration: underline;
+  color: $dark-main;
+	font-size: 14px;
+}
+
+.link:hover {
+  cursor: pointer;
+}

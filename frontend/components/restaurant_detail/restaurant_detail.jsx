@@ -81,26 +81,31 @@ class RestaurantDetail extends React.Component {
           <button>Button</button>
         </div>
 
-        <div className='about-detail'>
-          <div id='address'>
-            <a>{this.props.restaurant.address}</a>
-            <a>{this.props.restaurant.city}</a>
-            <a>{this.props.restaurant.state}</a>
-            <a>{this.props.restaurant.zip_code}</a>
-          </div>
-
-          <div id='contact-info'>
-            <a>{this.props.restaurant.website_url}</a>
-            <a>{this.props.restaurant.phone_num}</a>
-          </div>
-
-          <div id='description'>
-            <a>{this.props.restaurant.description}</a>
-          </div>
+        <div className='description'>
+          <p>{this.props.restaurant.description}</p>
         </div>
 
-        <div id='map-screenshot'>
-          screenshot the map
+        <div id='location'>
+          <div className='logistical-detail'>
+            <div id='address'>
+              <a>{this.props.restaurant.address}</a>
+
+              <div id='bottom-address'>
+                <a>{this.props.restaurant.city}</a>
+                <a>{this.props.restaurant.state}</a>
+                <a>{this.props.restaurant.zip_code}</a>
+              </div>
+            </div>
+
+            <div id='contact-info'>
+              <a className='link'>{this.props.restaurant.website_url}</a>
+              <a>{this.props.restaurant.phone_num}</a>
+            </div>
+          </div>
+
+          <div>
+            screenshot the map
+          </div>
         </div>
 
         <div className='review-detail'>

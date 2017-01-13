@@ -15,6 +15,7 @@ class NavBar extends React.Component {
         <div className='right-half'>
           <ul>
             <li><div className='nav-link'><SessionModalContainer formType='Log In' buttonLabel='Log In' /></div></li>
+            <li>|</li>
             <li><div className='nav-link'><SessionModalContainer formType='Sign Up' buttonLabel='Sign Up' /></div></li>
           </ul>
         </div>
@@ -39,6 +40,7 @@ class NavBar extends React.Component {
             <li><div className='nav-link'><Link to={`/`}>Add Restaurant (Broken)</Link></div></li>
             <li>|</li>
             <li><div className='nav-link'><Link to={`/`}>Profile (Broken)</Link></div></li>
+            <li>|</li>
             <li><div className='nav-link'><Link to={`/`} onClick={ this.props.logout }>Log Out</Link></div></li>
           </ul>
         </div>
