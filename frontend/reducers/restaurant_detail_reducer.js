@@ -2,7 +2,9 @@ import { RECEIVE_RESTAURANT, REMOVE_RESTAURANT, RECEIVE_RESTAURANT_ERRORS } from
 import merge from 'lodash/merge';
 
 const _defaultState = {
-  restaurant: {},
+  restaurant: {
+    image_urls: []
+  },
   errors: []
 };
 
