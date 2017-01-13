@@ -79,14 +79,14 @@ class SessionModal extends React.Component {
   renderAlternative() {
     if (this.state.formType === 'Log In') {
       return (
-        <div>
+        <div className='session-alt'>
           <p>Don't have an account{'?'}</p>
           <Link onClick={this.handleAltClick('Sign Up')}>Sign Up</Link>
         </div>
       );
     } else {
       return (
-        <div>
+        <div className='session-alt'>
           <p>Already have an account{'?'}</p>
           <Link onClick={this.handleAltClick('Log In')}>Log In</Link>
         </div>
@@ -109,13 +109,11 @@ class SessionModal extends React.Component {
   renderEmail() {
     if (this.state.formType === 'Sign Up') {
       return (
-        <label>Email:
-          <input
-            type='text'
-            placeholder='Enter email...'
-            value={this.state.email}
-            onChange={this.update('email')}/>
-        </label>
+        <input
+          type='text'
+          placeholder='Email Address'
+          value={this.state.email}
+          onChange={this.update('email')}/>
       );
     }
     return;
@@ -140,39 +138,33 @@ class SessionModal extends React.Component {
           onRequestClose={this.closeModal}
           style={sessionModalStyle}>
 
-          <div className='session-error'>
-            {this.renderErrors()}
-          </div>
-
           <form className='session-form' onSubmit={this.handleSubmit}>
-            <label>Username:
+            <span className='error'>
+              {this.renderErrors()}
+            </span>
+
+            <div className='session-input'>
               <input
                 type='text'
-                placeholder='Enter username...'
+                placeholder='Username'
                 value={this.state.username}
                 onChange={this.update('username')}/>
-            </label>
 
-            <div>
-              {this.renderEmail()}
-            </div>
+                {this.renderEmail()}
 
-            <label>Password:
               <input
                 type='password'
-                placeholder='Enter password...'
+                placeholder='Password'
                 value={this.state.password}
                 onChange={this.update('password')}/>
-            </label>
+            </div>
 
-            <div className='auth-submit-buttons'>
+            <div className='session-button'>
               <button>{this.state.formType}</button>
               {this.renderGuest()}
             </div>
 
-            <div>
-              {this.renderAlternative()}
-            </div>
+            {this.renderAlternative()}
           </form>
         </Modal>
       </div>

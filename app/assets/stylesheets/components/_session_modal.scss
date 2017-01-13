@@ -1,3 +1,28 @@
 .session-form {
-  padding: 30px 30px 30px 30px;
+  padding: 30px 30px 10px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.session-form > div {
+}
+
+.session-input {
+  display: flex;
+  flex-direction: column;
+}
+
+.session-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.session-alt {
+  display: flex;
+  justify-content: space-around;
+}
+
+.session-error {
+
 }
