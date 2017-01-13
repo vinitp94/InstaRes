@@ -7,7 +7,6 @@
 .images-detail {
   display: flex;
   align-items: center;
-  border-top: 2px solid $accent;
   border-bottom: 1px solid $accent;
 }
 
@@ -16,16 +15,52 @@
 }
 
 .restaurant-detail > div:not(.images-detail) {
-  padding: 20px 80px;
+  padding: 30px 120px;
   border-bottom: 1px solid $hover-main;
+}
+
+.title-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.right-title-detail {
+  display: flex;
+}
+
+.right-title-detail > button {
+  font-size: 10px;
+  margin: 0px 0px 0px 20px;
+  background-color: white;
+  color: $dark-main;
+  padding: 5px;
+  height: 25px;
+}
+
+.right-title-detail > button:hover {
+  background-color: $light-fill;
 }
 
 .booking-buttons {
   display: flex;
 }
 
-.booking-buttons button {
+.booking-buttons > button {
   padding: 9px 0px;
+  font-size: 13px;
+}
+
+.booking-buttons > button:not(:last-child) {
+  margin: 7px 30px 7px 0px;
+}
+
+.left-title-detail a {
+  font-size: 16px;
+  padding-right: 15px;
+  color: $fill;
+}
+
+#category-price > a {
   font-size: 14px;
-  margin: 20px;
 }

@@ -10,6 +10,8 @@
   width: 100%;
   z-index: 1000;
   height: 80px;
+  border-bottom: 1px solid $accent;
+  box-sizing: border-box;
 }
 
 .navbar .logo {

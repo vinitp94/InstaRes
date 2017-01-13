@@ -33,6 +33,14 @@ class RestaurantDetail extends React.Component {
     }
   }
 
+  priceToSymbol(price) {
+    let symbol = [];
+    for(let i = 0; i < price; i++) {
+      symbol.push('$');
+    }
+    return symbol.join('');
+  }
+
   render() {
     return (
       <div className='restaurant-detail'>
@@ -43,6 +51,19 @@ class RestaurantDetail extends React.Component {
         <div className='title-detail'>
           <div className='left-title-detail'>
             <h1>{this.props.restaurant.name}</h1>
+
+            <div id='review-title'>
+              <a>Ave reviews</a>
+              <a>6 Reviews</a>
+            </div>
+
+            <div id='category-price'>
+              <a>{this.props.restaurant.category}</a>
+              <a>|</a>
+              <a>{this.priceToSymbol(this.props.restaurant.price)}</a>
+              <a>|</a>
+              <a>{this.props.restaurant.city}</a>
+            </div>
           </div>
 
           {this.renderButtons()}
@@ -66,12 +87,6 @@ class RestaurantDetail extends React.Component {
             <a>{this.props.restaurant.city}</a>
             <a>{this.props.restaurant.state}</a>
             <a>{this.props.restaurant.zip_code}</a>
-          </div>
-
-          <div id='other-detail'>
-            <a>{this.props.restaurant.category}</a>
-            <a>{this.props.restaurant.price}</a>
-            <a>Eventually need to add AVERAGE reviews</a>
           </div>
 
           <div id='contact-info'>
