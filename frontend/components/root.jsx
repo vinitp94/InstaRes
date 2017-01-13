@@ -4,6 +4,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import App from './app';
 import Home from './home/home';
 import RestaurantIndexContainer from './restaurant_index/restaurant_index_container';
+import RestaurantDetailContainer from './restaurant_detail/restaurant_detail_container';
 
 const Root = ({store}) => {
   return (
@@ -12,6 +13,7 @@ const Root = ({store}) => {
         <Route path='/' component={App}>
           <IndexRoute component={Home} />
           <Route path='/restaurants' component={RestaurantIndexContainer} />
+          <Route path='/restaurants/:restaurantId' component={RestaurantDetailContainer} />
         </Route>
       </Router>
     </Provider>
