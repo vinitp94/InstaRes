@@ -17,8 +17,8 @@ class RestaurantIndexCarousel extends React.Component {
     return (
       <Slider {...settings}>
         {
-          this.props.images.map(img => (
-            <div>
+          this.props.images.map((img, idx) => (
+            <div key={idx}>
               <Link to={`/`}>
                 <img src={img} />
               </Link>

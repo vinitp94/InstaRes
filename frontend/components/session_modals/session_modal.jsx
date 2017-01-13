@@ -149,7 +149,8 @@ class SessionModal extends React.Component {
                 type='text'
                 placeholder='Username'
                 value={this.state.username}
-                onChange={this.update('username')}/>
+                onChange={this.update('username')}
+                autoFocus/>
 
               {this.renderEmail()}
 

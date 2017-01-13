@@ -7,16 +7,28 @@ class RestaurantIndex extends React.Component {
   }
   render() {
     return (
-      <div className='restaurant-index'>
-        <ul>
-          {
-            this.props.restaurants.map(rest => (
-              <RestaurantIndexItem
-                key={rest.id}
-                restaurant={rest} />
-            ))
-          }
-        </ul>
+      <div className='index-page'>
+        <div className='restaurant-index'>
+          <div className='restaurant-filter-form'>
+            Render FilterForm container here.
+          </div>
+
+          <div className='index-list'>
+            <ul>
+              {
+                this.props.restaurants.map(rest => (
+                  <RestaurantIndexItem
+                    key={rest.id}
+                    restaurant={rest} />
+                ))
+              }
+            </ul>
+          </div>
+        </div>
+
+        <div className='map'>
+          Render Map container
+        </div>
       </div>
     );
   }
