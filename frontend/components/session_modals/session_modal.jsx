@@ -81,14 +81,14 @@ class SessionModal extends React.Component {
       return (
         <div className='session-alt'>
           <p>Don't have an account{'?'}</p>
-          <Link onClick={this.handleAltClick('Sign Up')}>Sign Up</Link>
+          <p id='alt-link'><Link onClick={this.handleAltClick('Sign Up')}>Sign Up</Link></p>
         </div>
       );
     } else {
       return (
         <div className='session-alt'>
           <p>Already have an account{'?'}</p>
-          <Link onClick={this.handleAltClick('Log In')}>Log In</Link>
+          <p id='alt-link'><Link onClick={this.handleAltClick('Log In')}>Log In</Link></p>
         </div>
       );
     }
