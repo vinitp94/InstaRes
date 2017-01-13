@@ -144,13 +144,14 @@ class SessionModal extends React.Component {
             </span>
 
             <div className='session-input'>
+
               <input
                 type='text'
                 placeholder='Username'
                 value={this.state.username}
                 onChange={this.update('username')}/>
 
-                {this.renderEmail()}
+              {this.renderEmail()}
 
               <input
                 type='password'

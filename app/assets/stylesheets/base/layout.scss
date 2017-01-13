@@ -22,10 +22,10 @@ button {
 	border-style: solid;
 	border-width: thin;
 	border-color: $dark-main;
-	border-radius: 2px;
+	border-radius: 3px;
 	text-transform: uppercase;
 	font-size: 16px;
-  padding: 8px 0px 8px 0px;
+  padding: 12px 0px;
   margin: 7px;
   text-align: center;
 }
@@ -41,22 +41,20 @@ button:hover {
 	padding-bottom: 5px;
 }
 
-input, textarea {
+input {
 	width: 100%;
-	margin: 7px 0px 7px 0px;
-	font-size: 18px;
-	border-style: solid;
-	border-width: thin;
-	border-color: $dark-fill;
-	padding: 6px 0px 6px 3px;
-	-webkit-transition: all 0.20s ease-in-out;
-	-moz-transition: all 0.20s ease-in-out;
-	-ms-transition: all 0.20s ease-in-out;
+	font-size: 16px;
+	padding: 12px 20px;
+	margin: 7px 0;
+	border: 1px solid $dark-fill;
+	border-radius: 3px;
+	box-sizing: border-box;
+	-webkit-transition: all 0.30s ease-in-out;
+  -moz-transition: all 0.30s ease-in-out;
+  -ms-transition: all 0.30s ease-in-out;
 }
 
 input:focus {
-	box-shadow: 0 0 5px $accent;
-	padding: 3px 0px 3px 3px;
-	margin: 5px 1px 3px 0px;
+	box-shadow: 0 0 10px $accent;
 	border: 1px solid $main;
 }
