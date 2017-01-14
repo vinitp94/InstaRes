@@ -152,7 +152,6 @@ class SessionModal extends React.Component {
                 value={this.state.username}
                 onChange={this.update('username')}
                 autoFocus/>
-              <i className="fa fa-user-o" aria-hidden="true"></i>
 
               {this.renderEmail()}
 

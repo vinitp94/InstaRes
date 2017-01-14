@@ -23,6 +23,8 @@ gem 'coffee-rails', '~> 4.2'
 
 # gem 'rails_12factor'
 
+gem 'yelp', require: 'yelp'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
