@@ -24,6 +24,7 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'rails_12factor'
 
 gem 'yelp', require: 'yelp'
+gem 'figaro'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
