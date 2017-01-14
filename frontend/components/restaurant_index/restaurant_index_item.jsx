@@ -20,14 +20,20 @@ class RestaurantIndexItem extends React.Component {
         </div>
         <div className='restaurant-index-caption'>
           <div className='left-caption'>
-            <a id='index-item-title'>{this.props.restaurant.name}</a>
-            <a>{this.priceToSymbol(this.props.restaurant.price)}</a>
-            <a>{this.props.restaurant.category}</a>
+            <div className='caption-top'>
+              <a id='index-item-title'>{this.props.restaurant.name}</a>
+            </div>
+
+            <div className='caption-bottom'>
+              <a>{this.props.restaurant.category}</a>
+              <a>|</a>
+              <a>{this.priceToSymbol(this.props.restaurant.price)}</a>
+            </div>
           </div>
 
           <div className='right-caption'>
             <a>Ave reviews</a>
-            <a>6 Reviews</a>
+            <a id='num-reviews'>6 Reviews</a>
           </div>
         </div>
       </li>
