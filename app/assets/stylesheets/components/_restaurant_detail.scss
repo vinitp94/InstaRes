@@ -6,12 +6,21 @@
 
 .images-detail {
   display: flex;
+  justify-content: center;
   align-items: center;
   border-bottom: 1px solid $accent;
+  background-color: black;
+  // max-height: 400px;
 }
 
 .images-detail > img:not(:last-child) {
   border-right: 5px solid black;
+}
+
+.images-detail > img {
+  display: block;
+  max-width: 600px;
+  height: auto;
 }
 
 .restaurant-detail > div:not(.images-detail) {

@@ -39,5 +39,4 @@ Restaurant.create(name: 'FOOD Joint', address: 'another address',
   city: 'compton', state: 'NY', zip_code: 90024, category: 'Indian',
   description: 'Its over', price: 5, phone_num: '(408) 123 4567',
   website_url: 'www.yelp.com', owner_id: 2, image_urls:
-  ['http://lorempixel.com/300/200/nature',
-    'http://lorempixel.com/300/200/food'])
+  ['http://lorempixel.com/300/200/nature'])
