@@ -82,23 +82,27 @@ class RestaurantDetail extends React.Component {
         </div>
 
         <div className='description'>
-          <p>{this.props.restaurant.description}</p>
+          <h2>About Us</h2>
+          <a>{this.props.restaurant.description}</a>
         </div>
 
         <div id='location'>
           <div className='logistical-detail'>
-            <div id='address'>
-              <a>{this.props.restaurant.address}</a>
+            <div className='address'>
+              <div id='top-address'>
+                <a>{this.props.restaurant.address}</a>
+              </div>
 
               <div id='bottom-address'>
                 <a>{this.props.restaurant.city}</a>
-                <a>{this.props.restaurant.state}</a>
-                <a>{this.props.restaurant.zip_code}</a>
+                <a>,</a>
+                <a> {this.props.restaurant.state}</a>
+                <a> {this.props.restaurant.zip_code}</a>
               </div>
             </div>
 
-            <div id='contact-info'>
-              <a className='link'>{this.props.restaurant.website_url}</a>
+            <div className='contact-info'>
+              <a id='website' className='link'>{this.props.restaurant.website_url}</a>
               <a>{this.props.restaurant.phone_num}</a>
             </div>
           </div>

@@ -21,6 +21,7 @@
 
 .restaurant-detail a {
   font-size: 14px;
+  color: $dark-fill;
 }
 
 .title-detail {
@@ -39,7 +40,8 @@
   background-color: white;
   color: $dark-main;
   padding: 5px;
-  height: 25px;
+  min-height: 25px;
+  min-width: 120px;
 }
 
 .right-title-detail > button:hover {
@@ -59,8 +61,12 @@
   margin: 7px 30px 7px 0px;
 }
 
+.booking-buttons > button:last-child {
+  margin-right: 0px;
+}
+
 .left-title-detail > * {
-  padding-bottom: 2px;
+  padding-bottom: 5px;
 }
 
 .left-title-detail a {
@@ -77,8 +83,24 @@
   align-items: flex-start;
 }
 
-#contact-info {
+.contact-info {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+}
+
+.address > div, .contact-info > a {
+  padding-bottom: 5px;
+}
+
+#website {
+  color: $dark-main;
+}
+
+.description > h2 {
+  padding-bottom: 10px;
+}
+
+.description > a {
+  font-family: $serif;
 }
