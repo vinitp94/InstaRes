@@ -13,22 +13,9 @@ User.create(username: 'tester123', email: 'tester1@demo.com', password: 'tester1
 # TODO: REPLACE IMAGES WITH REAL IMAGES USING YELP API
 
 CATEGORIES = [
-  'American',
-  'British',
-  'Caribbean',
-  'Chinese',
-  'French',
-  'Greek',
-  'Indian',
-  'Italian',
-  'Japanese',
-  'Mediterranean',
-  'Mexican',
-  'Moroccan',
-  'Spanish',
-  'Thai',
-  'Turkish',
-  'Vietnamese'
+  'American', 'British', 'Caribbean', 'Chinese', 'French', 'Greek',
+  'Indian', 'Italian', 'Japanese', 'Mediterranean', 'Mexican',
+  'Moroccan', 'Spanish', 'Thai', 'Turkish', 'Vietnamese'
 ]
 
 Yelp.client.configure do |config|

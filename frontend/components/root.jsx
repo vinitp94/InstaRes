@@ -2,6 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { clearErrors } from '../actions/error_actions';
+import { fetchRestaurant } from '../actions/restaurant_actions';
 import App from './app';
 import Home from './home/home';
 import RestaurantIndexContainer from './restaurant_index/restaurant_index_container';
@@ -22,13 +23,19 @@ const Root = ({store}) => {
     store.dispatch(clearErrors);
   };
 
+  // const _prefetchRestaurant = (nextState, replace) => {
+  //   store.dispatch(fetchRestaurant(nextState.params.restaurantId));
+  //   // replace(`/restaurants/${nextState.params.restaurantId}/edit`);
+  // };
+
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={ App } >
           <IndexRoute component={ Home } />
           <Route path='/restaurants' component={ RestaurantIndexContainer } />
-          <Route path='/restaurant/new' component={ RestaurantFormContainer } onEnter={_requireLogin} />
+          <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} />
+          <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireLogin} />
           <Route path='/restaurants/:restaurantId' component={ RestaurantDetailContainer } onLeave={_clearErrors}/>
           <Route path='/profile' component={ UserProfileContainer } />
         </Route>
