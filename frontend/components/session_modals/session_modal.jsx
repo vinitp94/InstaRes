@@ -3,6 +3,8 @@ import Modal from 'react-modal';
 import { Link } from 'react-router';
 import { sessionModalStyle } from './session_modal_styles';
 
+// TODO: NO AUTOFOCUS ON THE SIGNUP, ONLY LOGIN
+
 class SessionModal extends React.Component {
   constructor(props) {
     super(props);
@@ -38,7 +40,6 @@ class SessionModal extends React.Component {
 
   handleGuest(e) {
     e.preventDefault();
-
     this.props.login({
       username: 'Demo',
       password: 'demopassword'
@@ -148,6 +149,7 @@ class SessionModal extends React.Component {
             <div className='session-input'>
 
               <input
+                id='first-input'
                 type='text'
                 placeholder='Username'
                 value={this.state.username}

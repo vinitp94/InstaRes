@@ -1,6 +1,10 @@
 import React from 'react';
 
 class RestaurantForm extends React.Component {
+  componentDidMount() {
+
+  }
+
   render() {
     return (
       <div>
