@@ -149,7 +149,6 @@ class SessionModal extends React.Component {
             <div className='session-input'>
 
               <input
-                id='first-input'
                 type='text'
                 placeholder='Username'
                 value={this.state.username}
