@@ -41,82 +41,104 @@ class RestaurantDetail extends React.Component {
     return symbol.join('');
   }
 
-  render() {
+  renderErrors() {
     return (
-      <div className='restaurant-detail'>
-        <div className='images-detail'>
-          {this.renderImages()}
-        </div>
-
-        <div className='title-detail'>
-          <div className='left-title-detail'>
-            <h1>{this.props.restaurant.name}</h1>
-
-            <div id='review-title'>
-              <a>Ave reviews</a>
-              <a>6 Reviews</a>
-            </div>
-
-            <div id='category-price'>
-              <a>{this.props.restaurant.category}</a>
-              <a>|</a>
-              <a>{this.priceToSymbol(this.props.restaurant.price)}</a>
-              <a>|</a>
-              <a>{this.props.restaurant.city}</a>
-            </div>
-          </div>
-
-          {this.renderButtons()}
-        </div>
-
-        <div className='booking-form-detail'>
-          Reservation form will go here!
-        </div>
-
-        <div className='booking-buttons'>
-          <button>Button</button>
-          <button>Button</button>
-          <button>Button</button>
-          <button>Button</button>
-          <button>Button</button>
-        </div>
-
-        <div className='description'>
-          <h2>About Us</h2>
-          <a>{this.props.restaurant.description}</a>
-        </div>
-
-        <div id='location'>
-          <div className='logistical-detail'>
-            <div className='address'>
-              <div id='top-address'>
-                <a>{this.props.restaurant.address}</a>
-              </div>
-
-              <div id='bottom-address'>
-                <a>{this.props.restaurant.city}</a>
-                <a>,</a>
-                <a> {this.props.restaurant.state}</a>
-                <a> {this.props.restaurant.zip_code}</a>
-              </div>
-            </div>
-
-            <div className='contact-info'>
-              <a id='website' className='link'>{this.props.restaurant.website_url}</a>
-              <a>{this.props.restaurant.phone_num}</a>
-            </div>
-          </div>
-
-          <div>
-            screenshot the map
-          </div>
-        </div>
-
-        <div className='review-detail'>
-          review list
-        </div>
-      </div>
+      <ul>
+        {this.props.errors.map((err, idx) => (
+          <li key={idx + err}>
+            {err}
+          </li>
+        ))}
+      </ul>
     );
+  }
+
+  render() {
+    if (this.props.errors.length === 0) {
+      return (
+        <div className='restaurant-detail'>
+          <div className='images-detail'>
+            {this.renderImages()}
+          </div>
+
+          <div className='title-detail'>
+            <div className='left-title-detail'>
+              <h1>{this.props.restaurant.name}</h1>
+
+              <div id='review-title'>
+                <a>Ave reviews</a>
+                <a>6 Reviews</a>
+              </div>
+
+              <div id='category-price'>
+                <a>{this.props.restaurant.category}</a>
+                <a>|</a>
+                <a>{this.priceToSymbol(this.props.restaurant.price)}</a>
+                <a>|</a>
+                <a>{this.props.restaurant.city}</a>
+              </div>
+            </div>
+
+            {this.renderButtons()}
+          </div>
+
+          <div className='booking-form-detail'>
+            Reservation form will go here!
+          </div>
+
+          <div className='booking-buttons'>
+            <button>Button</button>
+            <button>Button</button>
+            <button>Button</button>
+            <button>Button</button>
+            <button>Button</button>
+          </div>
+
+          <div className='description'>
+            <h2>About Us</h2>
+            <a>{this.props.restaurant.description}</a>
+          </div>
+
+          <div id='location'>
+            <div className='logistical-detail'>
+              <div className='address'>
+                <div id='top-address'>
+                  <a>{this.props.restaurant.address}</a>
+                </div>
+
+                <div id='bottom-address'>
+                  <a>{this.props.restaurant.city}</a>
+                  <a>,</a>
+                  <a> {this.props.restaurant.state}</a>
+                  <a> {this.props.restaurant.zip_code}</a>
+                </div>
+              </div>
+
+              <div className='contact-info'>
+                <a id='website' className='link'>{this.props.restaurant.website_url}</a>
+                <a>{this.props.restaurant.phone_num}</a>
+              </div>
+            </div>
+
+            <div>
+              screenshot the map
+            </div>
+          </div>
+
+          <div className='review-detail'>
+            review list
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div className='restaurant-detail'>
+          <span className='error'>
+            {this.renderErrors()}
+          </span>
+        </div>
+      );
+    }
   }
 }
 

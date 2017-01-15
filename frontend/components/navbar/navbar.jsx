@@ -37,9 +37,9 @@ class NavBar extends React.Component {
 
         <div className='right-half'>
           <ul>
-            <li><div className='nav-link'><Link to={`/`}>Add Restaurant (Broken)</Link></div></li>
+            <li><div className='nav-link'><Link to={`/restaurants/new`}>Add Restaurant</Link></div></li>
             <li>|</li>
-            <li><div className='nav-link'><Link to={`/`}>Profile (Broken)</Link></div></li>
+            <li><div className='nav-link'><Link to={`/profile`}>Profile</Link></div></li>
             <li>|</li>
             <li><div className='nav-link'><Link to={`/`} onClick={ this.props.logout }>Log Out</Link></div></li>
           </ul>

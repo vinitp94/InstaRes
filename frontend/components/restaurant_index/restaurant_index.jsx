@@ -5,6 +5,19 @@ class RestaurantIndex extends React.Component {
   componentDidMount() {
     this.props.fetchRestaurants();
   }
+
+  renderErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((err, idx) => (
+          <li key={idx + err}>
+            {err}
+          </li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
     return (
       <div className='index-page'>
@@ -13,6 +26,10 @@ class RestaurantIndex extends React.Component {
             Render FilterForm container here.
           </div>
 
+          <span className='error'>
+            {this.renderErrors()}
+          </span>
+          
           <div className='index-list'>
             <ul>
               {

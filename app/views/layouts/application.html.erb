@@ -11,6 +11,29 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <script src="//widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      window.image_upload_options = {
+        cloud_name: '<%= ENV['CLOUDINARY_CLOUD_NAME'] %>',
+        upload_preset: '<%= ENV['CLOUDINARY_UPLOAD_PRESET'] %>',
+        sources: ['local', 'url'],
+        multiple: true,
+        max_files: 8,
+        cropping: true,
+        cropping_aspect_ratio: 1.5,
+        cropping_show_dimensions: true,
+        client_allowed_formats: ['png', 'jpg', 'jpeg', 'gif', 'bmp'],
+        min_image_height: 200,
+        min_image_width: 300,
+        max_file_size: 3000000,
+        cropping_validate_dimensions: true,
+        button_class: 'image-button',
+        theme: 'minimal',
+        text: {"sources.local.drop_file": "Drop image here",
+               "sources.local.select_file": "Upload",
+               "progress.failed_note": "Your image failed to upload"}
+      };
+    </script>
   </head>
 
   <body>

@@ -7,7 +7,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 
 //Testing TODO: remove
-import { login } from './actions/session_actions';
+import { login } from './util/session_api_util';
+// import { fetchRestaurant } from './util/restaurant_api_util';
 import { fetchRestaurant } from './actions/restaurant_actions';
 
 document.addEventListener('DOMContentLoaded', () => {

@@ -33,6 +33,7 @@ class SessionModal extends React.Component {
       modalOpen: false,
       formType: this.props.formType
     });
+    this.props.emptyErrors();
   }
 
   handleGuest(e) {

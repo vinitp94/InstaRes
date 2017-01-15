@@ -1,7 +1,12 @@
 class Api::RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
-    render :index
+
+    if @restaurants == []
+      render json: ['No restaurants found'];
+    else
+      render :index
+    end
   end
 
   def create
@@ -26,7 +31,13 @@ class Api::RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    render :show
+
+    if @restaurant
+      render :show
+    else
+      render json: ['Not found'], status: 404
+    end
+
   end
 
   def destroy
@@ -35,7 +46,7 @@ class Api::RestaurantsController < ApplicationController
     if @restaurant.destroy
       render :show
     else
-      render json: @restaurant.errors.full_messages, status: 422
+      render json: ['Not found'], status: 404
     end
   end
 
