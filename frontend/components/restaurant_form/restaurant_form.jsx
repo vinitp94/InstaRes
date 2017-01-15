@@ -1,10 +1,12 @@
 import React from 'react';
-import { createRestaurant } from '../../actions/restaurant_actions';
 
 class RestaurantForm extends React.Component {
   render() {
     return (
-      <h1>WE IN THIS</h1>
+      <div>
+        <h1>WE IN THIS</h1>
+        <h2>{this.props.currentUser.username}</h2>
+      </div>
     );
   }
 }

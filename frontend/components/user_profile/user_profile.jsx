@@ -1,5 +1,4 @@
 import React from 'react';
-import Unauthorized from '../unauthorized/unauthorized';
 
 class UserProfile extends React.Component {
   render() {

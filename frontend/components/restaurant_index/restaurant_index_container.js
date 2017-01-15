@@ -2,9 +2,9 @@ import { connect } from 'react-redux';
 import RestaurantIndex from './restaurant_index';
 import { fetchRestaurants } from '../../actions/restaurant_actions';
 
-const mapStateToProps = ({ restaurantsIndex }) => ({
-  restaurants: Object.keys(restaurantsIndex.restaurants).map(id => restaurantsIndex.restaurants[id]),
-  errors: restaurantsIndex.errors
+const mapStateToProps = ({ errors, restaurantsIndex }) => ({
+  restaurants: Object.keys(restaurantsIndex).map(id => restaurantsIndex[id]),
+  errors: errors.restaurantErrors
 });
 
 const mapDispatchToProps = (dispatch) => ({
