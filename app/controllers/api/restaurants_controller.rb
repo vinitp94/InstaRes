@@ -31,8 +31,7 @@ class Api::RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @current_user = current_user
-    
+
     if @restaurant
       render :show
     else
@@ -55,7 +54,6 @@ class Api::RestaurantsController < ApplicationController
 
   def restaurant_params
     params.require(:restaurant).permit(:name, :address, :city, :state,
-      :zip_code, :category, :description, :price, :phone_num, :website_url,
-      :image_urls, :owner_id)
+      :zip_code, :category, :description, :price, :phone_num, :website_url, {image_urls: []}, :owner_id)
   end
 end

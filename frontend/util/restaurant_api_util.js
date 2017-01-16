@@ -15,7 +15,7 @@ export const fetchRestaurant = (id) => (
 export const createRestaurant = (rest) => (
   $.ajax({
     method: 'POST',
-    url: `/api/restaurants/${rest.id}`,
+    url: `/api/restaurants`,
     data: { restaurant: rest }
   })
 );

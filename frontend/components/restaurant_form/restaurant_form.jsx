@@ -54,6 +54,9 @@ class RestaurantForm extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.props.formType === 'edit') {
       this.setState(newProps.restaurant);
+    } else {
+      this.setState(merge(
+        {}, _defaultRestaurant, { owner_id: `${this.props.currentUser.id}`}));
     }
   }
 

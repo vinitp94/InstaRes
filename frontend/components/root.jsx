@@ -10,8 +10,6 @@ import RestaurantDetailContainer from './restaurant_detail/restaurant_detail_con
 import RestaurantFormContainer from './restaurant_form/restaurant_form_container';
 import UserProfileContainer from './user_profile/user_profile_container';
 
-// TODO: ASK QUESTION ABOUT NEW/SHOW PATH
-
 const Root = ({store}) => {
   const _requireLogin = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
@@ -24,7 +22,17 @@ const Root = ({store}) => {
   };
 
   const _requireUser = (nextState, replace) => {
-    debugger
+    if (!store.getState().session.currentUser) {
+      debugger
+      replace("/");
+    } else {
+      debugger
+      let userRestaurants = Object.keys(store.getState().session.currentUser.restaurants);
+      if (!userRestaurants.includes(nextState.params.restaurantId)) {
+        replace("/restaurants");
+      }
+    }
+
   };
 
   return (
