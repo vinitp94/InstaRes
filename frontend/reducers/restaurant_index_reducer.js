@@ -13,7 +13,8 @@ const RestaurantIndexReducer = (state = {}, action) => {
         category: action.restaurant.category,
         name: action.restaurant.name,
         price: action.restaurant.price,
-        image_urls: action.restaurant.image_urls }});
+        image_urls: action.restaurant.image_urls,
+        city: action.restaurant.city }});
     case REMOVE_RESTAURANT:
       let newState = merge({}, state);
       delete newState[action.restaurant.id];

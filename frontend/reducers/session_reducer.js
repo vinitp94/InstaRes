@@ -1,4 +1,5 @@
-import { RECEIVE_CURRENT_USER, RECEIVE_SESSION_ERRORS } from '../actions/session_actions';
+import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
+import { RECEIVE_RESTAURANT } from '../actions/restaurant_actions';
 import merge from 'lodash/merge';
 
 const _nullState = Object.freeze({
@@ -11,6 +12,14 @@ const SessionReducer = (state = _nullState, action) => {
   switch(action.type) {
     case RECEIVE_CURRENT_USER:
       return merge({}, _nullState, { currentUser: action.currentUser });
+    case RECEIVE_RESTAURANT:
+      let newRestaurants = merge({}, state.restaurants, { [action.restaurant.id]: {
+        id: action.restaurant.id,
+        category: action.restaurant.category,
+        name: action.restaurant.name,
+        price: action.restaurant.price,
+        image_urls: action.restaurant.image_urls }});
+      return merge({}, state, { restaurants: newRestaurants });
     default:
       return state;
   }

@@ -31,7 +31,8 @@ class Api::RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-
+    @current_user = current_user
+    
     if @restaurant
       render :show
     else
