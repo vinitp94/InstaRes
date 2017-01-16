@@ -23,10 +23,34 @@ class RestaurantSearch extends React.Component {
       this.props.restaurants[id]));
     let matchList = [];
 
-    restList.forEach(rest => {
-      if (!(rest.name.match(new RegExp(this.state.name)) == null)) {
-        matchList.push(rest.name);
-      }});
+    if (this.state.name.length > 0) {
+      restList.forEach(rest => {
+        if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
+          matchList.push(rest.name);
+        }});
+    } else {
+      return (
+        <ul></ul>
+      );
+    }
+
+    if (matchList.length === 0) {
+      return (
+        <ul>
+          <li key='-1'>No results found</li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul>
+          {matchList.map((match, idx) => (
+            <li key={match + idx}>
+              {match}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render () {
@@ -36,9 +60,7 @@ class RestaurantSearch extends React.Component {
           type='text'
           placeholder='Search a Restaurant Name'
           onChange={this.update()}/>
-        <ul>
-          {this.renderResults()}
-        </ul>
+        {this.renderResults()}
       </div>
     );
   }
