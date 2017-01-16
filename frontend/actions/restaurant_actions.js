@@ -52,8 +52,8 @@ export const createRestaurant = (rest) => (dispatch) => (
           err => dispatch(receiveRestaurantErrors(err.responseJSON)))
 );
 
-export const udpateRestaurant = (rest) => (dispatch) => (
-  RestaurantAPIUtil.udpateRestaurant(rest)
+export const updateRestaurant = (rest) => (dispatch) => (
+  RestaurantAPIUtil.updateRestaurant(rest)
   .then(uprest => {
         dispatch(receiveRestaurant(uprest));
         dispatch(receiveRestaurantDetail(uprest));

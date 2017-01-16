@@ -23,19 +23,14 @@ const Root = ({store}) => {
     store.dispatch(clearErrors);
   };
 
-  // const _prefetchRestaurant = (nextState, replace) => {
-  //   store.dispatch(fetchRestaurant(nextState.params.restaurantId));
-  //   // replace(`/restaurants/${nextState.params.restaurantId}/edit`);
-  // };
-
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={ App } >
           <IndexRoute component={ Home } />
-          <Route path='/restaurants' component={ RestaurantIndexContainer } />
-          <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} />
-          <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireLogin} />
+          <Route path='/restaurants' component={ RestaurantIndexContainer } onLeave={_clearErrors}/>
+          <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} onLeave={_clearErrors}/>
+          <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireLogin} onLeave={_clearErrors}/>
           <Route path='/restaurants/:restaurantId' component={ RestaurantDetailContainer } onLeave={_clearErrors}/>
           <Route path='/profile' component={ UserProfileContainer } />
         </Route>

@@ -1,4 +1,8 @@
 import React from 'react';
+import MaskedInput from 'react-input-mask';
+import { merge } from 'lodash';
+
+// TODO: DON'T LET NON OWNERS EDIT
 
 const states = [
   'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID',
@@ -35,19 +39,22 @@ class RestaurantForm extends React.Component {
     super(props);
 
     this.state = this.props.restaurant;
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
     if (this.props.formType === 'edit') {
       this.props.fetchRestaurant(this.props.params.restaurantId);
     } else {
-      this.setState(_defaultRestaurant);
+      this.setState(merge(
+        {}, _defaultRestaurant, { owner_id: `${this.props.currentUser.id}`}));
     }
   }
 
   componentWillReceiveProps(newProps) {
-    this.setState(newProps.restaurant);
+    if (this.props.formType === 'edit') {
+      this.setState(newProps.restaurant);
+    }
   }
 
   update(property) {
@@ -57,10 +64,19 @@ class RestaurantForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    let phone = this.state.phone_num;
+    let parsedPhone = [];
+    phone.split('').forEach(digit => {
+      if ('0123456789'.includes(digit)) {
+        parsedPhone.push(digit);
+      }
+    });
+    let newrest = merge({}, this.state, { phone_num: parsedPhone.join('') });
+
     if (this.props.formType === 'new') {
-      this.props.createRestaurant(this.state);
+      this.props.createRestaurant(newrest);
     } else {
-      this.props.updateRestaurant(this.state);
+      this.props.updateRestaurant(newrest);
     }
   }
 
@@ -86,6 +102,14 @@ class RestaurantForm extends React.Component {
     return categories.map(cat => (
       <option key={cat} value={cat}>{cat}</option>
     ));
+  }
+
+  renderButton() {
+    if (this.props.formType === 'new') {
+      return <button>Add Restaurant</button>;
+    } else {
+      return <button>Update Restaurant</button>;
+    }
   }
 
   render() {
@@ -130,8 +154,9 @@ class RestaurantForm extends React.Component {
             </label>
 
             <label>Zip Code:
-              <input
-                type='text'
+              <MaskedInput
+                mask='99999'
+                maskChar=' '
                 value={this.state.zip_code}
                 onChange={this.update('zip_code')}/>
             </label>
@@ -195,12 +220,27 @@ class RestaurantForm extends React.Component {
             </label>
 
             <label>Business Phone:
-              <input
-                type='text'
+              <p className='optional-tag'>(optional)</p>
+              <MaskedInput
+                mask='(999) 999 - 9999'
+                maskChar=' '
                 placeholder='(xxx) xxx-xxxx'
                 value={this.state.phone_num}
                 onChange={this.update('phone_num')}/>
             </label>
+
+            <label>Website:
+              <p className='optional-tag'>(optional)</p>
+              <input
+                type='text'
+                value={this.state.website_url}
+                onChange={this.update('website_url')}/>
+            </label>
+
+          </div>
+
+          <div className='restaurant-button'>
+            {this.renderButton()}
           </div>
         </form>
       </div>
