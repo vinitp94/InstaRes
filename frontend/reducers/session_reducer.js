@@ -13,13 +13,14 @@ const SessionReducer = (state = _nullState, action) => {
     case RECEIVE_CURRENT_USER:
       return merge({}, _nullState, { currentUser: action.currentUser });
     case RECEIVE_RESTAURANT:
-      let newRestaurants = merge({}, state.restaurants, { [action.restaurant.id]: {
+      let newRestaurants = merge({}, state.currentUser.restaurants, { [action.restaurant.id]: {
         id: action.restaurant.id,
         category: action.restaurant.category,
         name: action.restaurant.name,
         price: action.restaurant.price,
-        image_urls: action.restaurant.image_urls }});
-      return merge({}, state, { restaurants: newRestaurants });
+        image_urls: action.restaurant.image_urls,
+        city: action.restaurant.city }});
+      return { currentUser: merge({}, state.currentUser, { restaurants: newRestaurants }) };
     default:
       return state;
   }
