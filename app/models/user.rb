@@ -13,6 +13,13 @@ class User < ApplicationRecord
     dependent: :destroy
   )
 
+  has_many(
+    :reviews,
+    class_name: :Review,
+    foreign_key: :author_id,
+    primary_key: :id
+  )
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
