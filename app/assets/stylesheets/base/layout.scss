@@ -51,11 +51,12 @@ button:hover {
 	padding-bottom: 5px;
 }
 
-input {
+input, textarea, select {
 	width: 100%;
 	font-size: 16px;
 	padding: 12px 20px;
 	margin: 7px 0;
+	background-color: $light-fill;
 	border: 1px solid $dark-fill;
 	border-radius: 3px;
 	-webkit-box-sizing: border-box;
@@ -66,9 +67,10 @@ input {
   -ms-transition: all 0.30s ease-in-out;
 }
 
-input:focus {
+input:focus, textarea:focus, select:focus {
 	box-shadow: 0 0 10px $accent;
 	border: 1px solid $main;
+	background-color: white;
 }
 
 .link {
@@ -79,4 +81,10 @@ input:focus {
 
 .link:hover {
   cursor: pointer;
+}
+
+.optional-tag {
+	font-size: 14px;
+	font-style: italic;
+	color: $fill;
 }

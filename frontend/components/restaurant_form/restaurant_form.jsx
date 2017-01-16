@@ -109,15 +109,15 @@ class RestaurantForm extends React.Component {
 
   renderButton() {
     if (this.props.formType === 'new') {
-      return <button>Add Restaurant</button>;
+      return <button id='restaurant-button'>Add Restaurant</button>;
     } else {
-      return <button>Update Restaurant</button>;
+      return <button id='restaurant-button'>Update Restaurant</button>;
     }
   }
 
   render() {
     return (
-      <div>
+      <div className='restaurant-form-container'>
         <form className='restaurant-form' onSubmit={this.handleSubmit}>
           <span className='error'>
             {this.renderErrors()}
@@ -146,7 +146,7 @@ class RestaurantForm extends React.Component {
                 onChange={this.update('city')}/>
             </label>
 
-            <label>State:
+            <label>
               <select
                 type='text'
                 value={this.state.state}
@@ -155,7 +155,7 @@ class RestaurantForm extends React.Component {
                 {this.renderStates()}
               </select>
             </label>
-
+            <br/>
             <label>Zip Code:
               <MaskedInput
                 mask='99999'
@@ -164,7 +164,7 @@ class RestaurantForm extends React.Component {
                 onChange={this.update('zip_code')}/>
             </label>
 
-            <label>Category:
+            <label>
               <select
                 type='text'
                 value={this.state.category}
@@ -173,7 +173,7 @@ class RestaurantForm extends React.Component {
                 {this.renderCategories()}
               </select>
             </label>
-
+            <br/>
             <label>Description:
               <textarea
                 type='text'
@@ -182,45 +182,58 @@ class RestaurantForm extends React.Component {
                 rows='10' cols='100'/>
             </label>
 
-            <label>Price:
-              <div>
-                <label>1
-                  <input
-                    type='radio'
-                    value='1'
-                    checked={this.state.price === '1'}
-                    onChange={this.update('price')}/>
-                </label>
-                <label>2
-                  <input
-                    type='radio'
-                    value='2'
-                    checked={this.state.price === '2'}
-                    onChange={this.update('price')}/>
-                </label>
-                <label>3
-                  <input
-                    type='radio'
-                    value='3'
-                    checked={this.state.price === '3'}
-                    onChange={this.update('price')}/>
-                </label>
-                <label>4
-                  <input
-                    type='radio'
-                    value='4'
-                    checked={this.state.price === '4'}
-                    onChange={this.update('price')}/>
-                </label>
-                <label>5
-                  <input
-                    type='radio'
-                    value='5'
-                    checked={this.state.price === '5'}
-                    onChange={this.update('price')}/>
-                </label>
-              </div>
-            </label>
+            <label>Price:</label>
+            <ul className='price'>
+              <li>
+                <label>1</label>
+                <input
+                  type='radio'
+                  value='1'
+                  checked={this.state.price === '1'}
+                  onChange={this.update('price')}/>
+                <div class="check"></div>
+              </li>
+
+              <li>
+                <label>2</label>
+                <input
+                  type='radio'
+                  value='2'
+                  checked={this.state.price === '2'}
+                  onChange={this.update('price')}/>
+                <div class="check"></div>
+              </li>
+
+              <li>
+                <label>3</label>
+                <input
+                  type='radio'
+                  value='3'
+                  checked={this.state.price === '3'}
+                  onChange={this.update('price')}/>
+                <div class="check"></div>
+              </li>
+
+              <li>
+                <label>4</label>
+                <input
+                  type='radio'
+                  value='4'
+                  checked={this.state.price === '4'}
+                  onChange={this.update('price')}/>
+                <div class="check"></div>
+              </li>
+
+              <li>
+                <label>5</label>
+                <input
+                  type='radio'
+                  value='5'
+                  checked={this.state.price === '5'}
+                  onChange={this.update('price')}/>
+                <div class="check"></div>
+              </li>
+            </ul>
 
             <label>Business Phone:
               <p className='optional-tag'>(optional)</p>

@@ -1,0 +1,49 @@
+// TODO: STYLE THIS MORE
+
+.restaurant-form-container {
+  padding: 0px -webkit-calc(25%);
+  padding-top: 150px;
+  height: -webkit-calc(100vh - 80px)
+}
+
+.restaurant-form label {
+  font-size: 16px;
+  color: $dark-fill;
+}
+
+.restaurant-form input, select, textarea, ul {
+  margin-bottom: 20px;
+}
+
+.restaurant-form .error ul {
+  margin-bottom: 10px;
+}
+
+#restaurant-button {
+  margin: 7px 0px;
+  margin-bottom: 70px;
+}
+
+.price {
+  display: flex;
+  justify-content: space-around;
+}
+
+.price-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-input ul {
+  margin-left: 10px;
+}
+
+.price li {
+	display: flex;
+  justify-content: space-between;
+}
+
+.price li input[type=radio] {
+	width: 15px;
+  margin: 0px 10px;
+}
