@@ -22,11 +22,16 @@
   height: 100%;
 }
 
-.restaurant-filter-form {
+.restaurant-search-form-container {
   // TODO: temporary placeholder
   background: linear-gradient(rgba(46,47,48,0.75), white);
   color: black;
   height: 120px;
+}
+
+.restaurant-search-form {
+  display: flex;
+  justify-content: space-around;
 }
 
 .index-list {
@@ -45,7 +50,7 @@
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 1px solid $hover-main;
-  margin: 20px 0px 40px 0px;
+  margin: 5px 0px 40px 0px;
   padding: 5px;
   font-size: 14px;
   color: $dark-fill;
@@ -82,13 +87,13 @@
 }
 
 .carousel-container {
-  border-bottom: 3px solid $accent;
+  border-bottom: 1px solid $accent;
   box-sizing: border-box;
 }
 
 .slick-arrow.slick-prev {
   opacity: 0 !important;
-  left: 10px;
+  left: 22px;
   z-index: 10;
   -webkit-transition: all 0.20s ease-in-out;
   -moz-transition: all 0.20s ease-in-out;

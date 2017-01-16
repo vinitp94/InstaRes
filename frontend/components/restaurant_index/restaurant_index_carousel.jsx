@@ -5,7 +5,7 @@ import Slider from 'react-slick';
 class RestaurantIndexCarousel extends React.Component {
   render () {
     let settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       fade: true,

@@ -23,9 +23,7 @@ class RestaurantIndex extends React.Component {
     return (
       <div className='index-page'>
         <div className='restaurant-index'>
-          <div className='restaurant-filter-form'>
-            <RestaurantSearchContainer />
-          </div>
+          <RestaurantSearchContainer />
 
           <span className='error'>
             {this.renderErrors()}

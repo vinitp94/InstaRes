@@ -191,7 +191,6 @@ class RestaurantForm extends React.Component {
                   value='1'
                   checked={this.state.price === '1'}
                   onChange={this.update('price')}/>
-                <div class="check"></div>
               </li>
 
               <li>
@@ -201,7 +200,6 @@ class RestaurantForm extends React.Component {
                   value='2'
                   checked={this.state.price === '2'}
                   onChange={this.update('price')}/>
-                <div class="check"></div>
               </li>
 
               <li>
@@ -211,7 +209,6 @@ class RestaurantForm extends React.Component {
                   value='3'
                   checked={this.state.price === '3'}
                   onChange={this.update('price')}/>
-                <div class="check"></div>
               </li>
 
               <li>
@@ -221,7 +218,6 @@ class RestaurantForm extends React.Component {
                   value='4'
                   checked={this.state.price === '4'}
                   onChange={this.update('price')}/>
-                <div class="check"></div>
               </li>
 
               <li>
@@ -231,7 +227,6 @@ class RestaurantForm extends React.Component {
                   value='5'
                   checked={this.state.price === '5'}
                   onChange={this.update('price')}/>
-                <div class="check"></div>
               </li>
             </ul>
 
