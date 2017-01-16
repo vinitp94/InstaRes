@@ -1,5 +1,6 @@
 import React from 'react';
 import RestaurantIndexItem from './restaurant_index_item';
+import RestaurantSearchContainer from '../restaurant_search/restaurant_search_container';
 
 class RestaurantIndex extends React.Component {
   componentDidMount() {
@@ -23,13 +24,13 @@ class RestaurantIndex extends React.Component {
       <div className='index-page'>
         <div className='restaurant-index'>
           <div className='restaurant-filter-form'>
-            Render FilterForm container here.
+            <RestaurantSearchContainer />
           </div>
 
           <span className='error'>
             {this.renderErrors()}
           </span>
-          
+
           <div className='index-list'>
             <ul>
               {
