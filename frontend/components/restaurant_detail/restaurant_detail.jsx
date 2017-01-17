@@ -42,6 +42,27 @@ class RestaurantDetail extends React.Component {
     return symbol.join('');
   }
 
+  renderReviews() {
+    if (this.props.restaurant.reviews) {
+      let reviewArr = [];
+      Object.keys(this.props.restaurant.reviews).forEach(id => {
+        reviewArr.push(this.props.restaurant.reviews[id]);
+      });
+
+      return (
+        <ul>
+          {reviewArr.map((rev, idx) => (
+            <li key={idx + rev}>
+              <a>{rev.rating}</a>
+              <a>{rev.body}</a>
+            </li>
+          ))}
+        </ul>
+      );
+    }
+    return;
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -67,8 +88,8 @@ class RestaurantDetail extends React.Component {
               <h1>{this.props.restaurant.name}</h1>
 
               <div id='review-title'>
-                <a>Ave reviews</a>
-                <a>6 Reviews</a>
+                <a>{this.props.restaurant.ave_rating}</a>
+                <a>{this.props.restaurant.num_reviews} Reviews</a>
               </div>
 
               <div id='category-price'>
@@ -127,7 +148,8 @@ class RestaurantDetail extends React.Component {
           </div>
 
           <div className='review-detail'>
-            review list
+            <h2>Reviews</h2>
+            {this.renderReviews()}
           </div>
         </div>
       );
