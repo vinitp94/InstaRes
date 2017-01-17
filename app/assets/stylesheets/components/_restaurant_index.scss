@@ -23,15 +23,24 @@
 }
 
 .restaurant-search-form-container {
-  // TODO: temporary placeholder
-  background: linear-gradient(rgba(46,47,48,0.75), white);
+  // background: linear-gradient(rgba(46,47,48,0.75), white);
   color: black;
   height: 120px;
+  padding: 0px -webkit-calc(20% + 17px) 0px -webkit-calc(20%);
 }
 
 .restaurant-search-form {
+  padding-top: 20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+}
+
+.restaurant-search-input {
+  width: 80%;
+}
+
+.restaurant-search-button {
+  width: 15%;
 }
 
 .index-list {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 class RestaurantSearch extends React.Component {
   constructor(props) {
@@ -6,12 +7,6 @@ class RestaurantSearch extends React.Component {
     this.state = {
       name: "",
     };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
   }
 
   update() {
@@ -19,61 +14,73 @@ class RestaurantSearch extends React.Component {
   }
 
   renderButton() {
-    let restList = Object.keys(this.props.restaurants).map(id => (
-      this.props.restaurants[id].name));
+    let restList = this.props.restaurants.map(rest => (
+      rest.name.toLowerCase()));
 
-    if (restList.includes(this.state.name)) {
-      return (
-        <button>Enter</button>
-      );
-    } else {
-      return (
-        <button disabled>Enter</button>
-      );
-    }
-  }
-
-  renderResults() {
-    let restList = Object.keys(this.props.restaurants).map(id => (
-      this.props.restaurants[id]));
-
-    let matchList = [];
-
-    if (this.state.name.length > 0) {
-      restList.forEach(rest => {
-        if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
-          matchList.push(rest.name);
+    if (restList.includes(this.state.name.toLowerCase())) {
+      let matchedId;
+      this.props.restaurants.forEach(rest => {
+        if (rest.name.toLowerCase() === this.state.name.toLowerCase()) {
+          matchedId = rest.id;
         }});
-    } else {
-      return (
-        <ul></ul>
-      );
-    }
 
-    if (matchList.length === 0) {
       return (
-        <ul>
-          <li key='-1'>No results found</li>
-        </ul>
+        <Link to={`/restaurants/${matchedId}`}>
+          <button>
+            <i className="fa fa-search"></i>
+          </button>
+        </Link>
       );
     } else {
       return (
-        <ul>
-          {matchList.map((match, idx) => (
-            <li key={match + idx}>
-              {match}
-            </li>
-          ))}
-        </ul>
+        <button disabled>
+          <i className="fa fa-search"></i>
+        </button>
       );
     }
   }
+
+  // renderResults() {
+  //   // let restList = Object.keys(this.props.restaurants).map(id => (
+  //   //   this.props.restaurants[id]));
+  //
+  //   let matchList = [];
+  //
+  //   if (this.state.name.length > 0) {
+  //     this.props.restaurants.forEach(rest => {
+  //       if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
+  //         matchList.push(rest.name);
+  //       }});
+  //   } else {
+  //     return (
+  //       <ul></ul>
+  //     );
+  //   }
+  //
+  //   if (matchList.length === 0) {
+  //     return (
+  //       <ul>
+  //         <li key='-1'>No results found</li>
+  //       </ul>
+  //     );
+  //   } else {
+  //     return (
+  //       <ul>
+  //         {matchList.map((match, idx) => (
+  //           <li key={match + idx}>
+  //             {match}
+  //           </li>
+  //         ))}
+  //       </ul>
+  //     );
+  //   }
+  // }
 
   render () {
     return (
       <div className='restaurant-search-form-container'>
-        <form className='restaurant-search-form' onSubmit={this.handleSubmit}>
-          <div>
+        <form className='restaurant-search-form'>
+          <div className='restaurant-search-input'>
             <input
               type='text'
               placeholder='Search Restaurant...'
