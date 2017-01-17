@@ -32,8 +32,8 @@ class RestaurantIndexItem extends React.Component {
           </div>
 
           <div className='right-caption'>
-            <a>Ave reviews</a>
-            <a id='num-reviews'>6 Reviews</a>
+            <a>{this.props.restaurant.ave_rating}</a>
+            <a id='num-reviews'>{this.props.restaurant.num_reviews} Reviews</a>
           </div>
         </div>
       </li>

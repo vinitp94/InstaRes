@@ -40,37 +40,48 @@ class RestaurantSearch extends React.Component {
     }
   }
 
-  renderResults() {
-    let matchList = [];
-
-    if (this.state.name.length > 0) {
-      this.props.restaurants.forEach(rest => {
-        if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
-          matchList.push(rest.name);
-        }});
-    } else {
-      return (
-        <ul></ul>
-      );
-    }
-
-    if (matchList.length === 0) {
-      return (
-        <ul>
-          <li key='-1'>No results found</li>
-        </ul>
-      );
-    } else {
-      return (
-        <ul>
-          {matchList.map((match, idx) => (
-            <li key={match + idx}>
-              {match}
-            </li>
-          ))}
-        </ul>
-      );
-    }
+  // renderMatches() {
+  //   let matchList = [];
+  //
+  //   if (this.state.name.length > 0) {
+  //     this.props.restaurants.forEach(rest => {
+  //       if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
+  //         matchList.push(rest.name);
+  //       }});
+  //   } else {
+  //     return (
+  //       <datalist id='rest-search'/>
+  //     );
+  //   }
+  //
+  //   if (matchList.length === 0) {
+  //     return (
+  //       <datalist id='rest-search'>
+  //         <option key='-1' value='no-entry'>No results found</option>
+  //       </datalist>
+  //     );
+  //   } else {
+  //     return (
+  //       <datalist id='rest-search'>
+  //         {matchList.map((match, idx) => (
+  //           <option key={match + idx}>
+  //             {match}
+  //           </option>
+  //         ))}
+  //       </datalist>
+  //     );
+  //   }
+  // }
+  renderMatches() {
+    return (
+      <datalist id='rest-search'>
+        {
+          this.props.restaurants.map((rest, idx) => (
+            <option>{rest.name}</option>
+          ))
+        }
+      </datalist>
+    );
   }
 
   render () {
@@ -81,7 +92,9 @@ class RestaurantSearch extends React.Component {
             <input
               type='text'
               placeholder='Search Restaurant...'
+              list='rest-search'
               onChange={this.update()}/>
+            {this.renderMatches()}
           </div>
 
           <div className='restaurant-search-button'>
@@ -89,7 +102,6 @@ class RestaurantSearch extends React.Component {
           </div>
         </form>
 
-        {this.renderResults()}
       </div>
     );
   }
