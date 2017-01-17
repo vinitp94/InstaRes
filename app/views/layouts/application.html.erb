@@ -16,7 +16,9 @@
       window.image_upload_options = {
         cloud_name: '<%= ENV['CLOUDINARY_CLOUD_NAME'] %>',
         upload_preset: '<%= ENV['CLOUDINARY_UPLOAD_PRESET'] %>',
-
+        sources: ['local', 'url'],
+        max_files: 5,
+        thumbnail_transformation: [{ width: 300, height: 200}]
       };
     </script>
   </head>

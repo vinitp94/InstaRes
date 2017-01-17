@@ -2,6 +2,7 @@ import React from 'react';
 import MaskedInput from 'react-input-mask';
 import { merge } from 'lodash';
 import { hashHistory } from 'react-router';
+import { Link } from 'react-router';
 
 const states = [
   'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID',
@@ -39,6 +40,7 @@ class RestaurantForm extends React.Component {
     this.state = this.props.restaurant;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.cloudinate = this.cloudinate.bind(this);
+    this.renderEditImages = this.renderEditImages.bind(this);
   }
 
   componentDidMount() {
@@ -62,6 +64,16 @@ class RestaurantForm extends React.Component {
 
   update(property) {
     return e => this.setState({ [property]: e.currentTarget.value });
+  }
+
+  removeImage() {
+    return e => {
+      let images = this.state.image_urls;
+      debugger
+      delete images[e.currentTarget.value];
+      debugger
+      this.setState({ image_urls: images });
+    };
   }
 
   handleSubmit(e) {
@@ -124,6 +136,21 @@ class RestaurantForm extends React.Component {
         }
       }
     );
+  }
+
+  renderEditImages() {
+    if (this.state.image_urls && this.props.formType === 'edit') {
+      let images = this.state.image_urls;
+      return (
+        images.map((img, idx) => (
+          <div>
+            <img key={idx} src={img} />
+            <Link onClick={this.removeImage}>Remove</Link>
+          </div>
+        ))
+      );
+    }
+    return;
   }
 
   renderButton() {
@@ -267,6 +294,10 @@ class RestaurantForm extends React.Component {
                 onChange={this.update('website_url')}/>
             </label>
 
+          </div>
+
+          <div className='edit-images'>
+            {this.renderEditImages()}
           </div>
 
           <div className='upload-button-container'>

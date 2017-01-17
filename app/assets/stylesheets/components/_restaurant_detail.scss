@@ -18,7 +18,9 @@
 
 .images-detail > img {
   display: block;
+  width: -webkit-calc(30%);
   max-width: 600px;
+  min-width: 300px;
   height: auto;
 }
 

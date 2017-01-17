@@ -60,3 +60,12 @@
 	width: 15px;
   margin: 0px 10px;
 }
+
+.edit-images {
+  display: flex;
+}
+
+.edit-images img {
+  width: -webkit-calc(10%);
+  height: auto;
+}
