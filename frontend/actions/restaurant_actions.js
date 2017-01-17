@@ -35,7 +35,7 @@ export const receiveRestaurantErrors = (errors) => ({
 export const fetchRestaurants = () => (dispatch) => (
   RestaurantAPIUtil.fetchRestaurants()
     .then(rests => dispatch(receiveAllRestaurants(rests)),
-          err => dispatch(receiveRestaurantErrors(err.responseJSON)))
+          err => dispatch(receiveRestaurantErrors(err.statusText)))
 );
 
 export const fetchRestaurant = (id) => (dispatch) => (
@@ -67,5 +67,5 @@ export const updateRestaurant = (rest) => (dispatch) => (
 export const deleteRestaurant = (id) => (dispatch) => (
   RestaurantAPIUtil.deleteRestaurant(id)
     .then(remrest => dispatch(removeRestaurant(remrest)),
-          err => dispatch(receiveRestaurantErrors(err.responseJSON)))
+          err => dispatch(receiveRestaurantErrors(err.statusText)))
 );

@@ -3,8 +3,6 @@ import MaskedInput from 'react-input-mask';
 import { merge } from 'lodash';
 import { hashHistory } from 'react-router';
 
-// TODO: DON'T LET NON OWNERS EDIT
-
 const states = [
   'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID',
   'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS',
