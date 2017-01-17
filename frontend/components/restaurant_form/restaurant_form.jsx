@@ -1,6 +1,7 @@
 import React from 'react';
 import MaskedInput from 'react-input-mask';
 import { merge } from 'lodash';
+import { hashHistory } from 'react-router';
 
 // TODO: DON'T LET NON OWNERS EDIT
 

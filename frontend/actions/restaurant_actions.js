@@ -1,4 +1,5 @@
 import * as RestaurantAPIUtil from '../util/restaurant_api_util';
+import { hashHistory } from 'react-router';
 
 export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
 export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT';
@@ -48,6 +49,7 @@ export const createRestaurant = (rest) => (dispatch) => (
     .then(newrest => {
           dispatch(receiveRestaurant(newrest));
           dispatch(receiveRestaurantDetail(newrest));
+          hashHistory.push(`/restaurants/${newrest.id}`);
           },
           err => dispatch(receiveRestaurantErrors(err.responseJSON)))
 );
@@ -57,6 +59,7 @@ export const updateRestaurant = (rest) => (dispatch) => (
   .then(uprest => {
         dispatch(receiveRestaurant(uprest));
         dispatch(receiveRestaurantDetail(uprest));
+        hashHistory.push(`/restaurants/${uprest.id}`);
         },
         err => dispatch(receiveRestaurantErrors(err.responseJSON)))
 );

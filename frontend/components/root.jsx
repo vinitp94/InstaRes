@@ -23,10 +23,8 @@ const Root = ({store}) => {
 
   const _requireUser = (nextState, replace) => {
     if (!store.getState().session.currentUser) {
-      debugger
       replace("/");
     } else {
-      debugger
       let userRestaurants = Object.keys(store.getState().session.currentUser.restaurants);
       if (!userRestaurants.includes(nextState.params.restaurantId)) {
         replace("/restaurants");

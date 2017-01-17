@@ -40,41 +40,38 @@ class RestaurantSearch extends React.Component {
     }
   }
 
-  // renderResults() {
-  //   // let restList = Object.keys(this.props.restaurants).map(id => (
-  //   //   this.props.restaurants[id]));
-  //
-  //   let matchList = [];
-  //
-  //   if (this.state.name.length > 0) {
-  //     this.props.restaurants.forEach(rest => {
-  //       if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
-  //         matchList.push(rest.name);
-  //       }});
-  //   } else {
-  //     return (
-  //       <ul></ul>
-  //     );
-  //   }
-  //
-  //   if (matchList.length === 0) {
-  //     return (
-  //       <ul>
-  //         <li key='-1'>No results found</li>
-  //       </ul>
-  //     );
-  //   } else {
-  //     return (
-  //       <ul>
-  //         {matchList.map((match, idx) => (
-  //           <li key={match + idx}>
-  //             {match}
-  //           </li>
-  //         ))}
-  //       </ul>
-  //     );
-  //   }
-  // }
+  renderResults() {
+    let matchList = [];
+
+    if (this.state.name.length > 0) {
+      this.props.restaurants.forEach(rest => {
+        if (!(rest.name.toLowerCase().match(new RegExp(this.state.name.toLowerCase())) == null)) {
+          matchList.push(rest.name);
+        }});
+    } else {
+      return (
+        <ul></ul>
+      );
+    }
+
+    if (matchList.length === 0) {
+      return (
+        <ul>
+          <li key='-1'>No results found</li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul>
+          {matchList.map((match, idx) => (
+            <li key={match + idx}>
+              {match}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
 
   render () {
     return (
@@ -91,6 +88,8 @@ class RestaurantSearch extends React.Component {
             {this.renderButton()}
           </div>
         </form>
+
+        {this.renderResults()}
       </div>
     );
   }
