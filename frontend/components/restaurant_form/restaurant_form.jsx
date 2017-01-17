@@ -36,9 +36,9 @@ const _defaultRestaurant = {
 class RestaurantForm extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = this.props.restaurant;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.cloudinate = this.cloudinate.bind(this);
   }
 
   componentDidMount() {
@@ -53,10 +53,11 @@ class RestaurantForm extends React.Component {
   componentWillReceiveProps(newProps) {
     if (this.props.formType === 'edit') {
       this.setState(newProps.restaurant);
-    } else {
-      this.setState(merge(
-        {}, _defaultRestaurant, { owner_id: `${this.props.currentUser.id}`}));
     }
+  }
+
+  componentWillUnmount() {
+    this.setState(merge({}, _defaultRestaurant));
   }
 
   update(property) {
@@ -104,6 +105,25 @@ class RestaurantForm extends React.Component {
     return categories.map(cat => (
       <option key={cat} value={cat}>{cat}</option>
     ));
+  }
+
+  cloudinate(e) {
+    e.preventDefault();
+    let that = this;
+
+    cloudinary.openUploadWidget(window.image_upload_options,
+      (err, results) => {
+        if (!err) {
+          results.forEach(res => {
+            let newImages = that.state.image_urls;
+            newImages.push(res.secure_url);
+            that.setState({ image_urls: newImages });
+          });
+        } else {
+          that.props.receiveRestaurantErrors([err.message]);
+        }
+      }
+    );
   }
 
   renderButton() {
@@ -247,6 +267,12 @@ class RestaurantForm extends React.Component {
                 onChange={this.update('website_url')}/>
             </label>
 
+          </div>
+
+          <div className='upload-button-container'>
+            <button id='image-button' onClick={this.cloudinate}>
+              Upload Image
+            </button>
           </div>
 
           <div className='restaurant-button'>

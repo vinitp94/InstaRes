@@ -23,6 +23,20 @@
   margin-bottom: 70px;
 }
 
+#image-button {
+  margin-bottom: 20px;
+  background: white;
+  color: $dark-main;
+}
+
+#image-button:hover {
+  background: $light-fill;
+}
+
+#image-button:active {
+  background: $fill;
+}
+
 .price {
   display: flex;
   justify-content: space-around;

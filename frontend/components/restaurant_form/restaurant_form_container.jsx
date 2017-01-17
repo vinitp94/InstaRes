@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import RestaurantForm from './restaurant_form';
-import { createRestaurant, fetchRestaurant, updateRestaurant } from '../../actions/restaurant_actions';
+import { createRestaurant, fetchRestaurant, updateRestaurant, receiveRestaurantErrors } from '../../actions/restaurant_actions';
 
 const mapStateToProps = ({ session, errors, restaurantDetail }, ownProps) => ({
   currentUser: session.currentUser,
@@ -12,7 +12,8 @@ const mapStateToProps = ({ session, errors, restaurantDetail }, ownProps) => ({
 const mapDispatchToProps = (dispatch, ownProps) => ({
   fetchRestaurant: (id) => dispatch(fetchRestaurant(id)),
   createRestaurant: (restaurant) => dispatch(createRestaurant(restaurant)),
-  updateRestaurant: (restaurant) => dispatch(updateRestaurant(restaurant))
+  updateRestaurant: (restaurant) => dispatch(updateRestaurant(restaurant)),
+  receiveRestaurantErrors: (err) => dispatch(receiveRestaurantErrors(err))
 });
 
 export default connect(
