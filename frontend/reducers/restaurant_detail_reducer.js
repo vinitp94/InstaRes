@@ -20,7 +20,6 @@ const RestaurantDetailReducer = (state = {}, action) => {
         body: action.review.body,
         created_at: action.review.created_at }});
       restCopy.reviews = newReviews;
-      debugger
       return restCopy;
     case REMOVE_REVIEW:
       let copyRest = merge({}, state);

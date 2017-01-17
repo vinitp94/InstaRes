@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   validates :rating, :body, :author_id, :restaurant_id, presence: true
+  validates :rating, numericality: { greater_than: 0, less_than: 6 }
 
   belongs_to(
     :author,

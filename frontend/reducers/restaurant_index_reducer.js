@@ -14,7 +14,9 @@ const RestaurantIndexReducer = (state = {}, action) => {
         category: action.restaurant.category,
         name: action.restaurant.name,
         price: action.restaurant.price,
-        image_urls: action.restaurant.image_urls }});
+        image_urls: action.restaurant.image_urls,
+        ave_rating: action.restaurant.ave_rating,
+        num_reviews: action.restaurant.num_reviews }});
     case REMOVE_RESTAURANT:
       let newState = merge({}, state);
       delete newState[action.restaurant.id];
@@ -23,7 +25,6 @@ const RestaurantIndexReducer = (state = {}, action) => {
       let rest = state[action.review.restaurant_id];
       rest.ave_rating = action.review.ave_rating;
       rest.num_reviews = action.review.num_reviews;
-      debugger
       return merge({}, state, { [action.review.restaurant_id]: rest });
     case REMOVE_REVIEW:
       let copyRest = state[action.review.restaurant_id];

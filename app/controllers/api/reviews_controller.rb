@@ -12,7 +12,7 @@ class Api::ReviewsController < ApplicationController
   def destroy
     @review = Review.find(params[:id])
 
-    if @restaurant.destroy
+    if @review.destroy
       render :show
     else
       render json: ['Not found'], status: 404
