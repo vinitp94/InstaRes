@@ -33,10 +33,8 @@ else
     user.reviews.each do |review|
       json.set! review.id do
         json.extract! review, :id, :rating, :body, :created_at
+        json.restaurant_name review.restaurant.name
       end
-
-      json.restaurant_name review.restaurant.name
-
     end
   end
 end

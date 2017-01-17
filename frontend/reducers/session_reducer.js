@@ -34,6 +34,7 @@ const SessionReducer = (state = _nullState, action) => {
         rating: action.review.rating,
         body: action.review.body,
         created_at: action.review.created_at }});
+      debugger
       return { currentUser: extend({}, state.currentUser, { reviews: newReviews })};
     case REMOVE_REVIEW:
       let newRevs = merge({}, state.currentUser.reviews);

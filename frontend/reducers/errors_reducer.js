@@ -1,7 +1,7 @@
 import { RECEIVE_SESSION_ERRORS } from '../actions/session_actions';
 import { RECEIVE_RESTAURANT_ERRORS } from '../actions/restaurant_actions';
 import { RECEIVE_REVIEW_ERRORS } from '../actions/review_actions';
-import merge from 'lodash/merge';
+import { merge } from 'lodash';
 
 const _defaultState = {
   sessionErrors: [],
