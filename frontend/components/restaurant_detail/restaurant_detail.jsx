@@ -24,13 +24,23 @@ class RestaurantDetail extends React.Component {
   }
 
   renderButtons() {
+    let currentRestId = this.props.params.restaurantId;
+
     if (this.props.currentUser) {
-      return (
-        <div className='right-title-detail'>
-          {this.renderFavorite()}
-          <ReviewModalContainer />
-        </div>
-      );
+      if (Object.keys(this.props.currentUser.restaurants).includes(currentRestId)) {
+        return (
+          <div className='right-title-detail'>
+            {this.renderFavorite()}
+          </div>
+        );
+      } else {
+        return (
+          <div className='right-title-detail'>
+            {this.renderFavorite()}
+            <ReviewModalContainer restaurantId={currentRestId}/>
+          </div>
+        );
+      }
     } else {
       return (
         <div className='right-title-detail'></div>

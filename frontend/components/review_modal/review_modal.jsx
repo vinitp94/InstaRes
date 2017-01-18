@@ -23,9 +23,9 @@ class ReviewModal extends React.Component {
 
   closeModal() {
     this.setState({
-      rating: 0,
+      rating: 1,
       body: "",
-      modalOpen: false,
+      modalOpen: false
     });
     this.props.emptyErrors();
   }
@@ -36,6 +36,16 @@ class ReviewModal extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.createReview({
+      rating: this.state.rating,
+      body: this.state.body,
+      author_id: this.props.currentUser.id,
+      restaurant_id: this.props.restaurantId
+    });
+
+    if (this.state.body.length > 0) {
+      this.closeModal();
+    }
   }
 
   renderErrors() {
@@ -64,7 +74,7 @@ class ReviewModal extends React.Component {
           contentLabel='Review Modal'>
 
           <form className='review-form' onSubmit={this.handleSubmit}>
-            <h2>Add Review</h2>
+            <h2>Leave A Review</h2>
 
             <span className='error'>
               {this.renderErrors()}
