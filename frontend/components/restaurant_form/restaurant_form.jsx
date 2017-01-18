@@ -40,7 +40,7 @@ class RestaurantForm extends React.Component {
     this.state = this.props.restaurant;
     this.handleSubmit = this.handleSubmit.bind(this);
     this.cloudinate = this.cloudinate.bind(this);
-    this.renderEditImages = this.renderEditImages.bind(this);
+    this.renderImages = this.renderImages.bind(this);
     this.removeImage = this.removeImage.bind(this);
   }
 
@@ -72,15 +72,14 @@ class RestaurantForm extends React.Component {
     let images = this.state.image_urls;
     let toDelete = e.target.previousSibling.src;
     let newImages = [];
-    // debugger
+
     images.forEach(im => {
       if (im !== toDelete) {
         newImages.push(im);
       }
     });
-    // debugger
-    this.setState({ image_urls: newImages });
 
+    this.setState({ image_urls: newImages });
   }
 
   handleSubmit(e) {
@@ -101,8 +100,7 @@ class RestaurantForm extends React.Component {
       if (newrest.image_urls.length === 0) {
         newrest.image_urls = 'empty';
       }
-      // debugger
-      console.log(newrest.image_urls);
+
       this.props.updateRestaurant(newrest);
     }
   }
@@ -150,11 +148,11 @@ class RestaurantForm extends React.Component {
     );
   }
 
-  renderEditImages() {
+  renderImages() {
     if (this.state.image_urls) {
       let images = this.state.image_urls;
       return (
-        <ul>
+        <ul className='image-thumbnails'>
           {
             images.map((img, idx) => (
               <li key={idx}>
@@ -311,8 +309,8 @@ class RestaurantForm extends React.Component {
 
           </div>
 
-          <div className='edit-images'>
-            {this.renderEditImages()}
+          <div>
+            {this.renderImages()}
           </div>
 
           <div className='upload-button-container'>

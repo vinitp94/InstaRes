@@ -20,6 +20,19 @@ class User < ApplicationRecord
     primary_key: :id
   )
 
+  has_many(
+    :favorites,
+    className: :Favorite,
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :favorite_restaurants,
+    through: :favorites,
+    source: :restaurant
+  )
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)

@@ -61,11 +61,40 @@
   margin: 0px 10px;
 }
 
-.edit-images {
+.image-thumbnails {
   display: flex;
+  justify-content: flex-start;
 }
 
-.edit-images img {
-  width: -webkit-calc(10%);
-  height: auto;
+.image-thumbnails > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: -webkit-calc(6%);
+  width: -webkit-calc(15%);
+}
+
+.image-thumbnails img {
+  width: 100%;
+  height: -webkit-calc(70%);
+  overflow-y: hidden;
+  padding: 0px;
+  margin: 0px;
+}
+
+.image-thumbnails button {
+  margin: 10px 0px 0px 0px;
+  width: 100%;
+  padding: 5px 0px;
+  background: white;
+  font-size: 10px;
+  color: $dark-main;
+}
+
+.image-thumbnails button:hover {
+  background: $light-fill;
+}
+
+.image-thumbnails button:active {
+  background: $fill;
 }
