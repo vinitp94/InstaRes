@@ -1,6 +1,7 @@
 import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_RESTAURANT, REMOVE_RESTAURANT } from '../actions/restaurant_actions';
 import { RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions';
+import { RECEIVE_FAVORITE, UPDATE_FAVORITE, REMOVE_FAVORITE } from '../actions/favorite_actions';
 import { merge, extend } from 'lodash';
 
 const _nullState = Object.freeze({
@@ -42,6 +43,35 @@ const SessionReducer = (state = _nullState, action) => {
       let newRevs = merge({}, state.currentUser.reviews);
       delete newRevs[action.review.id];
       return { currentUser: extend({}, state.currentUser, { reviews: newRevs })};
+    case RECEIVE_FAVORITE:
+      let newFavorites = merge({}, state.currentUser.favorites, { [action.favoriteRestaurant.id]: {
+        id: action.favoriteRestaurant.id,
+        name: action.favoriteRestaurant.name,
+        city: action.favoriteRestaurant.city,
+        state: action.favoriteRestaurant.state,
+        category: action.favoriteRestaurant.category,
+        price: action.favoriteRestaurant.price,
+        image_urls: action.favoriteRestaurant.image_urls,
+        favorite_id: action.favoriteRestaurant.favorite_id }});
+      return { currentUser: extend({}, state.currentUser, { favorites: newFavorites })};
+    case UPDATE_FAVORITE:
+      if (Object.keys(state.currentUser.favorites).includes(`${action.favoriteRestaurant.id}`)) {
+        let upFaves = merge({}, state.currentUser.favorites, { [action.favoriteRestaurant.id]: {
+          id: action.favoriteRestaurant.id,
+          name: action.favoriteRestaurant.name,
+          city: action.favoriteRestaurant.city,
+          state: action.favoriteRestaurant.state,
+          category: action.favoriteRestaurant.category,
+          price: action.favoriteRestaurant.price,
+          image_urls: action.favoriteRestaurant.image_urls,
+          favorite_id: state.currentUser.favorites[action.favoriteRestaurant.id].favorite_id }});
+        return { currentUser: extend({}, state.currentUser, { favorites: upFaves })};
+      }
+      return state;
+    case REMOVE_FAVORITE:
+      let newFaves = merge({}, state.currentUser.favorites);
+      delete newFaves[action.favoriteRestaurant.id];
+      return { currentUser: extend({}, state.currentUser, { favorites: newFaves })};
     default:
       return state;
   }

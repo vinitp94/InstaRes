@@ -141,8 +141,6 @@ class RestaurantForm extends React.Component {
             newImages.push(res.secure_url);
             that.setState({ image_urls: newImages });
           });
-        } else {
-          that.props.receiveRestaurantErrors([err.message]);
         }
       }
     );
@@ -181,7 +179,7 @@ class RestaurantForm extends React.Component {
           <span className='error'>
             {this.renderErrors()}
           </span>
-
+          
           <div className='restaurant-input'>
             <label>Name:
               <input

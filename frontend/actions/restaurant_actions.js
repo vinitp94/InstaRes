@@ -1,4 +1,5 @@
 import * as RestaurantAPIUtil from '../util/restaurant_api_util';
+import { updateFavorite, removeFavorite } from './favorite_actions';
 import { hashHistory } from 'react-router';
 
 export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
@@ -51,6 +52,7 @@ export const updateRestaurant = (rest) => (dispatch) => (
   RestaurantAPIUtil.updateRestaurant(rest)
     .then(uprest => {
         dispatch(receiveRestaurant(uprest));
+        dispatch(updateFavorite(uprest));
         hashHistory.push(`/restaurants/${uprest.id}`);
         },
         err => dispatch(receiveRestaurantErrors(err.responseJSON)))
@@ -58,6 +60,9 @@ export const updateRestaurant = (rest) => (dispatch) => (
 
 export const deleteRestaurant = (id) => (dispatch) => (
   RestaurantAPIUtil.deleteRestaurant(id)
-    .then(remrest => dispatch(removeRestaurant(remrest)),
-          err => dispatch(receiveRestaurantErrors([err.statusText])))
+    .then(remrest => {
+        dispatch(removeRestaurant(remrest));
+        dispatch(removeFavorite(remrest));
+        },
+        err => dispatch(receiveRestaurantErrors([err.statusText])))
 );

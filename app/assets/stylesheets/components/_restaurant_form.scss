@@ -64,14 +64,15 @@
 .image-thumbnails {
   display: flex;
   justify-content: flex-start;
+  flex-wrap: wrap;
 }
 
 .image-thumbnails > li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: -webkit-calc(6%);
-  width: -webkit-calc(15%);
+  margin: 0px -webkit-calc(2%) 10px -webkit-calc(2%);
+  width: -webkit-calc(16%);
 }
 
 .image-thumbnails img {

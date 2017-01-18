@@ -39,12 +39,16 @@ else
   end
 end
 
-if user.favorite_restaurants.empty?
-  json.favorite_restaurants Object.new
+if user.favorites.empty?
+  json.favorites Object.new
 else
-  json.favorite_restaurants do |fave|
-    json.set fave.id do
-      json.extract! fave, :id, :name, :city, :state, :category, :price, :image_urls
+  json.favorites do
+    user.favorites.each do |fave|
+      rest = fave.restaurant
+      json.set! rest.id do
+        json.extract! rest, :id, :name, :city, :state, :category, :price, :image_urls
+        json.favorite_id fave.id
+      end
     end
   end
 end

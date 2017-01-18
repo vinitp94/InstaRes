@@ -4,6 +4,9 @@ import { hashHistory } from 'react-router';
 class RestaurantDetail extends React.Component {
   constructor(props) {
     super(props);
+
+    this.handleFavorite = this.handleFavorite.bind(this);
+    this.handleUnfavorite = this.handleUnfavorite.bind(this);
   }
 
   componentDidMount() {
@@ -23,7 +26,7 @@ class RestaurantDetail extends React.Component {
     if (this.props.currentUser) {
       return (
         <div className='right-title-detail'>
-          <button>Add to Favorites</button>
+          {this.renderFavorite()}
           <button>Add a Review</button>
         </div>
       );
@@ -32,6 +35,29 @@ class RestaurantDetail extends React.Component {
         <div className='right-title-detail'></div>
       );
     }
+  }
+
+  renderFavorite() {
+    if (Object.keys(this.props.currentUser.favorites).includes(this.props.params.restaurantId)) {
+      return <button id='unfavorite' onClick={this.handleUnfavorite}>Unfavorite</button>;
+    } else {
+      return <button onClick={this.handleFavorite}>Add to Favorites</button>;
+    }
+  }
+
+  handleFavorite(e) {
+    e.preventDefault();
+    this.props.createFavorite({
+      user_id: this.props.currentUser.id,
+      restaurant_id: this.props.params.restaurantId
+    });
+  }
+
+  handleUnfavorite(e) {
+    e.preventDefault();
+    let restId = this.props.params.restaurantId;
+    let faveId = this.props.currentUser.favorites[restId].favorite_id;
+    this.props.deleteFavorite(faveId);
   }
 
   priceToSymbol(price) {
