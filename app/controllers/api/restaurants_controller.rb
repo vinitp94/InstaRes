@@ -23,10 +23,12 @@ class Api::RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     @restaurant.update(restaurant_params)
-    debugger
+
+    if params[:restaurant][:image_urls] == 'empty'
+      @restaurant[:image_urls] = []
+    end
+
     if @restaurant.save
-      puts @restaurant.image_urls
-      puts "HELLOIIEWEOIDFJOIE"
       render :show
     else
       render json: @restaurant.errors.full_messages, status: 422
