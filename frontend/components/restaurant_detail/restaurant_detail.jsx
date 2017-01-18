@@ -2,6 +2,11 @@ import React from 'react';
 import ReviewModalContainer from '../review_modal/review_modal_container';
 import { hashHistory } from 'react-router';
 
+const MONTHS = [
+  'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
+  'September', 'October', 'November', 'December'
+];
+
 class RestaurantDetail extends React.Component {
   constructor(props) {
     super(props);
@@ -90,14 +95,25 @@ class RestaurantDetail extends React.Component {
         <ul>
           {reviewArr.map((rev, idx) => (
             <li key={idx + rev}>
-              <a>{this.ratingToStar(rev.rating)}</a>
-              <a>{rev.body}</a>
+              <div id='review-top'>
+                <a>{this.ratingToStar(rev.rating)}</a>
+                {this.renderDate(rev.created_at)}
+              </div>
+              <a id='rev-body'>{rev.body}</a>
             </li>
           ))}
         </ul>
       );
     }
     return;
+  }
+
+  renderDate(timestamp) {
+    let a = new Date(timestamp);
+    let year = a.getYear() + 1900;
+    let month = MONTHS[a.getMonth()];
+    let date = a.getDate();
+    return <a id='timestamp'>{month} - {`${date}`} - {`${year}`}</a>;
   }
 
   renderErrors() {
