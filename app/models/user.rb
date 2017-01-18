@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   has_many(
     :favorites,
-    className: :Favorite,
+    class_name: :Favorite,
     foreign_key: :user_id,
     primary_key: :id
   )

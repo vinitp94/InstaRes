@@ -38,3 +38,13 @@ else
     end
   end
 end
+
+if user.favorite_restaurants.empty?
+  json.favorite_restaurants Object.new
+else
+  json.favorite_restaurants do |fave|
+    json.set fave.id do
+      json.extract! fave, :id, :name, :city, :state, :category, :price, :image_urls
+    end
+  end
+end
