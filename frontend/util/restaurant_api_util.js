@@ -20,13 +20,14 @@ export const createRestaurant = (rest) => (
   })
 );
 
-export const updateRestaurant = (rest) => (
-  $.ajax({
+export const updateRestaurant = (rest) => {
+  debugger
+  return $.ajax({
     method: 'PATCH',
     url: `/api/restaurants/${rest.id}`,
     data: { restaurant: rest }
-  })
-);
+  });
+};
 
 export const deleteRestaurant = (id) => (
   $.ajax({

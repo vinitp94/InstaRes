@@ -49,7 +49,7 @@ export const createRestaurant = (rest) => (dispatch) => (
 
 export const updateRestaurant = (rest) => (dispatch) => (
   RestaurantAPIUtil.updateRestaurant(rest)
-  .then(uprest => {
+    .then(uprest => {
         dispatch(receiveRestaurant(uprest));
         hashHistory.push(`/restaurants/${uprest.id}`);
         },

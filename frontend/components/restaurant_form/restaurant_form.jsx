@@ -41,6 +41,7 @@ class RestaurantForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.cloudinate = this.cloudinate.bind(this);
     this.renderEditImages = this.renderEditImages.bind(this);
+    this.removeImage = this.removeImage.bind(this);
   }
 
   componentDidMount() {
@@ -66,14 +67,20 @@ class RestaurantForm extends React.Component {
     return e => this.setState({ [property]: e.currentTarget.value });
   }
 
-  removeImage() {
-    return e => {
-      let images = this.state.image_urls;
-      debugger
-      delete images[e.currentTarget.value];
-      debugger
-      this.setState({ image_urls: images });
-    };
+  removeImage(e) {
+    e.preventDefault();
+    let images = this.state.image_urls;
+    let toDelete = e.target.previousSibling.src;
+    let newImages = [];
+    // debugger
+    images.forEach(im => {
+      if (im !== toDelete) {
+        newImages.push(im);
+      }
+    });
+    // debugger
+    this.setState({ image_urls: newImages });
+
   }
 
   handleSubmit(e) {
@@ -91,6 +98,11 @@ class RestaurantForm extends React.Component {
     if (this.props.formType === 'new') {
       this.props.createRestaurant(newrest);
     } else {
+      if (newrest.image_urls.length === 0) {
+        newrest.image_urls = 'empty';
+      }
+      // debugger
+      console.log(newrest.image_urls);
       this.props.updateRestaurant(newrest);
     }
   }
@@ -139,15 +151,18 @@ class RestaurantForm extends React.Component {
   }
 
   renderEditImages() {
-    if (this.state.image_urls && this.props.formType === 'edit') {
+    if (this.state.image_urls) {
       let images = this.state.image_urls;
       return (
-        images.map((img, idx) => (
-          <div>
-            <img key={idx} src={img} />
-            <Link onClick={this.removeImage}>Remove</Link>
-          </div>
-        ))
+        <ul>
+          {
+            images.map((img, idx) => (
+              <li key={idx}>
+                <img src={img} />
+                <button type="button" onClick={this.removeImage}>Remove</button>
+              </li>
+          ))}
+        </ul>
       );
     }
     return;

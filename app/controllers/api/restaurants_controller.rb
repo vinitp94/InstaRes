@@ -22,7 +22,11 @@ class Api::RestaurantsController < ApplicationController
   def update
     @restaurant = Restaurant.find(params[:id])
 
-    if @restaurant.update(restaurant_params)
+    @restaurant.update(restaurant_params)
+    debugger
+    if @restaurant.save
+      puts @restaurant.image_urls
+      puts "HELLOIIEWEOIDFJOIE"
       render :show
     else
       render json: @restaurant.errors.full_messages, status: 422
@@ -56,5 +60,11 @@ class Api::RestaurantsController < ApplicationController
     params.require(:restaurant).permit(:name, :address, :city, :state,
       :zip_code, :category, :description, :price, :phone_num, :website_url,
       {image_urls: []}, :owner_id)
+  end
+
+  def update_params
+    params.require(:restaurant).permit(:name, :address, :city, :state,
+      :zip_code, :category, :description, :price, :phone_num, :website_url,
+      :owner_id)
   end
 end
