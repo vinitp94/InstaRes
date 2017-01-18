@@ -105,6 +105,11 @@ input:focus, textarea:focus, select:focus {
 	color: $fill;
 }
 
-// .required-tag {
-// 	color: red;
-// }
+#stars {
+	display: flex;
+}
+
+#stars > li > img {
+	height: 17px;
+	width: 17px;
+}

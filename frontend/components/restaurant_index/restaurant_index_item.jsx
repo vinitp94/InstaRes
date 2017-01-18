@@ -10,6 +10,22 @@ class RestaurantIndexItem extends React.Component {
     return symbol.join('');
   }
 
+  ratingToStar(rating) {
+    let imageCopies = [];
+    for (let i = 0; i < rating; i++) {
+      imageCopies.push("http://res.cloudinary.com/dlhshbg79/image/upload/v1484779138/Logomakr_26JXDI_ssodgb.png");
+    }
+    return (
+      <ul id='stars'>
+        {
+          imageCopies.map((url, idx) => (
+            <li key={idx}><img src={url} /></li>
+          ))
+        }
+      </ul>
+    );
+  }
+
   render () {
     return (
       <li className='restaurant-index-item'>
@@ -32,7 +48,7 @@ class RestaurantIndexItem extends React.Component {
           </div>
 
           <div className='right-caption'>
-            <a>{this.props.restaurant.ave_rating}</a>
+            <a>{this.ratingToStar(this.props.restaurant.ave_rating)}</a>
             <a id='num-reviews'>{this.props.restaurant.num_reviews} Reviews</a>
           </div>
         </div>
