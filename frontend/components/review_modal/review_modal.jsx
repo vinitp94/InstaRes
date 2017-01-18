@@ -7,7 +7,7 @@ class ReviewModal extends React.Component {
     super(props);
 
     this.state = {
-      rating: 0,
+      rating: 1,
       body: "",
       modalOpen: false,
     };
@@ -63,19 +63,43 @@ class ReviewModal extends React.Component {
           style={ModalStyle}
           contentLabel='Review Modal'>
 
-          <h2>Add Review</h2>
-
           <form className='review-form' onSubmit={this.handleSubmit}>
+            <h2>Add Review</h2>
+
             <span className='error'>
               {this.renderErrors()}
             </span>
 
+            <div className='rating'>
+              <input type='radio' id='star5' value='5'
+                checked={this.state.rating.toString() === '5'}
+                onChange={this.update('rating')}/>
+              <label htmlFor='star5' title='text'>5 stars</label>
+              <input type='radio' id='star4' value='4'
+                checked={this.state.rating.toString() === '4'}
+                onChange={this.update('rating')}/>
+              <label htmlFor='star4' title='text'>4 stars</label>
+              <input type='radio' id='star3' value='3'
+                checked={this.state.rating.toString() === '3'}
+                onChange={this.update('rating')}/>
+              <label htmlFor='star3' title='text'>3 stars</label>
+              <input type='radio' id='star2' value='2'
+                checked={this.state.rating.toString() === '2'}
+                onChange={this.update('rating')}/>
+              <label htmlFor='star2' title='text'>2 stars</label>
+              <input type='radio' id='star1' value='1'
+                checked={this.state.rating.toString() === '1'}
+                onChange={this.update('rating')}/>
+              <label htmlFor='star1' title='text'>1 star</label>
+            </div>
+
             <div className='review-input'>
-              <input
+              <textarea
                 type='text'
                 placeholder='Review Body'
                 value={this.state.body}
                 onChange={this.update('body')}
+                rows='6' cols='50'
                 autoFocus/>
             </div>
 

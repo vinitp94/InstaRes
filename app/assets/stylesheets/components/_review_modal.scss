@@ -1,0 +1,62 @@
+.review-form {
+  padding: 30px 30px 30px 30px;
+  border: 3px outset $fill;
+}
+
+.review-modal > button {
+  width: auto;
+  margin: 0px 0px 0px 20px;
+  padding: 5px;
+  font-size: 10px;
+  background: white;
+  color: $dark-main;
+  min-width: 120px;
+  min-height: 25px;
+}
+
+.review-modal > button:hover {
+  background: $light-fill;
+}
+
+.review-modal > button:active {
+  background: $fill;
+}
+
+.review-form > h2 {
+  margin-bottom: 12px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  height: 55px;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: $fill;
+}
+
+.rating:not(:checked) > label:before { content: '★ '; }
+
+.rating > input:checked ~ label { color: $dark-main; }
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label { color: $hover-main; }
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label { color: $dark-main; }

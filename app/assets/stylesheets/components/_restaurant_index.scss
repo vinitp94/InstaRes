@@ -59,7 +59,7 @@
   justify-content: space-between;
   align-items: flex-end;
   border-bottom: 1px solid $hover-main;
-  margin: 5px 0px 50px 0px;
+  margin: 15px 0px 60px 0px;
   padding: 5px;
   font-size: 14px;
   color: $dark-fill;
@@ -121,7 +121,7 @@
 
 .slick-arrow.slick-next {
   opacity: 0 !important;
-  right: 20px;
+  right: 35px;
   z-index: 10;
   -webkit-transition: all 0.20s ease-in-out;
   -moz-transition: all 0.20s ease-in-out;
@@ -132,11 +132,11 @@
 }
 
 .carousel-container:hover .slick-arrow.slick-prev {
-  opacity: 1 !important;
+  opacity: 0.8 !important;
 }
 
 .carousel-container:hover .slick-arrow.slick-next {
-  opacity: 1 !important;
+  opacity: 0.8 !important;
 }
 
 .slick-arrow.slick-prev:before {
