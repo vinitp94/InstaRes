@@ -1,4 +1,4 @@
-// TODO: fade in arrows on hover AND change arrow font....
+// TODO: fix ARROWS
 
 .index-page {
   display: flex;
@@ -65,6 +65,10 @@
   color: $dark-fill;
 }
 
+.restaurant-index-item {
+  overflow: hidden;
+}
+
 .right-caption {
   display: flex;
   flex-direction: column;
@@ -98,6 +102,10 @@
 .carousel-container {
   border-bottom: 1px solid $accent;
   box-sizing: border-box;
+  background: black;
+  width: 36vw;
+  height: 24vw;
+  overflow: hidden;
 }
 
 .slick-arrow.slick-prev {
@@ -107,6 +115,8 @@
   -webkit-transition: all 0.20s ease-in-out;
   -moz-transition: all 0.20s ease-in-out;
   -ms-transition: all 0.20s ease-in-out;
+  // position: relative;
+  // top: 12vw;
 }
 
 .slick-arrow.slick-next {
@@ -116,6 +126,9 @@
   -webkit-transition: all 0.20s ease-in-out;
   -moz-transition: all 0.20s ease-in-out;
   -ms-transition: all 0.20s ease-in-out;
+  // position: relative;
+  // left: 31.5vw;
+  // bottom: 14.7vw;
 }
 
 .carousel-container:hover .slick-arrow.slick-prev {
@@ -130,7 +143,6 @@
   content: '\f053';
   font-family: FontAwesome;
   font-size: 25px;
-
   opacity: 0.7;
   color: white;
   text-shadow: 3px 0px 6px black;

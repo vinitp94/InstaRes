@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { Link } from 'react-router';
-import { sessionModalStyle } from './session_modal_styles';
+import { ModalStyle } from '../modal_styles';
 
 // TODO: NO AUTOFOCUS ON THE SIGNUP, ONLY LOGIN
 
@@ -17,13 +17,13 @@ class SessionModal extends React.Component {
       formType: this.props.formType
     };
 
-    this._handleClick = this._handleClick.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleGuest = this.handleGuest.bind(this);
   }
 
-  _handleClick() {
+  handleClick() {
     this.setState({ modalOpen: true });
   }
 
@@ -131,14 +131,14 @@ class SessionModal extends React.Component {
   render() {
     return (
       <div className='session-modal'>
-        <Link onClick={this._handleClick}>
+        <Link onClick={this.handleClick}>
           {this.props.buttonLabel}
         </Link>
 
         <Modal
           isOpen={this.state.modalOpen}
           onRequestClose={this.closeModal}
-          style={sessionModalStyle}
+          style={ModalStyle}
           contentLabel='Auth Modal'>
 
           <form className='session-form' onSubmit={this.handleSubmit}>

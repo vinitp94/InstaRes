@@ -1,4 +1,5 @@
 import React from 'react';
+import ReviewModalContainer from '../review_modal/review_modal_container';
 import { hashHistory } from 'react-router';
 
 class RestaurantDetail extends React.Component {
@@ -27,7 +28,7 @@ class RestaurantDetail extends React.Component {
       return (
         <div className='right-title-detail'>
           {this.renderFavorite()}
-          <button>Add a Review</button>
+          <ReviewModalContainer />
         </div>
       );
     } else {

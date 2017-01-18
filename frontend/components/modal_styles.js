@@ -1,4 +1,4 @@
-export const sessionModalStyle = {
+export const ModalStyle = {
   overlay : {
     position        : 'fixed',
     top             : 0,
