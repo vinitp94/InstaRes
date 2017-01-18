@@ -22,7 +22,7 @@ const RestaurantIndexReducer = (state = {}, action) => {
       delete newState[action.restaurant.id];
       return newState;
     case RECEIVE_REVIEW:
-      if (Object.keys(state).includes(action.review.restaurant_id)) {
+      if (Object.keys(state).includes(`${action.review.restaurant_id}`)) {
         let rest = state[action.review.restaurant_id];
         rest.ave_rating = action.review.ave_rating;
         rest.num_reviews = action.review.num_reviews;
