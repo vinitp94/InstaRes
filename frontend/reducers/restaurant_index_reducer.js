@@ -22,15 +22,21 @@ const RestaurantIndexReducer = (state = {}, action) => {
       delete newState[action.restaurant.id];
       return newState;
     case RECEIVE_REVIEW:
-      let rest = state[action.review.restaurant_id];
-      rest.ave_rating = action.review.ave_rating;
-      rest.num_reviews = action.review.num_reviews;
-      return merge({}, state, { [action.review.restaurant_id]: rest });
+      if (Object.keys(state).includes(action.review.restaurant_id)) {
+        let rest = state[action.review.restaurant_id];
+        rest.ave_rating = action.review.ave_rating;
+        rest.num_reviews = action.review.num_reviews;
+        return merge({}, state, { [action.review.restaurant_id]: rest });
+      }
+      return state;
     case REMOVE_REVIEW:
-      let copyRest = state[action.review.restaurant_id];
-      rest.ave_rating = action.review.ave_rating;
-      rest.num_reviews = action.review.num_reviews;
-      return merge({}, state, { [action.review.restaurant_id]: copyRest });
+      if (Object.keys(state).includes(action.review.restaurant_id)) {
+        let copyRest = state[action.review.restaurant_id];
+        copyRest.ave_rating = action.review.ave_rating;
+        copyRest.num_reviews = action.review.num_reviews;
+        return merge({}, state, { [action.review.restaurant_id]: copyRest });
+      }
+      return state;
     default:
       return state;
   }

@@ -10,8 +10,8 @@ import configureStore from './store/store';
 import { login } from './util/session_api_util';
 // import { fetchRestaurant } from './util/restaurant_api_util';
 import { fetchRestaurant, createRestaurant, deleteRestaurant } from './actions/restaurant_actions';
-import { createReview, deleteReview } from './util/review_api_util';
-// import { createReview, deleteReview } from './actions/review_actions';
+// import { createReview, deleteReview } from './util/review_api_util';
+import { createReview, deleteReview } from './actions/review_actions';
 import { merge, extend } from 'lodash';
 
 document.addEventListener('DOMContentLoaded', () => {
