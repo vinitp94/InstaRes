@@ -87,6 +87,14 @@
   padding-right: 15px;
 }
 
+#review-title {
+  display: flex;
+}
+
+#review-title > ul {
+  margin-right: 10px;
+}
+
 #review-title > a:last-child {
   font-style: italic;
 }

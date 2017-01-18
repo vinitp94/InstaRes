@@ -90,7 +90,7 @@ class RestaurantDetail extends React.Component {
         <ul>
           {reviewArr.map((rev, idx) => (
             <li key={idx + rev}>
-              <a>{rev.rating}</a>
+              <a>{this.ratingToStar(rev.rating)}</a>
               <a>{rev.body}</a>
             </li>
           ))}
@@ -112,6 +112,22 @@ class RestaurantDetail extends React.Component {
     );
   }
 
+  ratingToStar(rating) {
+    let imageCopies = [];
+    for (let i = 0; i < rating; i++) {
+      imageCopies.push("http://res.cloudinary.com/dlhshbg79/image/upload/v1484779138/Logomakr_26JXDI_ssodgb.png");
+    }
+    return (
+      <ul id='stars'>
+        {
+          imageCopies.map((url, idx) => (
+            <li key={idx}><img src={url} /></li>
+          ))
+        }
+      </ul>
+    );
+  }
+
   render() {
     if (this.props.errors.length === 0) {
       return (
@@ -125,7 +141,7 @@ class RestaurantDetail extends React.Component {
               <h1>{this.props.restaurant.name}</h1>
 
               <div id='review-title'>
-                <a>{this.props.restaurant.ave_rating}</a>
+                {this.ratingToStar(this.props.restaurant.ave_rating)}
                 <a>{this.props.restaurant.num_reviews} Reviews</a>
               </div>
 
