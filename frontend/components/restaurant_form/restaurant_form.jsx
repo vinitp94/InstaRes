@@ -138,7 +138,7 @@ class RestaurantForm extends React.Component {
         if (!err) {
           results.forEach(res => {
             let newImages = that.state.image_urls;
-            newImages.push(res.secure_url);
+            newImages.push(res.thumbnail_url);
             that.setState({ image_urls: newImages });
           });
         }
@@ -179,7 +179,7 @@ class RestaurantForm extends React.Component {
           <span className='error'>
             {this.renderErrors()}
           </span>
-          
+
           <div className='restaurant-input'>
             <label>Name:
               <input
@@ -313,7 +313,7 @@ class RestaurantForm extends React.Component {
 
           <div className='upload-button-container'>
             <button id='image-button' onClick={this.cloudinate}>
-              Upload Image
+              Upload Images
             </button>
           </div>
 

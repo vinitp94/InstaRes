@@ -17,6 +17,7 @@
         cloud_name: '<%= ENV['CLOUDINARY_CLOUD_NAME'] %>',
         upload_preset: '<%= ENV['CLOUDINARY_UPLOAD_PRESET'] %>',
         sources: ['local', 'url'],
+        thumbnail_transformation: { width: 300, height: 200, crop: 'fill' },
         theme: 'minimal'
       };
     </script>
