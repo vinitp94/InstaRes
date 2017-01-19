@@ -37,7 +37,7 @@ button {
 	border-style: solid;
 	border-width: thin;
 	border-color: $dark-main;
-	border-radius: 2px;
+	// border-radius: 2px;
 	text-transform: uppercase;
 	font-size: 16px;
   padding: 12px 0px;
@@ -74,7 +74,7 @@ input, textarea, select {
 	margin: 7px 0;
 	background-color: $light-fill;
 	border: 1px solid $dark-fill;
-	border-radius: 2px;
+	// border-radius: 2px;
 	-webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 	box-sizing: border-box;
@@ -83,9 +83,22 @@ input, textarea, select {
   -ms-transition: all 0.30s ease-in-out;
 }
 
+select {
+  border: 0;
+  outline: 1px solid $dark-fill;
+  background-color: $light-fill;
+	height: 48px;
+}
+
 input:focus, textarea:focus, select:focus {
 	box-shadow: 0 0 10px $accent;
 	border: 1px solid $main;
+	background-color: white;
+}
+
+select:focus {
+	border: 0;
+	outline: 1px solid $dark-fill;
 	background-color: white;
 }
 

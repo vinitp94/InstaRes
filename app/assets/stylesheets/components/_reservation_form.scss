@@ -2,15 +2,11 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .reservation-input > select {
   margin-left: -webkit-calc(2%);
-  border-radius: 0px;
-}
-
-.reservation-input > input[type=date] {
-  border-radius: 5px;
 }
 
 #message {
