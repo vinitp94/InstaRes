@@ -1,11 +1,9 @@
-// TODO: fix ARROWS
-
 .index-page {
   display: flex;
   justify-content: space-between;
-  padding-top: 80px;
-  height: -webkit-calc(100vh - 130px);
-  height: -moz-calc(100vh - 130px);
+  padding-top: 60px;
+  height: -webkit-calc(100vh - 110px);
+  height: -moz-calc(100vh - 110px);
 }
 
 .restaurant-index {
@@ -14,7 +12,6 @@
 }
 
 .restaurant-search-form-container {
-  // background: linear-gradient(rgba(46,47,48,0.75), white);
   color: black;
   height: 120px;
   padding: 0px -webkit-calc(20% + 17px) 0px -webkit-calc(20%);
@@ -35,9 +32,9 @@
 }
 
 .index-list {
-  height: -webkit-calc(100vh - 250px);
-  height: -moz-calc(100vh - 250px);
-  padding-right: -webkit-calc(3%);
+  height: -webkit-calc(100vh - 230px);
+  height: -moz-calc(100vh - 230px);
+  padding-right: -webkit-calc(2%);
   overflow-y: scroll;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
