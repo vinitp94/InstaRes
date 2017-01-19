@@ -4,10 +4,40 @@
   height: -moz-calc(100vh - 110px);
 }
 
-.user-profile > div {
-  padding: 30px -webkit-calc(12%);
-  border-bottom: 1px solid $hover-main;
+.profile-tabs {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  border-bottom: 1px solid $light-fill;
 }
+
+.profile-tabs > button {
+  background: white;
+  color: $fill;
+  border: none;
+  padding: 10px 0px;
+  margin: 0px;
+  width: 20vw;
+  border-bottom: 1px solid $dark-fill;
+}
+
+#selected-tab {
+  text-decoration: underline;
+  color: $dark-main;
+  border-top: 2px solid $accent;
+  border-right: 1px solid $dark-fill;
+  border-left: 1px solid $dark-fill;
+  border-bottom: 1px solid white;
+}
+
+.profile-data {
+    padding: 30px -webkit-calc(12%);
+}
+
+// .user-profile > div {
+//   padding: 30px -webkit-calc(12%);
+//   border-bottom: 1px solid $hover-main;
+// }
 
 // .reviews > ul > li {
 //   padding-bottom: 20px;

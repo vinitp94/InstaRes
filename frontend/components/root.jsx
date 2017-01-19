@@ -35,13 +35,13 @@ const Root = ({store}) => {
   return (
     <Provider store={store}>
       <Router history={hashHistory}>
-        <Route path='/' component={ App } >
+        <Route path='/' component={ App }>
           <IndexRoute component={ Home } />
-          <Route path='/restaurants' component={ RestaurantIndexContainer } onLeave={_clearErrors}/>
-          <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} onLeave={_clearErrors}/>
-          <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireUser} onLeave={_clearErrors}/>
-          <Route path='/restaurants/:restaurantId' component={ RestaurantDetailContainer } onLeave={_clearErrors}/>
-          <Route path='/profile' component={ UserProfileContainer } onEnter={_requireLogin}/>
+          <Route path='/restaurants' component={ RestaurantIndexContainer } onLeave={_clearErrors} />
+          <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} onLeave={_clearErrors} />
+          <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireUser} onLeave={_clearErrors} />
+          <Route path='/restaurants/:restaurantId' component={ RestaurantDetailContainer } onLeave={_clearErrors} />
+          <Route path='/profile' component={ UserProfileContainer } onEnter={_requireLogin} />
         </Route>
       </Router>
     </Provider>

@@ -47,8 +47,8 @@
 .right-title-detail > button {
   font-size: 10px;
   margin: 0px 0px 0px 20px;
-  background: white;
-  color: $dark-main;
+  background: linear-gradient($dark-main, $main);
+  color: white;
   padding: 5px;
   min-height: 25px;
   min-width: 120px;
@@ -134,11 +134,16 @@
 }
 
 #unfavorite {
-  background: $dark-main;
-  color: white;
+  background: white;
+  color: $dark-main;
+}
+
+#unfavorite:hover {
+  background: $light-fill;
+  color: $dark-main;
 }
 
 #unfavorite:active {
-  background: $light-fill;
+  background: $fill;
   color: $dark-main;
 }
