@@ -13,6 +13,6 @@ class Reservation < ApplicationRecord
     :restaurant,
     class_name: :Restaurant,
     foreign_key: :restaurant_id,
-    class_name: :id
+    primary_key: :id
   )
 end

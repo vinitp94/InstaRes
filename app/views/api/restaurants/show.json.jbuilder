@@ -28,3 +28,15 @@ else
     end
   end
 end
+
+if @restaurant.reservations.empty?
+  json.reservations Object.new
+else
+  json.reservations do
+    @restaurant.reservations.each do |reserve|
+      json.set! reserve.id do
+        json.extract! reserve, :id, :slot, :party_size
+      end
+    end
+  end
+end

@@ -52,3 +52,18 @@ else
     end
   end
 end
+
+if user.reservations.empty?
+  json.reservations Object.new
+else
+  json.reservations do
+    user.reservations.each do |reserve|
+      rest = reserve.restaurant
+      json.set! reserve.id do
+        json.extract! reserve, :id, :slot, :party_size, :restaurant_id
+        json.image_urls = rest.image_urls
+        json.name = rest.name
+      end
+    end
+  end
+end
