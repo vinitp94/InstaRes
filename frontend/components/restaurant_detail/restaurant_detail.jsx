@@ -216,7 +216,7 @@ class RestaurantDetail extends React.Component {
             </div>
           </div>
 
-          <div className='review-detail'>
+          <div id='review-detail'>
             <h2>Reviews</h2>
             {this.renderReviews()}
           </div>
