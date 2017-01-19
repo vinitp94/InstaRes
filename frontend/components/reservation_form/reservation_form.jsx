@@ -65,13 +65,17 @@ class ReservationForm extends React.Component {
     ));
   }
 
-  renderMessage() {
+  renderMessage(numSlots) {
     if (!this.props.currentUser) {
       return <a id='message'>Login to book!</a>;
     } else if (this.props.currentUser.id === this.props.restaurant.owner_id) {
       return <a id='message'>Check out how people reviewed your restaurant!</a>;
-    } else if (this.state.date === "") {
+    } else if (this.state.date === "" || this.state.party_size === "") {
       return <a id='message'>Pick a date and party size!</a>;
+    } else if (numSlots === 0) {
+      return <a id='message'>We're sorry! There are no available slots for this date.</a>;
+    } else if (numSlots < 5) {
+      return <a id='message'>Hurry! Only {`${numSlots}`} slots left!</a>;
     }
     return;
   }
@@ -149,22 +153,34 @@ class ReservationForm extends React.Component {
         this.props.restaurant.owner_id ||this.state.date === "" ||
         this.state.party_size === "") {
       return (
-        <div className='booking-buttons'>
-          <button disabled>---</button>
-          <button disabled>---</button>
-          <button disabled>{this.state.slot}</button>
-          <button disabled>---</button>
-          <button disabled>---</button>
+        <div className='bookings'>
+          <div className='booking-buttons'>
+            <button disabled>---</button>
+            <button disabled>---</button>
+            <button disabled>{this.state.slot}</button>
+            <button disabled>---</button>
+            <button disabled>---</button>
+          </div>
+
+          <div>
+            {this.renderMessage(openSlots.length)}
+          </div>
         </div>
       );
     } else {
       return (
-        <div className='booking-buttons'>
-          {
-            openSlots.map((sl, idx) => (
-              <button key={idx} onClick={this.handleSubmit.bind(this, sl)}>{sl}</button>
-            ))
-          }
+        <div className='bookings'>
+          <div className='booking-buttons'>
+            {
+              openSlots.map((sl, idx) => (
+                <button key={idx} onClick={this.handleSubmit.bind(this, sl)}>{sl}</button>
+              ))
+            }
+          </div>
+
+          <div>
+            {this.renderMessage(openSlots.length)}
+          </div>
         </div>
       );
     }
@@ -200,7 +216,6 @@ class ReservationForm extends React.Component {
         </div>
 
         {this.renderButtons()}
-        {this.renderMessage()}
       </div>
     );
   }
