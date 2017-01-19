@@ -62,23 +62,6 @@
   background: $fill;
 }
 
-.booking-buttons {
-  display: flex;
-}
-
-.booking-buttons > button {
-  padding: 9px 0px;
-  font-size: 13px;
-}
-
-.booking-buttons > button:not(:last-child) {
-  margin: 7px 30px 7px 0px;
-}
-
-.booking-buttons > button:last-child {
-  margin-right: 0px;
-}
-
 .left-title-detail > * {
   padding-bottom: 5px;
 }
@@ -148,4 +131,14 @@
 #review-detail {
   padding-bottom: 70px;
   margin-bottom: 30px;
+}
+
+#unfavorite {
+  background: $fill;
+  color: white;
+}
+
+#unfavorite:active {
+  background: $light-fill;
+  color: $dark-main;
 }

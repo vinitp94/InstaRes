@@ -7,6 +7,12 @@ const TIME_SLOTS = [
   '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'
 ];
 
+const TIME_MAP = {
+  '11:00 AM': 11, '12:00 PM': 12, '1:00 PM': 13, '2:00 PM': 14, '3:00 PM': 15,
+  '4:00 PM': 16, '5:00 PM': 17, '6:00 PM': 18, '7:00 PM': 19, '8:00 PM': 20,
+  '9:00 PM': 21, '10:00 PM': 22
+};
+
 const PARTY = [1, 2, 3, 4, 5, 6, 7, 8];
 
 class ReservationForm extends React.Component {
@@ -15,7 +21,7 @@ class ReservationForm extends React.Component {
 
     this.state = {
       date: "",
-      slot: "",
+      slot: "8:00 PM",
       party_size: ""
     };
 
@@ -26,8 +32,10 @@ class ReservationForm extends React.Component {
     return e => this.setState({ [property]: e.currentTarget.value });
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
+  handleSubmit() {
+    return e => {
+
+    };
   }
 
   renderTimeSlots() {
@@ -45,6 +53,10 @@ class ReservationForm extends React.Component {
   renderMessage() {
     if (!this.props.currentUser) {
       return <a id='message'>Login To Book!</a>;
+    } else if (this.props.currentUser.id === this.props.restaurant.owner_id) {
+      return <a id='message'>Check out how people reviewed your restaurant!</a>;
+    } else if (this.state.date === "") {
+      return <a id='message'>Pick a Date!</a>;
     }
     return;
   }
@@ -63,27 +75,46 @@ class ReservationForm extends React.Component {
     return `${year}-${month}-${date}`;
   }
 
-  renderButtons() {
-    let reserves = this.props.restaurant.reservations;
+  findOpenSlots() {
+    let taken;
+    if (Object.keys(this.props.restaurant).length > 0) {
+      taken = Object.keys(this.props.restaurant.reservations).map(resId =>(
+        (new Date(this.props.restaurant.reservations[resId].slot)).getTime()
+      ));
+    }
+
+    let parsedDate = this.state.date.split('-');
+    let year = parseInt(parsedDate[0]);
+    let month = parseInt(parsedDate[1]) - 1;
+    let day = parseInt(parsedDate[2]);
+    let hour = TIME_MAP[this.state.slot];
+    let requestedSlot = (new Date(year, month, day, hour)).getTime();
+
     
-    if (this.props.currentUser) {
+  }
+
+  renderButtons() {
+    let openSlots = this.findOpenSlots();
+
+    if (!this.props.currentUser || this.props.currentUser.id ===
+        this.props.restaurant.owner_id ||this.state.date === "") {
       return (
         <div className='booking-buttons'>
-          <button>Button</button>
-          <button>Button</button>
-          <button>Button</button>
-          <button>Button</button>
-          <button>Button</button>
+          <button disabled>---</button>
+          <button disabled>---</button>
+          <button disabled>{this.state.slot}</button>
+          <button disabled>---</button>
+          <button disabled>---</button>
         </div>
       );
     } else {
       return (
         <div className='booking-buttons'>
-          <button disabled>Button</button>
-          <button disabled>Button</button>
-          <button disabled>Button</button>
-          <button disabled>Button</button>
-          <button disabled>Button</button>
+          {
+            openSlots.map((sl, idx) => (
+              <button onClick={this.handleSubmit(sl)}>{sl}</button>
+            ))
+          }
         </div>
       );
     }
@@ -105,7 +136,6 @@ class ReservationForm extends React.Component {
             id='timeslot'
             value={this.state.slot}
             onChange={this.update('slot')}>
-            <option value="" disabled selected>Time Slot</option>
             {this.renderTimeSlots()}
           </select>
 
@@ -119,9 +149,8 @@ class ReservationForm extends React.Component {
           </select>
         </div>
 
-        {this.renderMessage()}
-
         {this.renderButtons()}
+        {this.renderMessage()}
       </div>
     );
   }
