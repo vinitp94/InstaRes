@@ -1,0 +1,20 @@
+.reservation-input {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.reservation-input > select {
+  margin-left: -webkit-calc(2%);
+  border-radius: 0px;
+}
+
+.reservation-input > input[type=date] {
+  border-radius: 5px;
+}
+
+#message {
+  font-size: 16px;
+  font-style: italic;
+  color: $dark-main;
+}

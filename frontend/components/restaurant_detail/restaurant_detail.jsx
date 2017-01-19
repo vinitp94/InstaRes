@@ -1,5 +1,6 @@
 import React from 'react';
 import ReviewModalContainer from '../review_modal/review_modal_container';
+import ReservationFormContainer from '../reservation_form/reservation_form_container';
 import { hashHistory } from 'react-router';
 
 const MONTHS = [
@@ -174,15 +175,7 @@ class RestaurantDetail extends React.Component {
           </div>
 
           <div className='booking-form-detail'>
-            Reservation form will go here!
-          </div>
-
-          <div className='booking-buttons'>
-            <button>Button</button>
-            <button>Button</button>
-            <button>Button</button>
-            <button>Button</button>
-            <button>Button</button>
+            <ReservationFormContainer />
           </div>
 
           <div className='description'>
