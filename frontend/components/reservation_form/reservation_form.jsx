@@ -32,9 +32,13 @@ class ReservationForm extends React.Component {
     return e => this.setState({ [property]: e.currentTarget.value });
   }
 
-  handleSubmit() {
+  handleSubmit(timeSlot) {
+    console.log(this);
+    debugger
     return e => {
-
+      console.log(e);
+      debugger
+      let a = timeSlot;
     };
   }
 
@@ -52,11 +56,11 @@ class ReservationForm extends React.Component {
 
   renderMessage() {
     if (!this.props.currentUser) {
-      return <a id='message'>Login To Book!</a>;
+      return <a id='message'>Login to book!</a>;
     } else if (this.props.currentUser.id === this.props.restaurant.owner_id) {
       return <a id='message'>Check out how people reviewed your restaurant!</a>;
     } else if (this.state.date === "") {
-      return <a id='message'>Pick a Date!</a>;
+      return <a id='message'>Pick a date and party size!</a>;
     }
     return;
   }
@@ -76,7 +80,7 @@ class ReservationForm extends React.Component {
   }
 
   findOpenSlots() {
-    let taken;
+    let taken = [];
     if (Object.keys(this.props.restaurant).length > 0) {
       taken = Object.keys(this.props.restaurant.reservations).map(resId =>(
         (new Date(this.props.restaurant.reservations[resId].slot)).getTime()
@@ -87,17 +91,32 @@ class ReservationForm extends React.Component {
     let year = parseInt(parsedDate[0]);
     let month = parseInt(parsedDate[1]) - 1;
     let day = parseInt(parsedDate[2]);
-    let hour = TIME_MAP[this.state.slot];
-    let requestedSlot = (new Date(year, month, day, hour)).getTime();
+    let validSlots = [];
 
-    
+    TIME_SLOTS.forEach(slot => {
+      let slotHour = TIME_MAP[slot];
+      let timeCode = (new Date(year, month, day, slotHour)).getTime();
+      if (!taken.includes(timeCode)) {
+        validSlots.push(slot);
+      }
+    });
+    return this.pickFive(validSlots);
+  }
+
+  pickFive(availSlots) {
+    let final = [];
+    let middle = this.state.date;
+
+    // TODO FIX this
+    return ['11:00 AM', '12:00 PM', '2:00 PM', '6:00 PM', '9:00 PM'];
   }
 
   renderButtons() {
     let openSlots = this.findOpenSlots();
 
     if (!this.props.currentUser || this.props.currentUser.id ===
-        this.props.restaurant.owner_id ||this.state.date === "") {
+        this.props.restaurant.owner_id ||this.state.date === "" ||
+        this.state.party_size === "") {
       return (
         <div className='booking-buttons'>
           <button disabled>---</button>
@@ -112,7 +131,7 @@ class ReservationForm extends React.Component {
         <div className='booking-buttons'>
           {
             openSlots.map((sl, idx) => (
-              <button onClick={this.handleSubmit(sl)}>{sl}</button>
+              <button key={idx} onClick={(e) => this.handleSubmit(sl)}>{sl}</button>
             ))
           }
         </div>
