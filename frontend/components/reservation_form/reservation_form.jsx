@@ -1,7 +1,5 @@
 import React from 'react';
 
-// TODO: FIGURE OUT DATES
-
 const TIME_SLOTS = [
   '11:00 AM', '12:00 PM', '1:00 PM', '2:00 PM', '3:00 PM', '4:00 PM',
   '5:00 PM', '6:00 PM', '7:00 PM', '8:00 PM', '9:00 PM', '10:00 PM'
@@ -33,13 +31,7 @@ class ReservationForm extends React.Component {
   }
 
   handleSubmit(timeSlot) {
-    console.log(this);
-    debugger
-    return e => {
-      console.log(e);
-      debugger
-      let a = timeSlot;
-    };
+
   }
 
   renderTimeSlots() {
@@ -104,11 +96,21 @@ class ReservationForm extends React.Component {
   }
 
   pickFive(availSlots) {
-    let final = [];
-    let middle = this.state.date;
+    let numSlots = availSlots.length;
 
-    // TODO FIX this
-    return ['11:00 AM', '12:00 PM', '2:00 PM', '6:00 PM', '9:00 PM'];
+    if (numSlots < 6) {
+      return availSlots;
+    }
+
+    let midIdx = availSlots.indexOf(this.state.slot);
+
+    if (midIdx === 0 || midIdx === 1) {
+      return availSlots.slice(0, 5);
+    } else if (midIdx === (numSlots - 1) || midIdx === (numSlots - 2)) {
+      return availSlots.slice(numSlots - 5, numSlots);
+    } else {
+      return availSlots.slice(midIdx - 2, midIdx + 3);
+    }
   }
 
   renderButtons() {
@@ -131,7 +133,7 @@ class ReservationForm extends React.Component {
         <div className='booking-buttons'>
           {
             openSlots.map((sl, idx) => (
-              <button key={idx} onClick={(e) => this.handleSubmit(sl)}>{sl}</button>
+              <button key={idx} onClick={this.handleSubmit.bind(this, sl)}>{sl}</button>
             ))
           }
         </div>
