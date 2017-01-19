@@ -1,5 +1,6 @@
 import { RECEIVE_RESTAURANT, REMOVE_RESTAURANT } from '../actions/restaurant_actions';
 import { RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions';
+import { RECEIVE_RESERVATION, REMOVE_RESERVATION } from '../actions/reservation_actions';
 import { merge } from 'lodash';
 
 const RestaurantDetailReducer = (state = {}, action) => {
@@ -27,6 +28,16 @@ const RestaurantDetailReducer = (state = {}, action) => {
       copyRest.num_reviews = action.review.num_reviews;
       delete copyRest.reviews[action.review.id];
       return copyRest;
+    case RECEIVE_RESERVATION:
+      let newReserve = merge({}, state.reservations, { [action.reservation.id]: {
+        id: action.reservation.id,
+        party_size: action.reservation.party_size,
+        slot: action.reservation.slot }});
+      return merge({}, state, { reservations: newReserve });
+    case REMOVE_RESERVATION:
+      let copyReserve = merge({}, state);
+      delete copyReserve.reservations[action.reservation.id];
+      return copyReserve;
     default:
       return state;
   }

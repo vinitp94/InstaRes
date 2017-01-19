@@ -2,6 +2,7 @@ import { RECEIVE_CURRENT_USER } from '../actions/session_actions';
 import { RECEIVE_RESTAURANT, REMOVE_RESTAURANT } from '../actions/restaurant_actions';
 import { RECEIVE_REVIEW, REMOVE_REVIEW } from '../actions/review_actions';
 import { RECEIVE_FAVORITE, UPDATE_FAVORITE, REMOVE_FAVORITE } from '../actions/favorite_actions';
+import { RECEIVE_RESERVATION, REMOVE_RESERVATION } from '../actions/reservation_actions';
 import { merge, extend } from 'lodash';
 
 const _nullState = Object.freeze({
@@ -72,6 +73,19 @@ const SessionReducer = (state = _nullState, action) => {
       let newFaves = merge({}, state.currentUser.favorites);
       delete newFaves[action.favoriteRestaurant.id];
       return { currentUser: extend({}, state.currentUser, { favorites: newFaves })};
+    case RECEIVE_RESERVATION:
+      let newReserve = merge({}, state.currentUser.reservations, { [action.reservation.id]: {
+        id: action.reservation.id,
+        slot: action.reservation.slot,
+        party_size: action.reservation.party_size,
+        restaurant_id: action.reservation.restaurant_id,
+        image_urls: action.reservation.image_urls,
+        name: action.reservation.name }});
+      return { currentUser: extend({}, state.currentUser, { reservations: newReserve })};
+    case REMOVE_RESERVATION:
+      let newReservations = merge({}, state.currentUser.reservations);
+      delete newReservations[action.reservation.id];
+      return { currentUser: extend({}, state.currentUser, { reservations: newReservations })};
     default:
       return state;
   }

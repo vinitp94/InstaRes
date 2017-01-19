@@ -12,6 +12,7 @@ import { login } from './util/session_api_util';
 import { fetchRestaurant, createRestaurant, deleteRestaurant } from './actions/restaurant_actions';
 // import { createReview, deleteReview } from './util/review_api_util';
 import { createReview, deleteReview } from './actions/review_actions';
+import { createReservation, deleteReservation } from './actions/reservation_actions';
 import { merge, extend } from 'lodash';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -31,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
   window.extend = extend;
   window.createReview = createReview;
   window.deleteReview = deleteReview;
+  window.createReservation = createReservation;
+  window.deleteReservation = deleteReservation;
 
 
   const root = document.getElementById('root');

@@ -15,7 +15,7 @@ export const removeReservation = (reservation) => ({
 
 export const createReservation = (reserve) => (dispatch) => (
   ReservationAPIUitl.createReservation(reserve)
-    .then(newres => dispatch(receiveReservation(reserve)))
+    .then(newres => dispatch(receiveReservation(newres)))
 );
 
 export const deleteReservation = (id) => (dispatch) => (
