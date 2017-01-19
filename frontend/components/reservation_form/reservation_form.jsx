@@ -11,6 +11,12 @@ const TIME_MAP = {
   '9:00 PM': 21, '10:00 PM': 22
 };
 
+const REVERSE_TIME_MAP = {
+  11: '11:00 AM', 12: '12:00 PM', 13: '1:00 PM', 14: '2:00 PM', 15: '3:00 PM',
+  16: '4:00 PM', 17: '5:00 PM', 18: '6:00 PM', 19: '7:00 PM', 20: '8:00 PM',
+  21: '9:00 PM', 22: '10:00 PM'
+};
+
 const PARTY = [1, 2, 3, 4, 5, 6, 7, 8];
 
 class ReservationForm extends React.Component {
@@ -31,7 +37,20 @@ class ReservationForm extends React.Component {
   }
 
   handleSubmit(timeSlot) {
+    let parsedDate = this.state.date.split('-');
+    let year = parseInt(parsedDate[0]);
+    let month = parseInt(parsedDate[1]) - 1;
+    let day = parseInt(parsedDate[2]);
+    let timeCode = TIME_MAP[timeSlot];
+    let finalSlot = new Date(year, month, day, timeCode);
+    let booking = {
+      slot: finalSlot,
+      party_size: this.state.party_size,
+      user_id: this.props.currentUser.id,
+      restaurant_id: this.props.restaurant.id
+    };
 
+    this.props.createReservation(booking);
   }
 
   renderTimeSlots() {
@@ -92,24 +111,34 @@ class ReservationForm extends React.Component {
         validSlots.push(slot);
       }
     });
-    return this.pickFive(validSlots);
+    return this.pickFive(this.state.slot, validSlots);
   }
 
-  pickFive(availSlots) {
+  pickFive(targetSlot, availSlots) {
     let numSlots = availSlots.length;
 
     if (numSlots < 6) {
       return availSlots;
     }
 
-    let midIdx = availSlots.indexOf(this.state.slot);
+    let midIdx = availSlots.indexOf(targetSlot);
 
-    if (midIdx === 0 || midIdx === 1) {
-      return availSlots.slice(0, 5);
-    } else if (midIdx === (numSlots - 1) || midIdx === (numSlots - 2)) {
-      return availSlots.slice(numSlots - 5, numSlots);
+    if (midIdx === -1) {
+      let midCode = TIME_MAP[targetSlot];
+      if (midCode === 22) {
+        return this.pickFive(REVERSE_TIME_MAP[11], availSlots);
+      } else {
+        midCode += 1;
+        return this.pickFive(REVERSE_TIME_MAP[midCode], availSlots);
+      }
     } else {
-      return availSlots.slice(midIdx - 2, midIdx + 3);
+      if (midIdx === 0 || midIdx === 1) {
+        return availSlots.slice(0, 5);
+      } else if (midIdx === (numSlots - 1) || midIdx === (numSlots - 2)) {
+        return availSlots.slice(numSlots - 5, numSlots);
+      } else {
+        return availSlots.slice(midIdx - 2, midIdx + 3);
+      }
     }
   }
 
