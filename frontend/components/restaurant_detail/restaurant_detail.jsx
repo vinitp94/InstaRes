@@ -89,7 +89,7 @@ class RestaurantDetail extends React.Component {
     if (this.props.restaurant.reviews) {
       let reviewArr = [];
       Object.keys(this.props.restaurant.reviews).forEach(id => {
-        reviewArr.push(this.props.restaurant.reviews[id]);
+        reviewArr.unshift(this.props.restaurant.reviews[id]);
       });
 
       return (

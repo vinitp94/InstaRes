@@ -1,0 +1,20 @@
+.user-profile {
+  padding-top: 60px;
+  height: -webkit-calc(100vh - 110px);
+  height: -moz-calc(100vh - 110px);
+}
+
+.user-profile > div {
+  padding: 30px -webkit-calc(12%);
+  border-bottom: 1px solid $hover-main;
+}
+
+// .reviews > ul > li {
+//   padding-bottom: 20px;
+//   border-bottom: 1px solid $fill;
+//   margin-bottom: 20px;
+// }
+//
+// .reviews #stars {
+//   margin-bottom: 10px;
+// }

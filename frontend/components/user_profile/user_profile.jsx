@@ -1,8 +1,34 @@
 import React from 'react';
 
 class UserProfile extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      selectedTab: 'Reservations'
+    };
+  }
+
+  renderTabs() {
+
+  }
+
+  renderSelectedTab() {
+    
+  }
+
   render() {
-    return <h2>{this.props.currentUser.username}</h2>;
+    return (
+      <div className='user-profile'>
+        <div>
+          {this.renderTabs()}
+        </div>
+
+        <div>
+          {this.renderSelectedTab()}
+        </div>
+      </div>
+    );
   }
 }
 
