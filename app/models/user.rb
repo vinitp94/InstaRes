@@ -33,6 +33,13 @@ class User < ApplicationRecord
     source: :restaurant
   )
 
+  has_many(
+    :reservations,
+    class_name: :Reservation,
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(username, password)
