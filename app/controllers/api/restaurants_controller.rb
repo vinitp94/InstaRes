@@ -63,10 +63,4 @@ class Api::RestaurantsController < ApplicationController
       :zip_code, :category, :description, :price, :phone_num, :website_url,
       {image_urls: []}, :owner_id)
   end
-
-  def update_params
-    params.require(:restaurant).permit(:name, :address, :city, :state,
-      :zip_code, :category, :description, :price, :phone_num, :website_url,
-      :owner_id)
-  end
 end
