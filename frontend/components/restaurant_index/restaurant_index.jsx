@@ -42,9 +42,6 @@ class RestaurantIndex extends React.Component {
           </div>
         </div>
 
-        <div className='map'>
-          Render Map container
-        </div>
       </div>
     );
   }
