@@ -17,27 +17,31 @@ class User < ApplicationRecord
     :reviews,
     class_name: :Review,
     foreign_key: :author_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :favorites,
     class_name: :Favorite,
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :favorite_restaurants,
     through: :favorites,
-    source: :restaurant
+    source: :restaurant,
+    dependent: :destroy
   )
 
   has_many(
     :reservations,
     class_name: :Reservation,
     foreign_key: :user_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   after_initialize :ensure_session_token

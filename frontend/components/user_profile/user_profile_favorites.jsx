@@ -12,6 +12,14 @@ class UserProfileFavorites extends React.Component {
     this.props.deleteFavorite(id);
   }
 
+  priceToSymbol(price) {
+    let symbol = [];
+    for(let i = 0; i < price; i++) {
+      symbol.push('$');
+    }
+    return symbol.join('');
+  }
+
   render() {
     return (
       <ul className='favorites-list'>
@@ -26,6 +34,8 @@ class UserProfileFavorites extends React.Component {
                 <div id='profile-details'>
                   <h2>{fave.name}</h2>
                   <a>{fave.category}</a>
+                  <a>|</a>
+                  <a>{this.priceToSymbol(fave.price)}</a>
                   <a>|</a>
                   <a>{fave.city}</a>
                 </div>

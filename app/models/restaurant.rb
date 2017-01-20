@@ -31,13 +31,15 @@ class Restaurant < ApplicationRecord
     :reviews,
     class_name: :Review,
     foreign_key: :restaurant_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 
   has_many(
     :reservations,
     class_name: :Reservation,
     foreign_key: :restaurant_id,
-    primary_key: :id
+    primary_key: :id,
+    dependent: :destroy
   )
 end
