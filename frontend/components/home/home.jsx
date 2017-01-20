@@ -4,9 +4,7 @@ import { Link } from 'react-router';
 const Home = () => (
   <div className='home'>
     <div id='top-home'>
-      <Link to={`/restaurants`}>
-        Temporary Link to restaurant index
-      </Link>
+
     </div>
 
     <div className='image-container'>
@@ -17,8 +15,8 @@ const Home = () => (
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901928/ynb8niq1qck-harshal-hirve_cawkgd.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902034/epqniyi6s7e-syd-wachs_obnw8b.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901912/xntwi0xmzr8-nabil-boukala_kskamw.jpg'/>
-        <Link to={`/restaurants`} params={{ cityId: 'San-Francisco' }}>
-          <img id='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902008/gnnmbvn6r64-alisa-anton_ymnmdq.jpg'/>
+        <Link to={`/restaurants/index/San-Francisco`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902008/gnnmbvn6r64-alisa-anton_ymnmdq.jpg'/>
         </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901984/f89mms4g4nu-blake-rice_t2jz7z.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902033/go8wfzj3kle-alisa-anton_bj9pez.jpg'/>

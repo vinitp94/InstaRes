@@ -4,7 +4,11 @@ import RestaurantSearchContainer from '../restaurant_search/restaurant_search_co
 
 class RestaurantIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchRestaurants();
+    this.props.fetchRestaurants(this.props.params.city);
+  }
+
+  componentWillUpdate() {
+    this.props.fetchRestaurants(this.props.params.city);
   }
 
   renderErrors() {

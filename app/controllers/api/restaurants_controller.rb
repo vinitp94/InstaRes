@@ -1,6 +1,9 @@
 class Api::RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.all
+    city = params[:city]
+    city_name = city.split('-').join(' ')
+
+    @restaurants = Restaurant.where({ city: city_name })
 
     if @restaurants == []
       render json: ['No restaurants found'];

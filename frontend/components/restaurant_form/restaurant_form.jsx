@@ -12,6 +12,8 @@ const states = [
   'WI', 'WY'
 ];
 
+const cities = ['San Francisco', 'New York', 'Austin', 'Chicago', 'Miami', 'Philadelphia'];
+
 const categories = [
   'American', 'British', 'Caribbean', 'Chinese', 'French', 'Greek',
   'Indian', 'Italian', 'Japanese', 'Mediterranean', 'Mexican',
@@ -126,6 +128,12 @@ class RestaurantForm extends React.Component {
     ));
   }
 
+  renderCities() {
+    return cities.map(city => (
+      <option key={city} value={city}>{city}</option>
+    ));
+  }
+
   renderCategories() {
     return categories.map(cat => (
       <option key={cat} value={cat}>{cat}</option>
@@ -199,11 +207,14 @@ class RestaurantForm extends React.Component {
                 onChange={this.update('address')}/>
             </label>
 
-            <label>City:
-              <input
+            <label>
+              <select
                 type='text'
                 value={this.state.city}
-                onChange={this.update('city')}/>
+                onChange={this.update('city')}>
+                <option value="" disabled selected>City</option>
+                {this.renderCities()}
+              </select>
             </label>
 
             <label>

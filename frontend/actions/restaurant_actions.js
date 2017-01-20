@@ -27,8 +27,8 @@ export const receiveRestaurantErrors = (errors) => ({
   errors
 });
 
-export const fetchRestaurants = () => (dispatch) => (
-  RestaurantAPIUtil.fetchRestaurants()
+export const fetchRestaurants = (city) => (dispatch) => (
+  RestaurantAPIUtil.fetchRestaurants(city)
     .then(rests => dispatch(receiveAllRestaurants(rests)),
           err => dispatch(receiveRestaurantErrors(err.statusText)))
 );
