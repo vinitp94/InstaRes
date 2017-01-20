@@ -36,7 +36,7 @@
   max-width: 120px;
   min-height: 60px;
   max-height: 120px;
-  opacity: 0.4;
+  opacity: 0.2;
 }
 
 #top-home {
@@ -52,7 +52,10 @@
   max-width: 120px;
   min-height: 60px;
   max-height: 120px;
-  border: 1px solid white;
+  border-left: 1px solid white;
+  border-bottom: 1px solid white;
+  border-top: 1px solid $accent;
+  border-right: 1px solid $accent;
   box-sizing: border-box;
   opacity: 1;
 }
