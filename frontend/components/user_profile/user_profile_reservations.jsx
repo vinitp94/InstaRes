@@ -2,10 +2,11 @@ import React from 'react';
 
 class UserProfileReservations extends React.Component {
   render() {
+    debugger
     return (
-      <div>
-        <h2>reservations</h2>
-      </div>
+      <ul>
+
+      </ul>
     );
   }
 }

@@ -33,13 +33,21 @@ class UserProfile extends React.Component {
 
   renderSelectedTab() {
     if (this.state.selected === 'Reservations') {
-      return <UserProfileReservations />;
+      return <UserProfileReservations
+        deleteReservation={this.props.deleteReservation}
+        reservations={this.props.currentUser.reservations} />;
     } else if (this.state.selected === 'Restaurants') {
-      return <UserProfileRestaurants />;
+      return <UserProfileRestaurants
+        deleteRestaurant={this.props.deleteRestaurant}
+        restaurants={this.props.currentUser.restaurants} />;
     } else if (this.state.selected === 'Favorites') {
-      return <UserProfileFavorites />;
+      return <UserProfileFavorites
+        deleteFavorite={this.props.deleteFavorite}
+        favorites={this.props.currentUser.favorites} />;
     } else if (this.state.selected === 'Reviews') {
-      return <UserProfileReviews />;
+      return <UserProfileReviews
+        deleteReview={this.props.deleteReview}
+        reviews={this.props.currentUser.reviews} />;
     }
   }
 
