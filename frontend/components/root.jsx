@@ -27,7 +27,7 @@ const Root = ({store}) => {
     } else {
       let userRestaurants = Object.keys(store.getState().session.currentUser.restaurants);
       if (!userRestaurants.includes(nextState.params.restaurantId)) {
-        replace("/restaurants");
+        replace(`/restaurants/${nextState.params.restaurantId}`);
       }
     }
   };

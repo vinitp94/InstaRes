@@ -12,7 +12,7 @@ const states = [
   'WI', 'WY'
 ];
 
-const cities = ['San Francisco', 'New York', 'Austin', 'Chicago', 'Miami', 'Philadelphia'];
+const cities = ['San Francisco', 'New York', 'Seattle', 'Chicago', 'Miami', 'Los Angeles'];
 
 const categories = [
   'American', 'British', 'Caribbean', 'Chinese', 'French', 'Greek',

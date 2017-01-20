@@ -13,17 +13,19 @@ const Home = () => (
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901997/q3qbphza4ii-igor-ovsyannykov_sp5gvm.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902017/i2afnaz31cg-cala_pd4kob.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901928/ynb8niq1qck-harshal-hirve_cawkgd.jpg'/>
+        <Link to={`/restaurants/index/Seattle`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_auto_contrast,g_center,h_120,q_100,w_120,z_0.6/v1484909161/o4ktwpteqso-ganapathy-kumar_ptg97w.jpg'/>
+        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902034/epqniyi6s7e-syd-wachs_obnw8b.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901912/xntwi0xmzr8-nabil-boukala_kskamw.jpg'/>
-        <Link to={`/restaurants/index/San-Francisco`}>
-          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902008/gnnmbvn6r64-alisa-anton_ymnmdq.jpg'/>
-        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901984/f89mms4g4nu-blake-rice_t2jz7z.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902033/go8wfzj3kle-alisa-anton_bj9pez.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901819/z-y6i45f9kq-ernest-porzi_u6sfxe.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901828/vjnebefe-u-heijo-reinl_n0mwl9.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901768/qj0zgkre1zg-brian-chan_m4bctw.jpg'/>
-        <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901816/coijlczejnw-neha-deshmukh_taphkq.jpg'/>
+        <Link to={`/restaurants/index/Chicago`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_auto_contrast,g_center,h_120,w_120/v1484909247/lnojuusjzqm-roman-arkhipov_uowmpu.jpg'/>
+        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901739/xlxhm6uh4pa-benjamin-faust_pphbgr.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901802/dqlxphcca2g-keenan-loo_f8zog9.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901817/zpdnajr5sco-pineapples_whcbdu.jpg'/>
@@ -31,14 +33,18 @@ const Home = () => (
       <div className='tile-images'>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896892/l5i9l6hu64a-helen-martinez_pupkcs.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896899/py0qlfeaagy-daria-nepriakhina_n6ypj9.jpg'/>
-        <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896897/witwdylurr8-alex-munsell_slazet.jpg'/>
+        <Link to={`/restaurants/index/San-Francisco`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,dl_0,e_auto_contrast,fl_text_disallow_overflow,g_center,h_120,q_100,w_120/v1484909134/c0j_nqrzwow-changyu-hu_ti62ij.jpg'/>
+        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896885/pt_ymiym7a4-cel-lisboa_uhj3op.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896898/ttrjmhrkoey-juan-jose-valencia-antia_xohwx3.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896800/iysql-xjvhk-paul-morley_abftx8.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896872/vr28k9_irgc-correen_gtt8j5.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896762/dfitzyl3qi0-monstruo-estudio_fhtwtf.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896862/fheh2jqglvk-olia-gozha_dv6yz1.jpg'/>
-        <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896897/9lmwviuu-ai-gregoire-sitter_ztvdp2.jpg'/>
+        <Link to={`/restaurants/index/Los Angeles`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_auto_contrast,g_center,h_120,w_120/v1484909164/anrrsb2wldk-ahmet-yalcinkaya_d4l97q.jpg'/>
+        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896760/n_y88twmgwa-jay-wennington_bf6el9.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896809/ucyoeo5nsne-toa-heftiba_ddeyo0.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896736/xksrpuh0vzo-yvonne-lee-harijanto_n00kjn.jpg'/>
@@ -53,12 +59,16 @@ const Home = () => (
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896684/evsouv1eyxy-rachael-walker_bis88v.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896386/x7bbp1yjhx0-aldyth-moyla_bbzgw6.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_230,w_120/v1484896462/_sbms1trcie-andrew-itaga_tyfqus.jpg'/>
-        <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896453/jpkfc5_d-di-davide-cantelli_zw5qrs.jpg'/>
+        <Link to={`/restaurants/index/Miami`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_auto_contrast,g_center,h_120,w_120/v1484909122/xgduk32nyuo-wes-aspinall_qv6h9m.jpg'/>
+        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896465/bjvzgi7p2my-chloe-benko-prieur_bm9nj0.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896397/dmfibmdyaiq-henrique-felix_gosciw.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896328/p8zdqz8y2vc-roman-kraft_oofgza.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896261/qydnkodhmo4-downeast-cheesecakes_caljep.jpg'/>
-        <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896505/r5ksmkyosc-peter-wendt_zpbkvs.jpg'/>
+        <Link to={`/restaurants/index/New York`}>
+          <img className='city-link' src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_auto_contrast,g_center,h_120,w_120/v1484909205/gmtx7uc6lnc-todd-quackenbush_tcwhjj.jpg'/>
+        </Link>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896274/ra4mwm9_jka-matthew-hamilton_ggifxv.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896361/y8iaxogqllc-chris-lawton_p9ag1f.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896299/4flcsxl_5kq-mikey-boyle_qpkq9u.jpg'/>
