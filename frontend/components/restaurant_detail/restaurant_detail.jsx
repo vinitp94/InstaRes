@@ -129,6 +129,13 @@ class RestaurantDetail extends React.Component {
     );
   }
 
+  renderPhone(phone) {
+    if (phone) {
+      return `(${phone.slice(0, 3)})  ${phone.slice(3, 6)}  ${phone.slice(6, 10)}`;
+    }
+    return;
+  }
+
   ratingToStar(rating) {
     let imageCopies = [];
     for (let i = 0; i < rating; i++) {
@@ -201,7 +208,7 @@ class RestaurantDetail extends React.Component {
 
               <div className='contact-info'>
                 <a id='website' className='link'>{this.props.restaurant.website_url}</a>
-                <a>{this.props.restaurant.phone_num}</a>
+                <a>{this.renderPhone(this.props.restaurant.phone_num)}</a>
               </div>
             </div>
           </div>

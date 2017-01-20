@@ -11,7 +11,7 @@ const Home = () => (
     </div>
 
     <div className='image-container'>
-      <div className='tile-images'>
+      <div className='tile-images' id='first-tile-image'>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902016/nvpfpxc3eis-janko-ferlic_c3mqtq.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901997/q3qbphza4ii-igor-ovsyannykov_sp5gvm.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484902017/i2afnaz31cg-cala_pd4kob.jpg'/>
@@ -33,7 +33,7 @@ const Home = () => (
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901802/dqlxphcca2g-keenan-loo_f8zog9.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484901817/zpdnajr5sco-pineapples_whcbdu.jpg'/>
       </div>
-      <div className='tile-images'>
+      <div className='tile-images' id='second-tile-image'>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896892/l5i9l6hu64a-helen-martinez_pupkcs.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896899/py0qlfeaagy-daria-nepriakhina_n6ypj9.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896885/pt_ymiym7a4-cel-lisboa_uhj3op.jpg'/>
@@ -55,7 +55,7 @@ const Home = () => (
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896760/plmojilhdju-sebastian-lp_faqeh6.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896582/jivmv9he6bm-tae-in-kim_i3p6nr.jpg'/>
       </div>
-      <div className='tile-images'>
+      <div className='tile-images' id='third-tile-image'>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896625/2necbg8iksw-brigitte-tohm_hfsxtu.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896639/cf_df-zl8iw-toa-heftiba_ff2cbp.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896583/ceeoxu1nzpw-sebastian-lp_cl9bkt.jpg'/>
@@ -77,7 +77,7 @@ const Home = () => (
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896299/4flcsxl_5kq-mikey-boyle_qpkq9u.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896171/m4kpa7nc-l0-neven-krcmarek_htntnh.jpg'/>
       </div>
-      <div className='tile-images'>
+      <div className='tile-images' id='fourth-tile-image'>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896028/12ehc6fxpyg-eaters-collective_i5ge9e.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484896241/hd_qdaso7aw-scott-webb_hesmah.jpg'/>
         <img src='https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,e_grayscale,g_center,h_120,w_120/v1484895980/htlnw28fok-tim-gouw_ndzopk.jpg'/>
