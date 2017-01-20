@@ -30,7 +30,10 @@ export const receiveRestaurantErrors = (errors) => ({
 export const fetchRestaurants = (city) => (dispatch) => (
   RestaurantAPIUtil.fetchRestaurants(city)
     .then(rests => dispatch(receiveAllRestaurants(rests)),
-          err => dispatch(receiveRestaurantErrors(err.statusText)))
+          err => {
+            dispatch(receiveAllRestaurants({}));
+            dispatch(receiveRestaurantErrors([err.statusText]));
+          })
 );
 
 export const fetchRestaurant = (id) => (dispatch) => (

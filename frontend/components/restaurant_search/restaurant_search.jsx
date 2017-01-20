@@ -14,7 +14,6 @@ class RestaurantSearch extends React.Component {
   }
 
   renderButton() {
-    debugger
     let restList = this.props.restaurants.map(rest => (
       rest.name.toLowerCase()));
 

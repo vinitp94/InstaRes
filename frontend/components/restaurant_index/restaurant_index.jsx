@@ -3,11 +3,7 @@ import RestaurantIndexItem from './restaurant_index_item';
 import RestaurantSearchContainer from '../restaurant_search/restaurant_search_container';
 
 class RestaurantIndex extends React.Component {
-  componentDidMount() {
-    this.props.fetchRestaurants(this.props.params.city);
-  }
-
-  componentWillUpdate() {
+  componentWillMount() {
     this.props.fetchRestaurants(this.props.params.city);
   }
 
@@ -24,6 +20,8 @@ class RestaurantIndex extends React.Component {
   }
 
   render() {
+    debugger
+
     return (
       <div className='index-page'>
         <div className='restaurant-index'>

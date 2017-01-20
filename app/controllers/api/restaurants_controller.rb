@@ -5,8 +5,9 @@ class Api::RestaurantsController < ApplicationController
 
     @restaurants = Restaurant.where({ city: city_name })
 
+
     if @restaurants == []
-      render json: ['No restaurants found'];
+      render json: ['No restaurants found'], status: 404
     else
       render :index
     end
