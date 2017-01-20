@@ -11,12 +11,11 @@ User.create(username: 'tester123', email: 'tester1@demo.com', password: 'tester1
 
 # Seed restaurants
 
-CITIES = ['San Francisco', 'New York', 'Miami', 'Los Angeles', 'Chicago', 'Seattle'];
+CITIES = ['San Francisco', 'New York', 'Miami', 'Los Angeles', 'Chicago', 'Seattle']
 
 CATEGORIES = [
-  'American', 'British', 'Caribbean', 'Chinese', 'French', 'Greek',
-  'Indian', 'Italian', 'Japanese', 'Mediterranean', 'Mexican',
-  'Moroccan', 'Spanish', 'Thai', 'Turkish', 'Vietnamese'
+  'American', 'Caribbean', 'Chinese', 'French', 'Greek', 'Indian', 'Italian',
+  'Japanese', 'Mediterranean', 'Mexican', 'Moroccan', 'Thai'
 ]
 
 images = [
@@ -170,8 +169,7 @@ end
 seed_restaurants = []
 
 CITIES.each do |city|
-  ((10..15).to_a.sample).times do
-    cat = CATEGORIES.sample
+  CATEGORIES.each do |cat|
     Yelp.client.search(city, { term: cat, limit: 1 }).businesses.each_with_index do |business, idx|
       rest = Restaurant.new
       rest.name = business.name
