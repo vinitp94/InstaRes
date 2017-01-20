@@ -34,23 +34,23 @@ Images used throughout the application are hosted on [Cloudinary][cloudinary].
 
 Future steps include:
 
-##### Location Search
+### Location Search
 
 Allow users to search for any location and return restaurants within a default range utilizing Google's autocomplete search API.
 
-##### Notifications and Email Confirmation
+### Notifications and Email Confirmation
 
 Confirm with users before making reservations, creating or updating restaurants, or deleting restaurants. Email users confirmations upon all of the above actions.
 
-##### Google Maps Integration
+### Google Maps Integration
 
 Provide a visible map for users utilizing Google Maps API, allowing them to better decide where to make a reservation at.
 
-##### Review Histogram
+### Review Histogram
 
 Provide review data in a visually appealing format for both regular users as well as for restaurant hosts.
 
-##### User Point System
+### User Point System
 
 Implement a reward system for users to cash in on prizes and discounts depending on how much they use the site.
 
