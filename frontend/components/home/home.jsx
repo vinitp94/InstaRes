@@ -4,7 +4,10 @@ import { Link } from 'react-router';
 const Home = () => (
   <div className='home'>
     <div id='top-home'>
-
+      <div id='home-title'>
+        <h2>insta</h2>
+        <h1>RES</h1>
+      </div>
     </div>
 
     <div className='image-container'>

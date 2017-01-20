@@ -6,7 +6,7 @@ class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { cityName: "" };
+    this.state = { cityName: "" , loading: true };
   }
 
   componentDidMount() {
@@ -23,6 +23,10 @@ class RestaurantIndex extends React.Component {
     }
   }
 
+  componentWillUnmount() {
+    this.props.clearIndex();
+  }
+
   renderErrors() {
     return (
       <ul>
@@ -36,7 +40,6 @@ class RestaurantIndex extends React.Component {
   }
 
   render() {
-    debugger
     return (
       <div className='index-page'>
         <div className='restaurant-index'>

@@ -10,13 +10,18 @@ User.create(username: 'user123', email: 'user1@demo.com', password: 'user123')
 User.create(username: 'tester123', email: 'tester1@demo.com', password: 'tester123')
 
 # Seed restaurants
-# TODO: REPLACE IMAGES WITH REAL IMAGES USING YELP API
+
+CITIES = ['San Francisco', 'New York', 'Miami', 'Los Angeles', 'Chicago', 'Seattle'];
 
 CATEGORIES = [
   'American', 'British', 'Caribbean', 'Chinese', 'French', 'Greek',
   'Indian', 'Italian', 'Japanese', 'Mediterranean', 'Mexican',
   'Moroccan', 'Spanish', 'Thai', 'Turkish', 'Vietnamese'
 ]
+
+IMAGES = [
+
+];
 
 Yelp.client.configure do |config|
   config.consumer_key = ENV['YELP_CONSUMER_KEY']
@@ -27,30 +32,31 @@ end
 
 seed_restaurants = []
 
-CATEGORIES.each do |cat|
-  Yelp.client.search('San Francisco', { term: cat, limit: 1 }).businesses.each_with_index do |business, idx|
-    num_rests = Restaurant.all.length
-
-    rest = Restaurant.new
-    rest.name = business.name
-    rest.address = business.location.address.first
-    rest.city = business.location.city
-    rest.state = business.location.state_code
-    rest.zip_code = business.location.postal_code
-    rest.category = cat
-    rest.description = 'This is just a temporary description for testing purposes.'
-    rest.phone_num = business.phone
-    rest.website_url = 'www.google.com'
-    rest.price = (1..5).to_a.sample
-    rest.owner_id = User.all.sample.id
-    rest.image_urls = []
-    ((1..5).to_a.sample).times do
-      image_num = (0..1000).to_a.sample
-      rest.image_urls.push("https://unsplash.it/300/200/?image=#{image_num}")
+CITIES.each do |city|
+  ((10..15).to_a.sample).times do
+    cat = CATEGORIES.sample
+    Yelp.client.search(city, { term: cat, limit: 1 }).businesses.each_with_index do |business, idx|
+      rest = Restaurant.new
+      rest.name = business.name
+      rest.address = business.location.address.first
+      rest.city = business.location.city
+      rest.state = business.location.state_code
+      rest.zip_code = business.location.postal_code
+      rest.category = cat
+      rest.description = 'This is just a temporary description for testing purposes.'
+      rest.phone_num = business.phone
+      rest.price = (1..5).to_a.sample
+      rest.owner_id = User.all.sample.id
+      rest.image_urls = []
+      ((2..3).to_a.sample).times do
+        rest.image_urls.push(IMAGES.sample)
+      end
+      rest.save! if rest.valid?
     end
-    rest.save! if rest.valid?
   end
 end
+
+# Seed reviews
 
 POSITIVE_REVIEW_BODIES = [
   "Excellent fresh food, excellent service; and we are picky. Beautiful views of the bridge, had a magical night. Noisy though.",
@@ -138,7 +144,7 @@ NEGATIVE_REVIEW_BODIES = [
   "Food is bland. Very bland, flavorless, dry (oh and it came with a free stone too on my salad!)."
 ]
 
-(Restaurant.all.count * 5).times do
+(Restaurant.all.count * 3).times do
   rev = Review.new
   rev.rating = (1..5).to_a.sample
   if rev.rating > 2
@@ -150,4 +156,13 @@ NEGATIVE_REVIEW_BODIES = [
   rev.author_id = User.all.sample.id
   rev.restaurant_id = Restaurant.all.sample.id
   rev.save! if rev.valid?
+end
+
+# Seed favorites
+
+(User.all.count * 5).times do
+  fav = Favorite.new
+  fav.user_id = User.all.sample.id
+  fav.restaurant_id = Restaurant.all.sample.id
+  fav.save! if fav.valid?
 end
