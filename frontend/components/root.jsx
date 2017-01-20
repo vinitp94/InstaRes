@@ -2,7 +2,6 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { clearErrors } from '../actions/error_actions';
-import { fetchRestaurant } from '../actions/restaurant_actions';
 import App from './app';
 import Home from './home/home';
 import RestaurantIndexContainer from './restaurant_index/restaurant_index_container';

@@ -184,6 +184,7 @@ class RestaurantDetail extends React.Component {
           </div>
 
           <div id='location'>
+            <h2>Details</h2>
             <div className='logistical-detail'>
               <div className='address'>
                 <div id='top-address'>
@@ -202,10 +203,6 @@ class RestaurantDetail extends React.Component {
                 <a id='website' className='link'>{this.props.restaurant.website_url}</a>
                 <a>{this.props.restaurant.phone_num}</a>
               </div>
-            </div>
-
-            <div>
-              screenshot the map
             </div>
           </div>
 

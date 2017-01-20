@@ -8,8 +8,20 @@ class NavBar extends React.Component {
       <div className='navbar'>
         <div className='left-half'>
           <Link to={`/`}>
-            <img className='logo' src='http://placehold.it/100x50' />
+            <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
           </Link>
+
+          <li><div className='nav-link'><Link to={`/restaurants/index/San-Francisco`}>SF</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/New-York`}>NY</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Miami`}>MIA</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Chicago`}>CHI</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Seattle`}>SEA</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Los-Angeles`}>LA</Link></div></li>
         </div>
 
         <div className='right-half'>
@@ -23,16 +35,25 @@ class NavBar extends React.Component {
     );
   }
 
-  // TODO: If on home page, no search container
-  // If on another page, location search container should be within nav bar
-
   loggedInNav() {
     return (
       <div className='navbar'>
         <div className='left-half'>
           <Link to={`/`}>
-            <img className='logo' src='http://placehold.it/100x50' />
+            <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
           </Link>
+
+          <li><div className='nav-link'><Link to={`/restaurants/index/San-Francisco`}>SF</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/New-York`}>NY</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Miami`}>MIA</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Chicago`}>CHI</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Seattle`}>SEA</Link></div></li>
+          <li>|</li>
+          <li><div className='nav-link'><Link to={`/restaurants/index/Los-Angeles`}>LA</Link></div></li>
         </div>
 
         <div className='right-half'>
