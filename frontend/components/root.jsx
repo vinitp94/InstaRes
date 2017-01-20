@@ -37,7 +37,7 @@ const Root = ({store}) => {
       <Router history={hashHistory}>
         <Route path='/' component={ App }>
           <IndexRoute component={ Home } />
-          <Route path='/restaurants' component={ RestaurantIndexContainer } onLeave={_clearErrors} />
+          <Route path='/restaurants/:city' component={ RestaurantIndexContainer } onLeave={_clearErrors} />
           <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} onLeave={_clearErrors} />
           <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireUser} onLeave={_clearErrors} />
           <Route path='/restaurants/:restaurantId' component={ RestaurantDetailContainer } onLeave={_clearErrors} />

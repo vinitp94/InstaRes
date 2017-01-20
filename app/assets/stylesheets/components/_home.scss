@@ -2,40 +2,35 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 60px;
 }
 
-.home-header {
-  width: 100%;
+.image-container {
+  position: absolute;
+  bottom: 50px;
+}
+
+.tile-images {
   display: flex;
+  width: 100vw;
+  opacity: 0.4;
   justify-content: center;
-  align-items: baseline;
-  padding: 150px 0px 120px 0px;
-  background: radial-gradient($accent, $main);
 }
 
-.left-home {
-  display: flex;
-  align-items: baseline;
-  padding-right: 50px;
-  padding-left: 30px;
+.tile-images > img {
+  width: -webkit-calc(100vw / 16);
+  height: -webkit-calc(100vw / 16);
+  min-width: 60px;
+  max-width: 120px;
+  min-height: 60px;
+  max-height: 120px;
 }
 
-#title-left {
-  font-size: 50px;
-  text-decoration: overline;
-  color: $light-main;
-  text-decoration-color: $dark-main;
+#top-home {
+  height: -webkit-calc(50vh);
+  min-height: 250px;
 }
 
-#title-right {
-  font-size: 72px;
-  text-shadow: 8px 0px 15px black;
-  color: $light-fill;
-}
-
-#home-caption {
-  font-size: 32px;
-  margin: 0;
-  font-weight: 900;
-  color: $light-fill;
+#city-link {
+  opacity: 1;
 }

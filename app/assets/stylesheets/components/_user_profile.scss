@@ -14,7 +14,7 @@
 .profile-tabs > button {
   background: $light-fill;
   color: $fill;
-  border: none;
+  border: 1px solid transparent;
   padding: 10px 0px;
   margin: 0px;
   width: 20vw;
