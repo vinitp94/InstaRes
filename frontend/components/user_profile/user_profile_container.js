@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import UserProfile from './user_profile';
 import { deleteRestaurant } from '../../actions/restaurant_actions';
 import { deleteReservation } from '../../actions/reservation_actions';
-import { deleteFavorite } from '../../actions/reservation_actions';
-import { deleteReview } from '../../actions/reservation_actions';
+import { deleteFavorite } from '../../actions/favorite_actions';
+import { deleteReview } from '../../actions/review_actions';
 
 const mapStateToProps = ({ session }) => ({
   currentUser: session.currentUser

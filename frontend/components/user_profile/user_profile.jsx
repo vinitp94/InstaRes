@@ -23,31 +23,51 @@ class UserProfile extends React.Component {
     return (
       TABS.map((tab, idx) => {
         if (tab === this.state.selected) {
-          return <button id='selected-tab' value={tab} onClick={this.handleClick}>{tab}</button>;
+          return <button
+            key={idx}
+            id='selected-tab'
+            value={tab}
+            onClick={this.handleClick}>{tab}</button>;
         } else {
-          return <button value={tab} onClick={this.handleClick}>{tab}</button>;
+          return <button
+            key={idx}
+            value={tab}
+            onClick={this.handleClick}>{tab}</button>;
         }
       })
     );
   }
 
   renderSelectedTab() {
+    let reservations = Object.keys(this.props.currentUser.reservations).map(resId => (
+      this.props.currentUser.reservations[resId]
+    ));
+    let restaurants = Object.keys(this.props.currentUser.restaurants).map(restId => (
+      this.props.currentUser.restaurants[restId]
+    ));
+    let favorites = Object.keys(this.props.currentUser.favorites).map(favId => (
+      this.props.currentUser.favorites[favId]
+    ));
+    let reviews = Object.keys(this.props.currentUser.reviews).map(revId => (
+      this.props.currentUser.reviews[revId]
+    ));
+
     if (this.state.selected === 'Reservations') {
       return <UserProfileReservations
         deleteReservation={this.props.deleteReservation}
-        reservations={this.props.currentUser.reservations} />;
+        reservations={reservations} />;
     } else if (this.state.selected === 'Restaurants') {
       return <UserProfileRestaurants
         deleteRestaurant={this.props.deleteRestaurant}
-        restaurants={this.props.currentUser.restaurants} />;
+        restaurants={restaurants} />;
     } else if (this.state.selected === 'Favorites') {
       return <UserProfileFavorites
         deleteFavorite={this.props.deleteFavorite}
-        favorites={this.props.currentUser.favorites} />;
+        favorites={favorites} />;
     } else if (this.state.selected === 'Reviews') {
       return <UserProfileReviews
         deleteReview={this.props.deleteReview}
-        reviews={this.props.currentUser.reviews} />;
+        reviews={reviews} />;
     }
   }
 
