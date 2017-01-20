@@ -30,19 +30,19 @@
 }
 
 #first-tile-image > img {
-  opacity: 0.1;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.2)));
 }
 
 #second-tile-image > img {
-  opacity: 0.3;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.2)), to(rgba(0,0,0,0.4)));
 }
 
 #third-tile-image > img {
-  opacity: 0.5;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.4)), to(rgba(0,0,0,0.6)));
 }
 
 #fourth-tile-image > img {
-  opacity: 0.7;
+  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.8)));
 }
 
 .tile-images > img {
