@@ -1,6 +1,6 @@
 # InstaRes
 
-[InstaRes][instares] is a web application that allows users to browse popular restaurants as well as host their own restaurants. It is originally inspired by OpenTable, allowing users to also make reservations, write reviews, and track favorites.
+[InstaRes][instares] is a web application that allows users to browse popular restaurants as well as host their own restaurants. It is originally inspired by [OpenTable][opentable], allowing users to also make reservations, write reviews, and track favorites.
 
 InstaRes is an individual project utilizing the following technologies:
 
@@ -26,9 +26,9 @@ InstaRes is an individual project utilizing the following technologies:
 
 InstaRes was planned and created in little less than two weeks time. The planning process involved creating [wireframes][wireframes], a sample frontend [state][state], and a [database schema][database schema]. One feature was carried out from back to front entirely before moving on to another.
 
-The backend is implemented almost exactly how the original proposal schema describes. By providing API endpoints, the frontend communicates using AJAX requests. On the frontend, React.js is used alongside the Redux cycle, allowing for a quick, efficient, and enjoyable user experience.
+The backend is implemented almost exactly how the original proposal schema describes. By providing API endpoints, the backend communicates with the frontend through AJAX requests and responses. On the frontend, React.js is used alongside the Redux cycle, allowing for a quick, efficient, and enjoyable user experience.
 
-Images used throughout the application are hosted on Cloudinary.
+Images used throughout the application are hosted on [Cloudinary][cloudinary].
 
 ## Future Implementation
 
@@ -54,7 +54,9 @@ Provide review data in a visually appealing format for both regular users as wel
 
 Implement a reward system for users to cash in on prizes and discounts depending on how much they use the site.
 
-[instares]: www.instares.space
+[instares]: http://www.instares.space
+[opentable]: http://www.opentable.com
+[cloudinary]: http://www.cloudinary.com
 [wireframes]: ./docs/wireframes
 [state]: ./docs/sample-state.md
 [database schema]: ./docs/schema.md
