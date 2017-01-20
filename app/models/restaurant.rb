@@ -42,4 +42,12 @@ class Restaurant < ApplicationRecord
     primary_key: :id,
     dependent: :destroy
   )
+
+  has_many(
+    :favorites,
+    class_name: :Favorite,
+    foreign_key: :restaurant_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
 end

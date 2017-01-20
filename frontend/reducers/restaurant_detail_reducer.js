@@ -23,11 +23,14 @@ const RestaurantDetailReducer = (state = {}, action) => {
       restCopy.reviews = newReviews;
       return restCopy;
     case REMOVE_REVIEW:
-      let copyRest = merge({}, state);
-      copyRest.ave_rating = action.review.ave_rating;
-      copyRest.num_reviews = action.review.num_reviews;
-      delete copyRest.reviews[action.review.id];
-      return copyRest;
+      if (Object.keys(state).length > 0) {
+        let copyRest = merge({}, state);
+        copyRest.ave_rating = action.review.ave_rating;
+        copyRest.num_reviews = action.review.num_reviews;
+        delete copyRest.reviews[action.review.id];
+        return copyRest;
+      }
+      return state;
     case RECEIVE_RESERVATION:
       let newReserve = merge({}, state.reservations, { [action.reservation.id]: {
         id: action.reservation.id,
@@ -35,9 +38,12 @@ const RestaurantDetailReducer = (state = {}, action) => {
         slot: action.reservation.slot }});
       return merge({}, state, { reservations: newReserve });
     case REMOVE_RESERVATION:
-      let copyReserve = merge({}, state);
-      delete copyReserve.reservations[action.reservation.id];
-      return copyReserve;
+      if (Object.keys(state).length > 0) {
+        let copyReserve = merge({}, state);
+        delete copyReserve.reservations[action.reservation.id];
+        return copyReserve;
+      }
+      return state;
     default:
       return state;
   }

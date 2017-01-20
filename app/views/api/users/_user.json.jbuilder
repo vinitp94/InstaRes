@@ -61,8 +61,8 @@ else
       rest = reserve.restaurant
       json.set! reserve.id do
         json.extract! reserve, :id, :slot, :party_size, :restaurant_id
-        json.image_urls = rest.image_urls
-        json.name = rest.name
+        json.image_urls rest.image_urls
+        json.name rest.name
       end
     end
   end

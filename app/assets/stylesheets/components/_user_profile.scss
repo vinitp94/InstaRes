@@ -21,6 +21,12 @@
   border-bottom: 1px solid $dark-fill;
 }
 
+.profile-tabs > button:hover {
+  background: white;
+  border: 1px solid $fill;
+  color: $main;
+}
+
 #selected-tab {
   background: white;
   text-decoration: underline;
@@ -76,8 +82,13 @@
   margin-bottom: 6px;
 }
 
-#profile-details > a {
+#profile-details a {
   margin-right: 7px;
+  font-size: 13px;
+}
+
+#profile-details > div {
+  margin-top: 5px;
 }
 
 #profile-button {
@@ -105,4 +116,20 @@
 
 #review-title {
   margin-top: 6px;
+}
+
+.review-list .left-profile-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.review-list .left-profile-item > * {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.left-profile-item #rev-body {
+  margin-bottom: 0px;
 }
