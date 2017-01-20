@@ -10,11 +10,29 @@
   display: flex;
   align-items: baseline;
   z-index: 5000;
+  padding-left: 52vw;
+  padding-top: 8vh;
 }
 
 #home-title > h2 {
   text-decoration: overline;
-  font-size: 32px;
+  font-size: 50px;
+  color: $accent;
+  text-shadow: 0px 0px 10px black;
+}
+
+#home-title > h1 {
+  color: $dark-main;
+  font-size: 70px;
+  text-shadow: 0px 0px 10px black;
+}
+
+#home-caption {
+  padding-left: 52vw;
+}
+
+#home-caption > h2 {
+  color: black;
 }
 
 .image-container {

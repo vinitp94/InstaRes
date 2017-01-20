@@ -8,6 +8,11 @@ const Home = () => (
         <h2>insta</h2>
         <h1>RES</h1>
       </div>
+
+      <div id='home-caption'>
+        <h2>Don't wait in line again.</h2>
+        <h2>Choose your city.</h2>
+      </div>
     </div>
 
     <div className='image-container'>
