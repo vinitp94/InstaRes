@@ -8,7 +8,7 @@ InstaRes is an individual project utilizing the following technologies:
 - Frontend: React/Redux
 - DB: Postgres RDBMS
 
-<!-- ![alttag](home page here) -->
+![alttag](./docs/home_page.png)
 
 ## Features
 
@@ -20,7 +20,7 @@ InstaRes is an individual project utilizing the following technologies:
 - Favorites
 - Reviews
 
-<!-- ![alttag](rest show page) -->
+![alttag](./docs/show_page.png)
 
 ## Design
 
