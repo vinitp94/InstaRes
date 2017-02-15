@@ -92,21 +92,26 @@ class RestaurantDetail extends React.Component {
         reviewArr.unshift(this.props.restaurant.reviews[id]);
       });
 
-      return (
-        <ul>
-          {reviewArr.map((rev, idx) => (
-            <li key={idx + rev}>
-              <div id='review-top'>
-                <a>{this.ratingToStar(rev.rating)}</a>
-                {this.renderDate(rev.created_at)}
-              </div>
-              <a id='rev-body'>{rev.body}</a>
-            </li>
-          ))}
-        </ul>
-      );
+      if (reviewArr.length > 0) {
+        return (
+          <div id='review-detail'>
+            <h2>Reviews</h2>
+            <ul>
+              {reviewArr.map((rev, idx) => (
+                <li key={idx + rev}>
+                  <div id='review-top'>
+                    <a>{this.ratingToStar(rev.rating)}</a>
+                    {this.renderDate(rev.created_at)}
+                  </div>
+                  <a id='rev-body'>{rev.body}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        );
+      }
     }
-    return;
+    return <div id='review-detail'></div>;
   }
 
   renderDate(timestamp) {
@@ -223,10 +228,7 @@ class RestaurantDetail extends React.Component {
             </div>
           </div>
 
-          <div id='review-detail'>
-            <h2>Reviews</h2>
-            {this.renderReviews()}
-          </div>
+          {this.renderReviews()}
         </div>
       );
     } else {
