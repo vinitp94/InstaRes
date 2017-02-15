@@ -177,7 +177,13 @@ class RestaurantDetail extends React.Component {
   }
 
   renderReservationForm() {
-    if (this.props.currentUser && !this.isOwner()) {
+    if (!this.props.currentUser) {
+      return (
+        <div className='booking-form-detail'>
+          <a id='message'>Login to make a reservation!</a>;
+        </div>
+      );
+    } else if (!this.isOwner()) {
       return (
         <div className='booking-form-detail'>
           <ReservationFormContainer />
