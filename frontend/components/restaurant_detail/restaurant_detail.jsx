@@ -29,11 +29,20 @@ class RestaurantDetail extends React.Component {
     return;
   }
 
+  isOwner() {
+    let currentRestId = this.props.params.restaurantId;
+
+    if (this.props.currentUser) {
+      return Object.keys(this.props.currentUser.restaurants).includes(currentRestId);
+    }
+    return false;
+  }
+
   renderButtons() {
     let currentRestId = this.props.params.restaurantId;
 
     if (this.props.currentUser) {
-      if (Object.keys(this.props.currentUser.restaurants).includes(currentRestId)) {
+      if (this.isOwner()) {
         return (
           <div className='right-title-detail'>
             {this.renderFavorite()}
@@ -167,6 +176,16 @@ class RestaurantDetail extends React.Component {
     }
   }
 
+  renderReservationForm() {
+    if (this.props.currentUser && !this.isOwner()) {
+      return (
+        <div className='booking-form-detail'>
+          <ReservationFormContainer />
+        </div>
+      );
+    }
+  }
+
   render() {
     if (this.props.errors.length === 0) {
       return (
@@ -196,9 +215,7 @@ class RestaurantDetail extends React.Component {
             {this.renderButtons()}
           </div>
 
-          <div className='booking-form-detail'>
-            <ReservationFormContainer />
-          </div>
+          {this.renderReservationForm()}
 
           <div className='description'>
             <h2>About Us</h2>
