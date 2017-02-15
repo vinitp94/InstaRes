@@ -24,6 +24,7 @@ class RestaurantIndex extends React.Component {
   }
 
   componentWillUnmount() {
+    debugger
     this.props.clearIndex();
   }
 

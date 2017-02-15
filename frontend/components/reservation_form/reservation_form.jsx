@@ -152,18 +152,10 @@ class ReservationForm extends React.Component {
     let openSlots = this.findOpenSlots();
 
     if (!this.props.currentUser || this.props.currentUser.id ===
-        this.props.restaurant.owner_id ||this.state.date === "" ||
+        this.props.restaurant.owner_id || this.state.date === "" ||
         this.state.party_size === "") {
       return (
         <div className='bookings'>
-          <div className='booking-buttons'>
-            <button disabled>---</button>
-            <button disabled>---</button>
-            <button disabled>{this.state.slot}</button>
-            <button disabled>---</button>
-            <button disabled>---</button>
-          </div>
-
           <div>
             {this.renderMessage(openSlots.length)}
           </div>
