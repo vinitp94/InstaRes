@@ -20,6 +20,10 @@ class RestaurantDetail extends React.Component {
     this.props.fetchRestaurant(this.props.params.restaurantId);
   }
 
+  componentWillUnmount() {
+    this.props.clearDetail();
+  }
+
   renderImages() {
     if (this.props.restaurant.image_urls) {
       return this.props.restaurant.image_urls.slice(0, 3).map((img, idx) => (
