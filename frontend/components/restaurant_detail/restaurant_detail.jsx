@@ -1,7 +1,8 @@
 import React from 'react';
+import { hashHistory } from 'react-router';
 import ReviewModalContainer from '../review_modal/review_modal_container';
 import ReservationFormContainer from '../reservation_form/reservation_form_container';
-import { hashHistory } from 'react-router';
+import Spinner from '../spinner.jsx';
 
 const MONTHS = [
   'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August',
@@ -12,12 +13,22 @@ class RestaurantDetail extends React.Component {
   constructor(props) {
     super(props);
 
+    this.state = { restId: "" };
+
     this.handleFavorite = this.handleFavorite.bind(this);
     this.handleUnfavorite = this.handleUnfavorite.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchRestaurant(this.props.params.restaurantId);
+    this.setState({ restId: this.props.params.restaurantId });
+  }
+
+  componentWillReceiveProps(newProps) {
+    if (newProps.params.restaurantId !== this.state.restId) {
+      this.props.fetchRestaurant(newProps.params.restaurantId);
+      this.setState({ restId: newProps.params.restaurantId });
+    }
   }
 
   componentWillUnmount() {
@@ -197,7 +208,9 @@ class RestaurantDetail extends React.Component {
   }
 
   render() {
-    if (this.props.errors.length === 0) {
+    if (Object.keys(this.props.restaurant).length === 0 && this.props.errors.length === 0) {
+      return <Spinner />;
+    } else if (this.props.errors.length === 0) {
       return (
         <div className='restaurant-detail'>
           <div className='images-detail'>

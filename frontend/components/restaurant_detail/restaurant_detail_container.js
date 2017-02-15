@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
-import RestaurantDetail from './restaurant_detail';
 import { fetchRestaurant, receiveRestaurantErrors, receiveRestaurant } from '../../actions/restaurant_actions';
 import { createFavorite, deleteFavorite } from '../../actions/favorite_actions';
+import RestaurantDetail from './restaurant_detail';
 
 const mapStateToProps = ({ errors, session, restaurantDetail }) => ({
   currentUser: session.currentUser,
