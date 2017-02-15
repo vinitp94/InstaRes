@@ -47,6 +47,16 @@
   border-bottom: 1px solid $fill;
 }
 
+#review-profile-item {
+  display: block;
+}
+
+#review-profile-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
 .profile-data > ul > li:last-child {
   border-bottom: none;
 }
@@ -96,7 +106,7 @@
   margin: 2px 0px;
   color: $dark-fill;
   border: none;
-  font-size: 13px;
+  font-size: 12px;
   font-style: italic;
   text-decoration: underline;
 }
@@ -127,11 +137,6 @@
   flex-direction: column;
   margin-bottom: 6px;
   font-size: 13px;
-}
-
-.left-profile-item #rev-body {
-  margin-top: 15px;
-  margin-bottom: 0px;
 }
 
 #rev-rest {

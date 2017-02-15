@@ -45,20 +45,23 @@ class UserProfileReviews extends React.Component {
       <ul className='review-list'>
         {
           this.props.reviews.reverse().map((rev, idx) => (
-            <li key={idx}>
-              <div className='left-profile-item'>
-                <a>{this.ratingToStar(rev.rating)}</a>
-                <a id='rev-rest'>{rev.restaurant_name}</a>
-                {this.renderDate(rev.created_at)}
-                <a id='rev-body'>{rev.body}</a>
+            <li id='review-profile-item' key={idx}>
+              <div id='review-profile-top'>
+                <div className='left-profile-item'>
+                  <a>{this.ratingToStar(rev.rating)}</a>
+                  <a id='rev-rest'>{rev.restaurant_name}</a>
+                  {this.renderDate(rev.created_at)}
+                </div>
+
+                <div className='right-profile-item'>
+                  <button
+                    id='profile-button'
+                    onClick={this.handleSubmit.bind(this, rev.id)}>Delete
+                  </button>
+                </div>
               </div>
 
-              <div className='right-profile-item'>
-                <button
-                  id='profile-button'
-                  onClick={this.handleSubmit.bind(this, rev.id)}>Delete
-                </button>
-              </div>
+              <a id='rev-body'>{rev.body}</a>
             </li>
           ))
         }
