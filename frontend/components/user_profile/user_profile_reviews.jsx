@@ -48,6 +48,7 @@ class UserProfileReviews extends React.Component {
             <li key={idx}>
               <div className='left-profile-item'>
                 <a>{this.ratingToStar(rev.rating)}</a>
+                <a id='rev-rest'>{rev.restaurant_name}</a>
                 {this.renderDate(rev.created_at)}
                 <a id='rev-body'>{rev.body}</a>
               </div>
