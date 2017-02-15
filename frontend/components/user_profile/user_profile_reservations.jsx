@@ -37,39 +37,43 @@ class UserProfileReservations extends React.Component {
   }
 
   render() {
-    return (
-      <ul className='reservations-list'>
-        {
-          this.props.reservations.reverse().map((res, idx) => (
-            <li key={idx}>
-              <div className='left-profile-item'>
-                <Link to={`/restaurants/${res.restaurant_id}`}>
-                  <img id='profile-thumbnail' src={res.image_urls[0]} />
-                </Link>
+    if (this.props.reservations.length === 0) {
+      return <a id='message'>You have no reservations.</a>;
+    } else {
+      return (
+        <ul className='reservations-list'>
+          {
+            this.props.reservations.reverse().map((res, idx) => (
+              <li key={idx}>
+                <div className='left-profile-item'>
+                  <Link to={`/restaurants/${res.restaurant_id}`}>
+                    <img id='profile-thumbnail' src={res.image_urls[0]} />
+                  </Link>
 
-                <div id='profile-details'>
-                  <h2>{res.name}</h2>
-                  <a>Party Size: {res.party_size}</a>
-                  <div id='date'>
-                    <a>Date: {this.renderDate(res.slot)}</a>
-                  </div>
-                  <div id='time'>
-                    <a>Time: {this.renderTime(res.slot)}</a>
+                  <div id='profile-details'>
+                    <h2>{res.name}</h2>
+                    <a>Party Size: {res.party_size}</a>
+                    <div id='date'>
+                      <a>Date: {this.renderDate(res.slot)}</a>
+                    </div>
+                    <div id='time'>
+                      <a>Time: {this.renderTime(res.slot)}</a>
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className='right-profile-item'>
-                <button
-                  id='profile-button'
-                  onClick={this.handleSubmit.bind(this, res.id)}>Cancel
-                </button>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-    );
+                <div className='right-profile-item'>
+                  <button
+                    id='profile-button'
+                    onClick={this.handleSubmit.bind(this, res.id)}>Cancel
+                  </button>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      );  
+    }
   }
 }
 

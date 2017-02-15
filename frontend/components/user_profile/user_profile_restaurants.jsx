@@ -47,47 +47,51 @@ class UserProfileRestaurants extends React.Component {
   }
 
   render() {
-    return (
-      <ul className='restaurants-list'>
-        {
-          this.props.restaurants.map((rest, idx) => (
-            <li key={idx}>
-              <div className='left-profile-item'>
-                <Link to={`/restaurants/${rest.id}`}>
-                  <img id='profile-thumbnail' src={rest.image_urls[0]} />
-                </Link>
+    if (this.props.restaurants.length === 0) {
+      return <a id='message'>You have no restaurants.</a>;
+    } else {
+      return (
+        <ul className='restaurants-list'>
+          {
+            this.props.restaurants.map((rest, idx) => (
+              <li key={idx}>
+                <div className='left-profile-item'>
+                  <Link to={`/restaurants/${rest.id}`}>
+                    <img id='profile-thumbnail' src={rest.image_urls[0]} />
+                  </Link>
 
-                <div id='profile-details'>
-                  <h2>{rest.name}</h2>
-                  <a>{rest.category}</a>
-                  <a>|</a>
-                  <a>{this.priceToSymbol(rest.price)}</a>
-                  <a>|</a>
-                  <a>{rest.city}</a>
-                  <div id='review-title'>
-                    {this.ratingToStar(rest.ave_rating)}
-                    {this.renderReviews(rest.num_reviews)}
+                  <div id='profile-details'>
+                    <h2>{rest.name}</h2>
+                    <a>{rest.category}</a>
+                    <a>|</a>
+                    <a>{this.priceToSymbol(rest.price)}</a>
+                    <a>|</a>
+                    <a>{rest.city}</a>
+                    <div id='review-title'>
+                      {this.ratingToStar(rest.ave_rating)}
+                      {this.renderReviews(rest.num_reviews)}
+                    </div>
                   </div>
                 </div>
-              </div>
 
-              <div className='right-profile-item'>
-                <button
-                  id='profile-button'
-                  onClick={this.handleSubmit.bind(this, rest.id)}>Remove
-                </button>
+                <div className='right-profile-item'>
+                  <button
+                    id='profile-button'
+                    onClick={this.handleSubmit.bind(this, rest.id)}>Remove
+                  </button>
 
-                <button id='profile-button'>
-                  <Link id='edit-link' to={`/restaurants/${rest.id}/edit`}>
-                    Edit
-                  </Link>
-                </button>
-              </div>
-            </li>
-          ))
-        }
-      </ul>
-    );
+                  <button id='profile-button'>
+                    <Link id='edit-link' to={`/restaurants/${rest.id}/edit`}>
+                      Edit
+                    </Link>
+                  </button>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      );  
+    }
   }
 }
 
