@@ -36,6 +36,16 @@ class UserProfileRestaurants extends React.Component {
     );
   }
 
+  renderReviews(num) {
+    if (num === 0) {
+      return <a id='no-review'>No Reviews</a>;
+    } else if (num === 1) {
+      return <a>1 Review</a>;
+    } else {
+      return <a>{num} Reviews</a>;
+    }
+  }
+
   render() {
     return (
       <ul className='restaurants-list'>
@@ -56,7 +66,7 @@ class UserProfileRestaurants extends React.Component {
                   <a>{rest.city}</a>
                   <div id='review-title'>
                     {this.ratingToStar(rest.ave_rating)}
-                    <a>{rest.num_reviews} Reviews</a>
+                    {this.renderReviews(rest.num_reviews)}
                   </div>
                 </div>
               </div>

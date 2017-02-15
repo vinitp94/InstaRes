@@ -152,6 +152,16 @@ class RestaurantDetail extends React.Component {
     );
   }
 
+  renderNumReviews(num) {
+    if (num === 0) {
+      return <a id='no-review'>No Reviews</a>;
+    } else if (num === 1) {
+      return <a>1 Review</a>;
+    } else {
+      return <a>{num} Reviews</a>;
+    }
+  }
+
   render() {
     if (this.props.errors.length === 0) {
       return (
@@ -166,7 +176,7 @@ class RestaurantDetail extends React.Component {
 
               <div id='review-title'>
                 {this.ratingToStar(this.props.restaurant.ave_rating)}
-                <a>{this.props.restaurant.num_reviews} Reviews</a>
+                {this.renderNumReviews(this.props.restaurant.num_reviews)}
               </div>
 
               <div id='category-price'>

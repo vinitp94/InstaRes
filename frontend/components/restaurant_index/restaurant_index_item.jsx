@@ -26,7 +26,17 @@ class RestaurantIndexItem extends React.Component {
     );
   }
 
-  render () {
+  renderReviews(num) {
+    if (num === 0) {
+      return <a id='num-reviews'>No Reviews</a>;
+    } else if (num === 1) {
+      return <a id='num-reviews'>1 Review</a>;
+    } else {
+      return <a id='num-reviews'>{num} Reviews</a>;
+    }
+  }
+
+  render() {
     return (
       <li className='restaurant-index-item'>
         <div className='carousel-container'>
@@ -49,7 +59,7 @@ class RestaurantIndexItem extends React.Component {
 
           <div className='right-caption'>
             <a>{this.ratingToStar(this.props.restaurant.ave_rating)}</a>
-            <a id='num-reviews'>{this.props.restaurant.num_reviews} Reviews</a>
+            {this.renderReviews(this.props.restaurant.num_reviews)}
           </div>
         </div>
       </li>

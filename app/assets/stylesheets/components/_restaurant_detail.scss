@@ -75,12 +75,13 @@
   display: flex;
 }
 
-#review-title > ul {
-  margin-right: 10px;
+#review-title > a {
+  font-style: italic;
+  margin: 1px 10px 0px 10px;
 }
 
-#review-title > a:last-child {
-  font-style: italic;
+#no-review {
+  margin: 1px 0px 0px 0px !important;
 }
 
 .logistical-detail {
