@@ -6,11 +6,9 @@ import SessionModalContainer from '../session_modals/session_modal_container';
 class NavBar extends React.Component {
   renderSearch() {
     return <Autocomplete
-      onPlaceSelected={ (place) => this.handleSelectOrigin(place) }
-      placeholder={this.props.quotes.address.current ?
-        this.props.quotes.address.current : 'Pickup Location'}
-      types={'address'}
-      id='pickup-input'/>;
+      onPlaceSelected={ (place) => console.log(place) }
+      placeholder='Enter a location'
+      types={'address'}/>;
   }
 
   loggedOutNav() {
@@ -21,17 +19,7 @@ class NavBar extends React.Component {
             <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
           </Link>
 
-          <li><div className='nav-link'><Link to={`/restaurants/index/San-Francisco`}>SF</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/New-York`}>NY</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Miami`}>MIA</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Chicago`}>CHI</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Seattle`}>SEA</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Los-Angeles`}>LA</Link></div></li>
+          {this.renderSearch()}
         </div>
 
         <div className='right-half'>
@@ -53,17 +41,7 @@ class NavBar extends React.Component {
             <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
           </Link>
 
-          <li><div className='nav-link'><Link to={`/restaurants/index/San-Francisco`}>SF</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/New-York`}>NY</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Miami`}>MIA</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Chicago`}>CHI</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Seattle`}>SEA</Link></div></li>
-          <li>|</li>
-          <li><div className='nav-link'><Link to={`/restaurants/index/Los-Angeles`}>LA</Link></div></li>
+          {this.renderSearch()}
         </div>
 
         <div className='right-half'>
