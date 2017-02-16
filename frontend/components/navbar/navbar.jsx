@@ -1,8 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router';
+import Autocomplete from 'react-google-autocomplete';
 import SessionModalContainer from '../session_modals/session_modal_container';
 
 class NavBar extends React.Component {
+  renderSearch() {
+    return <Autocomplete
+      onPlaceSelected={ (place) => this.handleSelectOrigin(place) }
+      placeholder={this.props.quotes.address.current ?
+        this.props.quotes.address.current : 'Pickup Location'}
+      types={'address'}
+      id='pickup-input'/>;
+  }
+
   loggedOutNav() {
     return (
       <div className='navbar'>
