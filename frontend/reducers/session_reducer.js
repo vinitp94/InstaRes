@@ -38,6 +38,7 @@ const SessionReducer = (state = _nullState, action) => {
         id: action.review.id,
         rating: action.review.rating,
         body: action.review.body,
+        restaurant_name: action.review.restaurant_name,
         created_at: action.review.created_at }});
       return { currentUser: extend({}, state.currentUser, { reviews: newReviews })};
     case REMOVE_REVIEW:

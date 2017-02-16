@@ -74,8 +74,9 @@ class ReservationForm extends React.Component {
       return <a id='message'>Hurry! Only 1 slot left!</a>;
     } else if (numSlots < 5) {
       return <a id='message'>Hurry! Only {`${numSlots}`} slots left!</a>;
+    } else {
+      return <a id='message'>Here's what we have available. Click to book a slot!</a>;
     }
-    return;
   }
 
   renderDate() {

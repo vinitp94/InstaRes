@@ -14,3 +14,4 @@ end
 
 json.num_reviews num_reviews
 json.ave_rating ave_rating
+json.restaurant_name @review.restaurant.name
