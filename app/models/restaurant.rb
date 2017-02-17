@@ -14,7 +14,7 @@ class Restaurant < ApplicationRecord
   ]
 
   validates :name, :address, :city, :state, :zip_code, :category,
-    :description, :price, :image_urls, :owner_id, presence: true
+    :description, :price, :image_urls, :owner_id, :lat, :long, presence: true
   validates :price, numericality: { greater_than: 0, less_than: 6 }
   validates :phone_num, length: { is: 10 }, allow_blank: true
   validates :state, inclusion: { in: STATES }
