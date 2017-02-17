@@ -4,12 +4,28 @@ import { Link } from 'react-router';
 import SessionModalContainer from '../session_modals/session_modal_container';
 
 class NavBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = { search: '' };
+  }
+
   renderSearch() {
     return <Autocomplete
-      onPlaceSelected={ (place) => console.log(place) }
-      placeholder='Enter a location'
+      onPlaceSelected={ (place) => {
+        this.setState({ search: place.formatted_address });
+      }}
+      placeholder={'Enter a location'}
       types={'address'}
       id='nav-auto' />;
+  }
+
+  renderBackToSearch() {
+    if (this.state.search !== '') {
+      return (
+        <li><div className='nav-link'><Link to={`/`}>Previous Search</Link></div></li>
+      );
+    }
   }
 
   renderLeftHalf() {
@@ -20,6 +36,7 @@ class NavBar extends React.Component {
         </Link>
 
         {this.renderSearch()}
+        {this.renderBackToSearch()}
       </div>
     );
   }
