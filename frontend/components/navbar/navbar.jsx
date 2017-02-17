@@ -12,16 +12,22 @@ class NavBar extends React.Component {
       id='nav-auto' />;
   }
 
+  renderLeftHalf() {
+    return (
+      <div className='left-half'>
+        <Link to={`/`}>
+          <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
+        </Link>
+
+        {this.renderSearch()}
+      </div>
+    );
+  }
+
   loggedOutNav() {
     return (
       <div className='navbar'>
-        <div className='left-half'>
-          <Link to={`/`}>
-            <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
-          </Link>
-
-          {this.renderSearch()}
-        </div>
+        {this.renderLeftHalf()}
 
         <div className='right-half'>
           <ul>
@@ -37,13 +43,7 @@ class NavBar extends React.Component {
   loggedInNav() {
     return (
       <div className='navbar'>
-        <div className='left-half'>
-          <Link to={`/`}>
-            <img className='logo' src='http://res.cloudinary.com/dlhshbg79/image/upload/v1484917459/Logomakr_3SIEea_dcfuqv.png' />
-          </Link>
-
-          {this.renderSearch()}
-        </div>
+        {this.renderLeftHalf()}
 
         <div className='right-half'>
           <ul>
