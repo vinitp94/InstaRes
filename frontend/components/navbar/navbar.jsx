@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router';
 import Autocomplete from 'react-google-autocomplete';
+import { Link } from 'react-router';
 import SessionModalContainer from '../session_modals/session_modal_container';
 
 class NavBar extends React.Component {
@@ -8,7 +8,8 @@ class NavBar extends React.Component {
     return <Autocomplete
       onPlaceSelected={ (place) => console.log(place) }
       placeholder='Enter a location'
-      types={'address'}/>;
+      types={'address'}
+      id='nav-auto' />;
   }
 
   loggedOutNav() {
