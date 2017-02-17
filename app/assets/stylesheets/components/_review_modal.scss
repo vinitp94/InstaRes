@@ -1,6 +1,6 @@
 .review-form {
-  padding: 30px 30px 30px 30px;
-  border: 3px outset $fill;
+  padding: 40px 50px;
+  border: 2px outset $fill;
 }
 
 .review-modal > button {
@@ -26,6 +26,10 @@
 
 .review-form > h2 {
   margin-bottom: 12px;
+}
+
+.review-input {
+  margin-bottom: 10px;
 }
 
 .rating {

@@ -13,7 +13,7 @@ export const ModalStyle = {
   },
 
   content : {
-    minWidth        : '400px',
+    minWidth        : '500px',
     position        : 'initial',
     border          : 'none',
     top             : '0',
