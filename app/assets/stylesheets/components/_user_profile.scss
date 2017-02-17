@@ -37,6 +37,7 @@
 }
 
 .profile-data {
+  position: relative;
   padding: 0px -webkit-calc(12%);
   height: -webkit-calc(100vh - 212px);
   overflow-y: scroll;
@@ -47,6 +48,11 @@
   padding: 30px 0px;
   justify-content: space-between;
   border-bottom: 1px solid $fill;
+}
+
+.profile-data #message {
+  position: absolute;
+  top: 40px;
 }
 
 #review-profile-item {

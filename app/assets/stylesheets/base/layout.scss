@@ -30,7 +30,7 @@ i {
 
 button {
   width: 100%;
-  background: linear-gradient($main, $fill);
+  background: linear-gradient($dark-main, $dark-fill);
 	color: white;
 	border-style: solid;
 	border-width: thin;
@@ -47,7 +47,7 @@ button:hover {
 }
 
 button:active {
-	background: linear-gradient($dark-main, $fill);
+	background: linear-gradient($main, $fill);
 }
 
 button:disabled {
@@ -67,11 +67,12 @@ button:disabled {
 input, textarea, select {
 	width: 100%;
 	font-size: 16px;
+	font-family: 'Raleway';
+	font-weight: 300;
 	padding: 12px 20px;
 	margin: 7px 0;
 	background-color: $light-fill;
 	border: 1px solid $dark-fill;
-	// border-radius: 2px;
 	-webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
 	box-sizing: border-box;

@@ -11,12 +11,12 @@ User.create(username: 'tester123', email: 'tester1@demo.com', password: 'tester1
 
 # Seed restaurants
 
-CITIES = ['San Francisco', 'New York', 'Miami', 'Los Angeles', 'Chicago', 'Seattle']
+CITIES = ['San Francisco', 'New York', 'Miami', 'Los Angeles', 'Chicago', 'Seattle'].freeze
 
 CATEGORIES = [
   'American', 'Caribbean', 'Chinese', 'French', 'Greek', 'Indian', 'Italian',
   'Japanese', 'Mediterranean', 'Mexican', 'Moroccan', 'Thai'
-]
+].freeze
 
 images = [
   'https://res.cloudinary.com/dlhshbg79/image/upload/c_fill,h_200,w_300/v1484931782/n_y88twmgwa-jay-wennington_qpdsup.jpg',
@@ -187,6 +187,12 @@ CITIES.each do |city|
         rest.image_urls.push(images.first)
         images.rotate!
       end
+      if rest.address && rest.city && rest.state && rest.zip_code
+        coords = Geocoder.coordinates("#{rest.address},#{rest.city},#{rest.state} #{rest.zip_code.to_s}")
+        rest.lat = coords[0]
+        rest.long = coords[1]
+      end
+
       rest.save! if rest.valid?
     end
   end

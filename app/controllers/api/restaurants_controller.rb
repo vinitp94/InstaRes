@@ -14,6 +14,12 @@ class Api::RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.address && @restaurant.city && @restaurant.state && @restaurant.zip_code
+      coords = Geocoder.coordinates("#{@restaurant.address},#{@restaurant.city},
+        #{@restaurant.state} #{@restaurant.zip_code.to_s}")
+      @restaurant.lat = coords[0]
+      @restaurant.long = coords[1]
+    end
 
     if @restaurant.save
       render :show
@@ -26,6 +32,13 @@ class Api::RestaurantsController < ApplicationController
     @restaurant = Restaurant.find(params[:id])
 
     @restaurant.update(restaurant_params)
+
+    if @restaurant.address && @restaurant.city && @restaurant.state && @restaurant.zip_code
+      coords = Geocoder.coordinates("#{@restaurant.address},#{@restaurant.city},
+        #{@restaurant.state} #{@restaurant.zip_code.to_s}")
+      @restaurant.lat = coords[0]
+      @restaurant.long = coords[1]
+    end
 
     if params[:restaurant][:image_urls] == 'empty'
       @restaurant[:image_urls] = []

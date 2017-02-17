@@ -15,7 +15,7 @@ class NavBar extends React.Component {
       onPlaceSelected={ (place) => {
         this.setState({ search: place.formatted_address });
       }}
-      placeholder={'Enter a location'}
+      placeholder={'Enter a Location'}
       types={'address'}
       id='nav-auto' />;
   }
