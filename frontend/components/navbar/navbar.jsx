@@ -25,7 +25,13 @@ class NavBar extends React.Component {
   renderBackToSearch() {
     if (this.state.search !== '') {
       return (
-        <li><div className='nav-link'><Link to={`/`}>Previous Search</Link></div></li>
+        <li>
+          <div className='nav-link'>
+            <Link to={`/restaurants/index/${this.state.search}`}>
+              Previous Search
+            </Link>
+          </div>
+        </li>
       );
     }
   }
