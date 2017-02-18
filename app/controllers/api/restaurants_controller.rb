@@ -1,9 +1,9 @@
 class Api::RestaurantsController < ApplicationController
   def index
-    city = params[:city]
-    city_name = city.split('-').join(' ')
+    search_lat, search_long = Geocoder.coordinates(params[:address])
 
-    @restaurants = Restaurant.where({ city: city_name })
+    @restaurants = Restaurant.where('lat > ? AND lat < ? AND long > ? AND long < ?',
+      search_lat - 0.05, search_lat + 0.05, search_long - 0.05, search_long + 0.05)
 
     if @restaurants == []
       render json: ['No restaurants found'], status: 404
@@ -14,6 +14,7 @@ class Api::RestaurantsController < ApplicationController
 
   def create
     @restaurant = Restaurant.new(restaurant_params)
+
     if @restaurant.address && @restaurant.city && @restaurant.state && @restaurant.zip_code
       coords = Geocoder.coordinates("#{@restaurant.address},#{@restaurant.city},
         #{@restaurant.state} #{@restaurant.zip_code.to_s}")

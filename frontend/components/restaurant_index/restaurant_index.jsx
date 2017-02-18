@@ -7,18 +7,18 @@ class RestaurantIndex extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { cityName: "" };
+    this.state = { addressName: "" };
   }
 
   componentDidMount() {
-    this.props.fetchRestaurants(this.props.params.city);
-    this.setState({ cityName: this.props.params.city });
+    this.props.fetchRestaurants(this.props.params.address);
+    this.setState({ addressName: this.props.params.address });
   }
 
   componentWillReceiveProps(newProps) {
-    if (newProps.params.city !== this.state.cityName) {
-      this.props.fetchRestaurants(newProps.params.city);
-      this.setState({ cityName: newProps.params.city });
+    if (newProps.params.address !== this.state.addressName) {
+      this.props.fetchRestaurants(newProps.params.address);
+      this.setState({ addressName: newProps.params.address });
     }
   }
 

@@ -8,7 +8,7 @@ const mapStateToProps = ({ errors, restaurantsIndex }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchRestaurants: (city) => dispatch(fetchRestaurants(city)),
+  fetchRestaurants: (address) => dispatch(fetchRestaurants(address)),
   clearIndex: () => dispatch(receiveAllRestaurants({}))
 });
 

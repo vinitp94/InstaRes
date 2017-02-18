@@ -1,6 +1,6 @@
 import React from 'react';
 import Autocomplete from 'react-google-autocomplete';
-import { Link } from 'react-router';
+import { Link, hashHistory } from 'react-router';
 import SessionModalContainer from '../session_modals/session_modal_container';
 
 class NavBar extends React.Component {
@@ -13,7 +13,9 @@ class NavBar extends React.Component {
   renderSearch() {
     return <Autocomplete
       onPlaceSelected={ (place) => {
+        console.log(place.formatted_address);
         this.setState({ search: place.formatted_address });
+        hashHistory.push(`/restaurants/index/${place.formatted_address}`);
       }}
       placeholder={'Enter a Location'}
       types={'address'}
