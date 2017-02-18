@@ -11,7 +11,7 @@ User.create(username: 'tester123', email: 'tester1@demo.com', password: 'tester1
 
 # Seed restaurants
 
-CITIES = ['San Francisco', 'New York', 'Miami', 'Los Angeles', 'Chicago', 'Seattle'].freeze
+CITIES = ['San Francisco', 'New York'].freeze
 
 CATEGORIES = [
   'American', 'Caribbean', 'Chinese', 'French', 'Greek', 'Indian', 'Italian',
@@ -170,7 +170,7 @@ seed_restaurants = []
 
 CITIES.each do |city|
   CATEGORIES.each do |cat|
-    Yelp.client.search(city, { term: cat, limit: 1 }).businesses.each_with_index do |business, idx|
+    Yelp.client.search(city, { term: cat, limit: 4 }).businesses.each do |business|
       rest = Restaurant.new
       rest.name = business.name
       rest.address = business.location.address.first
@@ -178,7 +178,7 @@ CITIES.each do |city|
       rest.state = business.location.state_code
       rest.zip_code = business.location.postal_code
       rest.category = cat
-      rest.description = 'This is just a temporary description for testing purposes.'
+      rest.description = 'This is just a temporary description.'
       rest.phone_num = business.phone
       rest.price = (1..5).to_a.sample
       rest.owner_id = User.all.sample.id
