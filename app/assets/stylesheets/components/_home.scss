@@ -48,11 +48,15 @@
   box-shadow: 0px 0px 10px $accent;
 }
 
-#home-bg {
+#now-serving {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: auto;
-  z-index: -1;
+  top: -webkit-calc(18vh);
+  left: 100px;
+}
+
+#now-serving > h2 {
+  font-size: 18px;
+  text-shadow: 0px 0px 5px black;
+  font-style: italic;
+  color: white;
 }

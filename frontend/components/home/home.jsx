@@ -27,6 +27,10 @@ class Home extends React.Component {
           <h2>Never wait in line again.</h2>
         </div>
 
+        <div id='now-serving'>
+          <h2>Now Serving San Francisco and New York...</h2>
+        </div>
+
         {this.renderSearch()}
       </div>
     );
