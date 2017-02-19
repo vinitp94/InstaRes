@@ -4,6 +4,8 @@ import { fetchRestaurants, receiveAllRestaurants } from '../../actions/restauran
 
 const mapStateToProps = ({ errors, restaurantsIndex }) => ({
   restaurants: Object.keys(restaurantsIndex).map(id => restaurantsIndex[id]),
+  sLat: restaurantsIndex.search_lat,
+  sLong: restaurantsIndex.search_long,
   errors: errors.restaurantErrors
 });
 

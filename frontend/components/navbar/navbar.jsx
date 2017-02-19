@@ -13,7 +13,6 @@ class NavBar extends React.Component {
   renderSearch() {
     return <Autocomplete
       onPlaceSelected={ (place) => {
-        console.log(place.formatted_address);
         this.setState({ search: place.formatted_address });
         hashHistory.push(`/restaurants/index/${place.formatted_address}`);
       }}

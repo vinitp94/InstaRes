@@ -1,9 +1,10 @@
 class Api::RestaurantsController < ApplicationController
   def index
-    search_lat, search_long = Geocoder.coordinates(params[:address])
+    s_lat, s_long = Geocoder.coordinates(params[:address])
 
-    @restaurants = Restaurant.where('lat > ? AND lat < ? AND long > ? AND long < ?',
-      search_lat - 0.05, search_lat + 0.05, search_long - 0.05, search_long + 0.05)
+    @restaurants = Restaurant
+      .where('lat > ? AND lat < ? AND long > ? AND long < ?',
+        s_lat - 0.03, s_lat + 0.03, s_long - 0.03, s_long + 0.03)
 
     if @restaurants == []
       render json: ['No restaurants found'], status: 404

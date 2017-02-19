@@ -38,6 +38,12 @@ class RestaurantIndex extends React.Component {
     );
   }
 
+  sortBySearch() {
+    // TODO: SORT BY CLOSEST RESTAURANTS BASED ON SEARCH
+
+    return this.props.restaurants;
+  }
+
   render() {
     if (this.props.restaurants.length === 0 && this.props.errors.length === 0) {
       return <Spinner />;
@@ -54,7 +60,7 @@ class RestaurantIndex extends React.Component {
             <div className='index-list'>
               <ul>
                 {
-                  this.props.restaurants.map(rest => (
+                  this.sortBySearch().map(rest => (
                     <RestaurantIndexItem
                       key={rest.id}
                       restaurant={rest} />
