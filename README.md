@@ -3,9 +3,6 @@
 [InstaRes][instares] is a web application that allows users to browse popular restaurants as well as host their own restaurants. Originally inspired by [OpenTable][opentable], it also allows users to make reservations, write reviews, and track favorites.
 
 ![alttag](./docs/screenshots/home.png)
-![alttag](./docs/screenshots/index.png)
-![alttag](./docs/screenshots/detail.png)
-![alttag](./docs/screenshots/profile.png)
 
 ## Functionality & MVP
 
@@ -13,11 +10,13 @@
 - Single-page app
 - Add, edit, update, remove restaurants with image upload
 - Search for restaurants by location
-- User profile
 - Reservations
 - Favorites
 - Reviews
 - Proper error handling
+- User profile
+
+![alttag](./docs/screenshots/profile.png)
 
 ## Architecture and Technologies
 
@@ -31,11 +30,76 @@ The backend is implemented almost exactly how the original proposal schema descr
 
 Images used throughout the application are hosted on [Cloudinary][cloudinary].
 
-In addition to the cloudinary API, two other APIs were involved in this project. The Yelp web API was utilized to seed the database with many restaurants without using brute force, greatly simplifying the process. The Google Maps API was also integrated for the autocomplete search.
+In addition to the Cloudinary API, two other APIs were involved in this project. The Yelp web API was utilized to seed the database with many restaurants without using brute force, greatly simplifying the process. The Google Maps API was also integrated for the autocomplete search.
+
+## Highlights
+
+A few portions of code are highlighted here:
+
+The following code enforces that the user be logged in in order to carry out specific actions. More importantly it also ensures that a user cannot access another user's private information even by hardcoding in a URL. The errors are cleared using a function below to ensure that they don't persist from page to page as the user continues to use the site.
+
+  ```javascript
+  const _requireLogin = (nextState, replace) => {
+    if (!store.getState().session.currentUser) {
+      replace("/");
+    }
+  };
+
+  const _clearErrors = () => {
+    store.dispatch(clearErrors);
+  };
+
+  const _requireUser = (nextState, replace) => {
+    if (!store.getState().session.currentUser) {
+      replace("/");
+    } else {
+      let userRestaurants = Object.keys(store.getState().session.currentUser.restaurants);
+      if (!userRestaurants.includes(nextState.params.restaurantId)) {
+        replace(`/restaurants/${nextState.params.restaurantId}`);
+      }
+    }
+  };
+  ```
+
+  To ensure a positive UX while also enforcing functionality criteria, the booking buttons are not rendered unless the user is logged in and is not the owner of the restaurant. It wouldn't make sense for a user to book a table at their own restaurant. Similarly, users are not given the option to write reviews for restaurants that they own; hence, the 'Add Review' button is not displayed for them. Below is a code sample that shows how such situations are handled.
+
+  ```javascript
+  if (!this.props.currentUser || this.props.currentUser.id ===
+      this.props.restaurant.owner_id || this.state.date === "" ||
+      this.state.party_size === "") {
+    return (
+      <div className='bookings'>
+        <div>
+          {this.renderMessage(openSlots.length)}
+        </div>
+      </div>
+    );
+  } else {
+    return (
+      <div className='bookings'>
+        <div className='booking-buttons'>
+          {
+            openSlots.map((sl, idx) => (
+              <button key={idx} onClick={this.handleSubmit.bind(this, sl)}>{sl}</button>
+            ))
+          }
+        </div>
+
+        <div>
+          {this.renderMessage(openSlots.length)}
+        </div>
+      </div>
+    );
+  }
+  ```
+
+  ![alttag](./docs/screenshots/detail.png)
+
+  In sum, the code for this site is written to model a real life version of such a site from the core functionality all the way to the styling on the outside. Errors are rendered where needed, user information is secure, and navigation through the site is made to be an intuitive and enjoyable experience.
 
 ## Future Improvements
 
-Future steps may include:
+All programs and applications could always use more features. Some possible future steps may include:
 
 #### Notifications and Email Confirmation
 
