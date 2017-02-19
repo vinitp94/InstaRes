@@ -8,6 +8,8 @@ class NavBar extends React.Component {
     super(props);
   }
 
+  // TODO: CLEAR SEARCH BAR WHEN APPLICABLE
+
   renderSearch() {
     return <Autocomplete
       onPlaceSelected={ (place) => {

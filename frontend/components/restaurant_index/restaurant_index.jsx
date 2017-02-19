@@ -40,6 +40,7 @@ class RestaurantIndex extends React.Component {
 
   sortBySearch() {
     // TODO: SORT BY CLOSEST RESTAURANTS BASED ON SEARCH
+    // TODO: RENDER SPINNER ON SEARCH WHEN STILL ON INDEX
 
     return this.props.restaurants;
   }

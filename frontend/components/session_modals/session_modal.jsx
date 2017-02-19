@@ -4,6 +4,7 @@ import { Link } from 'react-router';
 import { ModalStyle } from '../modal_styles';
 
 // TODO: NO AUTOFOCUS ON THE SIGNUP, ONLY LOGIN
+// TODO: PREVENT MODAL OVERLAY
 
 class SessionModal extends React.Component {
   constructor(props) {
