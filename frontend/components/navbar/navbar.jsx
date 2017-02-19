@@ -6,14 +6,12 @@ import SessionModalContainer from '../session_modals/session_modal_container';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = { search: '' };
   }
 
   renderSearch() {
     return <Autocomplete
       onPlaceSelected={ (place) => {
-        this.setState({ search: place.formatted_address });
+        this.props.receiveSearch(place.formatted_address);
         hashHistory.push(`/restaurants/index/${place.formatted_address}`);
       }}
       placeholder={'Enter a Location'}
@@ -22,12 +20,12 @@ class NavBar extends React.Component {
   }
 
   renderBackToSearch() {
-    if (this.state.search !== '') {
+    if (this.props.address) {
       return (
         <li>
           <div className='nav-link'>
-            <Link to={`/restaurants/index/${this.state.search}`}>
-              Previous Search
+            <Link to={`/restaurants/index/${this.props.address}`}>
+              Back to Search
             </Link>
           </div>
         </li>

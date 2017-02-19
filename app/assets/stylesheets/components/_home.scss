@@ -1,95 +1,58 @@
 .home {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 60px;
-  overflow: hidden;
+  height: -webkit-calc(100vh - 50px);
+  overflow-y: hidden;
+  background-image: url('https://res.cloudinary.com/dlhshbg79/image/upload/v1487481348/anete-lusina-146471_qboafk.jpg');
+  background-size: cover;
 }
 
 #home-title {
+  position: absolute;
+  top: -webkit-calc(67vh);
+  left: 100px;
   display: flex;
   align-items: baseline;
-  z-index: 5000;
-  padding-left: 52vw;
-  padding-top: 8vh;
 }
 
 #home-title > h2 {
   text-decoration: overline;
-  font-size: 50px;
+  font-size: 60px;
+  font-weight: 400;
   color: $accent;
-  text-shadow: 0px 0px 10px black;
+  text-shadow: 0px 0px 10px white;
 }
 
 #home-title > h1 {
   color: $dark-main;
-  font-size: 70px;
-  text-shadow: 0px 0px 10px black;
-}
-
-#home-caption {
-  padding-left: 52vw;
+  font-size: 80px;
+  text-shadow: 0px 0px 10px white;
 }
 
 #home-caption > h2 {
+  position: absolute;
+  top: -webkit-calc(67vh + 85px);
+  left: 100px;
   color: black;
 }
 
-.image-container {
-  padding-bottom: 50px;
-  height: -webkit-calc(50vh - 50px);
-  overflow: hidden;
+#home-auto {
+  position: absolute;
+  top: -webkit-calc(20vh + 60px);
+  left: 25vw;
+  height: 50px;
+  width: 50vw;
+  box-shadow: 0px 0px 5px black;
+  background: white;
 }
 
-.tile-images {
-  display: flex;
-  width: 100vw;
-  justify-content: center;
+#home-auto:focus {
+  box-shadow: 0px 0px 10px $accent;
 }
 
-#first-tile-image > img {
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0)), to(rgba(0,0,0,0.2)));
-}
-
-#second-tile-image > img {
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.2)), to(rgba(0,0,0,0.4)));
-}
-
-#third-tile-image > img {
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.4)), to(rgba(0,0,0,0.6)));
-}
-
-#fourth-tile-image > img {
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.6)), to(rgba(0,0,0,0.8)));
-}
-
-.tile-images > img {
-  width: 120px;
-  height: 120px;
-  box-sizing: border-box;
-  border-right: 2px solid $dark-main;
-  border-bottom: 2px solid $dark-main;
-}
-
-#top-home {
-  height: -webkit-calc(50vh - 60px);
-  background-image: url('https://res.cloudinary.com/dlhshbg79/image/upload/c_crop,g_north_west,h_4016,w_6016,x_700,y_780/v1484943102/l-sm1b4l1ns-demi-deherrera_pj1ara.jpg');
-  background-size: cover;
-  -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+#home-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-}
-
-.city-link {
-  width: 120px;
-  height: 120px;
-  border-left: 1px solid white;
-  border-bottom: 1px solid white;
-  border-top: 1px solid $accent;
-  border-right: 1px solid $accent;
-  box-sizing: border-box;
-  opacity: 1;
-}
-
-.city-link:hover {
-  box-shadow: 0px 0px 20px $accent;
+  height: auto;
+  z-index: -1;
 }

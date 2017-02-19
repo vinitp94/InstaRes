@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 import { clearErrors } from '../actions/error_actions';
 import App from './app';
-import Home from './home/home';
+import HomeContainer from './home/home_container';
 import RestaurantIndexContainer from './restaurant_index/restaurant_index_container';
 import RestaurantDetailContainer from './restaurant_detail/restaurant_detail_container';
 import RestaurantFormContainer from './restaurant_form/restaurant_form_container';
@@ -35,7 +35,7 @@ const Root = ({store}) => {
     <Provider store={store}>
       <Router history={hashHistory}>
         <Route path='/' component={ App }>
-          <IndexRoute component={ Home } />
+          <IndexRoute component={ HomeContainer } />
           <Route path='/restaurants/new' component={ RestaurantFormContainer } onEnter={_requireLogin} onLeave={_clearErrors} />
           <Route path='/restaurants/index/:address' component={ RestaurantIndexContainer } onLeave={_clearErrors} />
           <Route path='/restaurants/:restaurantId/edit' component={ RestaurantFormContainer } onEnter={_requireUser} onLeave={_clearErrors} />

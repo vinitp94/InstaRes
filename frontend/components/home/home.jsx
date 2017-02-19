@@ -1,20 +1,36 @@
 import React from 'react';
-import { Link } from 'react-router';
+import Autocomplete from 'react-google-autocomplete';
+import { Link, hashHistory } from 'react-router';
 
-const Home = () => (
-  <div className='home'>
-    <div id='top-home'>
-      <div id='home-title'>
-        <h2>insta</h2>
-        <h1>RES</h1>
-      </div>
+class Home extends React.Component {
+  renderSearch() {
+    return <Autocomplete
+      onPlaceSelected={ (place) => {
+        this.props.receiveSearch(place.formatted_address);
+        hashHistory.push(`/restaurants/index/${place.formatted_address}`);
+      }}
+      placeholder={'Choose your location...'}
+      types={'address'}
+      autofocus
+      id='home-auto' />;
+  }
 
-      <div id='home-caption'>
-        <h2>Don't wait in line again.</h2>
-        <h2>Choose your city.</h2>
+  render() {
+    return (
+      <div className='home'>
+        <div id='home-title'>
+          <h2>insta</h2>
+          <h1>RES</h1>
+        </div>
+
+        <div id='home-caption'>
+          <h2>Never wait in line again.</h2>
+        </div>
+
+        {this.renderSearch()}
       </div>
-    </div>
-  </div>
-);
+    );
+  }
+}
 
 export default Home;

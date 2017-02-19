@@ -11,6 +11,7 @@
   border-top: 1px solid $accent;
   box-sizing: border-box;
   box-shadow: 0px -2px 8px $dark-main;
+  z-index: 10000;
 }
 
 .footer-text {
