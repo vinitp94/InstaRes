@@ -17,7 +17,7 @@ class NavBar extends React.Component {
         hashHistory.push(`/restaurants/index/${place.formatted_address}`);
       }}
       placeholder={'Enter a Location'}
-      types={'address'}
+      types={['address']}
       id='nav-auto' />;
   }
 

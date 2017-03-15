@@ -2,6 +2,7 @@ import React from 'react';
 import { hashHistory } from 'react-router';
 import ReviewModalContainer from '../review_modal/review_modal_container';
 import ReservationFormContainer from '../reservation_form/reservation_form_container';
+import RestaurantDetailMap from './restaurant_detail_map';
 import Spinner from '../spinner.jsx';
 
 const MONTHS = [
@@ -266,6 +267,10 @@ class RestaurantDetail extends React.Component {
                 <a>{this.renderPhone(this.props.restaurant.phone_num)}</a>
               </div>
             </div>
+
+            <RestaurantDetailMap
+              lat={this.props.restaurant.lat}
+              long={this.props.restaurant.long} />
           </div>
 
           {this.renderReviews()}

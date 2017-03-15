@@ -1,6 +1,6 @@
 json.extract! @restaurant, :id, :name, :image_urls, :category, :price,
   :address, :city, :state, :zip_code, :description, :phone_num, :website_url,
-  :owner_id
+  :lat, :long, :owner_id
 
 all_reviews = @restaurant.reviews
 num_reviews = all_reviews.count

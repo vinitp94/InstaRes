@@ -10,7 +10,7 @@ class Home extends React.Component {
         hashHistory.push(`/restaurants/index/${place.formatted_address}`);
       }}
       placeholder={'Choose your location...'}
-      types={'address'}
+      types={['address']}
       autofocus
       id='home-auto' />;
   }
